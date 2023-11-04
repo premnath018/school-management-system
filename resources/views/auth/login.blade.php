@@ -1,8 +1,5 @@
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="light" data-sidebar-size="lg" data-sidebar-image="none" data-preloader="disable">
-
-    
-<!-- Mirrored from themesbrand.com/hybrix/html/html/auth-signin-basic-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Oct 2023 10:23:35 GMT -->
 <head>
 
         <meta charset="utf-8" />
@@ -108,6 +105,4 @@
 
     </body>
 
-
-<!-- Mirrored from themesbrand.com/hybrix/html/html/auth-signin-basic-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Oct 2023 10:23:35 GMT -->
 </html>
