@@ -50,13 +50,13 @@
                                     <p class="text-muted">Sign in to continue to School Management System.</p>
                                 </div>
                                 <div class="p-2 mt-5">
-                                    <form action="https://themesbrand.com/hybrix/html/html/index.html">
-
+                                    <form action="/login" method="post">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="username" class="form-label">Username</label>
                                             <div class="input-group">
                                                 <span class="input-group-text" id="basic-addon1"><i class="ri-user-3-line"></i></span>
-                                                <input type="text" class="form-control" id="username" placeholder="Enter username">
+                                                <input type="text" class="form-control" name="email" placeholder="Enter username">
                                             </div>
                                         </div>
 
@@ -68,7 +68,7 @@
                                             <div class="position-relative auth-pass-inputgroup overflow-hidden">
                                                 <div class="input-group">
                                                     <span class="input-group-text" id="basic-addon1"><i class="ri-lock-2-line"></i></span>
-                                                    <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input">
+                                                    <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" name="password">
                                                 </div>
                                                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                                             </div>
@@ -85,7 +85,7 @@
                                     </form>
 
                                     <div class="text-center mt-5">
-                                        <p class="mb-0">Don't have an account ? <a href="{{(route ('auth.signup'))}}" class="fw-semibold text-secondary text-decoration-underline"> Contact Admin</a> </p>
+                                        <p class="mb-0">Don't have an account ? <a href="/signup" class="fw-semibold text-secondary text-decoration-underline"> Contact Admin</a> </p>
                                     </div>
                                 </div>
                             </div>
