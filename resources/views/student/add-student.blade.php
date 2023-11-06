@@ -508,7 +508,7 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Batch <span class="login-danger">*</span></label>
-													<input class="form-control"  type="month" min="1900" max="2099" step="1" min="2018-03" value="2023-05" />
+													<input class="form-control"  type="number" step="1" placeholder="Batch Year"/>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
@@ -549,7 +549,7 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Age<span class="login-danger">*</span></label>
-													<input class="form-control"  type="number" min="3" max="22" step="1" placeholder="Enter The Age"/>
+													<input class="form-control"  type="number" min="3" max="22" step="1" placeholder="Enter Age"/>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">
@@ -567,20 +567,20 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Community<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter The Community" >
+													<input class="form-control" type="text" placeholder="Enter Community" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Caste<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter The Caste" >
+													<input class="form-control" type="text" placeholder="Enter Caste" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">
 												<div class="form-group local-forms">
 													<label >Nationality <span class="login-danger">*</span></label>
 													<select class="form-control select">
-														<option>Please Select Religion  </option>
+														<option>Please Select Nationality  </option>
 														<option>Indian</option>
 														<option>Others</option>
 													  </select>
@@ -590,7 +590,7 @@
 												<div class="form-group local-forms">
 													<label >Mother Tongue <span class="login-danger">*</span></label>
 													<select class="form-control select">
-														<option>Please Select Religion  </option>
+														<option>Please Select Mother Tongue  </option>
 														<option>Tamil</option>
 														<option>Telugu</option>
 														<option>Kannada</option>
@@ -601,7 +601,18 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Blood Group<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Blood Group" >
+													<select class="form-control select">
+														<option>Please Select Blood Group  </option>
+														<option>A+</option>
+														<option>A-</option>
+														<option>B+</option>
+														<option>B-</option>
+														<option>AB+</option>
+														<option>AB-</option>
+														<option>O+</option>
+														<option>O-</option>
+														<option>Others</option>
+													  </select>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
@@ -661,19 +672,19 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Place of work<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Place of work" >
+													<input class="form-control" type="text" placeholder="Enter Place of work" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Father Income<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Father Occupation" >
+													<input class="form-control" type="number" placeholder="Enter Father Income" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
-													<label >Mother Occupation<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Mother Occupation" >
+													<label >Mother Income<span class="login-danger">*</span></label>
+													<input class="form-control" type="number" placeholder="Enter Mother Income" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  

@@ -22,7 +22,7 @@ class LoginController extends Controller
             // Store the users sessions data
             session(['name' => $user->name]);
             session(['email' => $user->email]);
-            return view('welcome');
+            return redirect()->route('home');
         }
         
         return redirect()->back()->with('error', 'Invalid Credentials.');
