@@ -499,7 +499,8 @@
 						
 							<div class="card comman-shadow">
 								<div class="card-body">
-									<form>
+									<form action="/addstudent" method="post">
+										@csrf
 										<div class="row">
 											<div class="col-12">
 												<h5 class="form-title student-info">Student Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
@@ -508,31 +509,31 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Batch <span class="login-danger">*</span></label>
-													<input class="form-control"  type="number" step="1" placeholder="Batch Year"/>
+													<input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year name"/>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Date of Admission <span class="login-danger">*</span></label>
-													<input class="form-control"  type="date" min="1900" max="2099" step="1" min="2018-03" value="2023-05" />
+													<input class="form-control" name="date_of_admission" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Admission Number <span class="login-danger">*</span></label>
-													<input class="form-control"  type="number" step="1" placeholder="Admission Number"/>
+													<input class="form-control" name="admission_number" type="number" step="1" placeholder="Admission Number"/>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Full Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Full Name" >
+													<input class="form-control" name="name" type="text" placeholder="Enter Full Name" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">
 												<div class="form-group local-forms">
 													<label >Gender <span class="login-danger">*</span></label>
-													<select class="form-control select">
+													<select class="form-control select" name="gender">
 														<option>Select Gender</option>
 														<option>Female</option>
 														<option>Male</option>
@@ -543,19 +544,19 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Date of Birth<span class="login-danger">*</span></label>
-													<input class="form-control"  type="date" min="1900" max="2099" step="1" value="2000-01" />
+													<input class="form-control" name="dob" type="date" min="2006-01-01" max="2025-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Age<span class="login-danger">*</span></label>
-													<input class="form-control"  type="number" min="3" max="22" step="1" placeholder="Enter Age"/>
+													<input class="form-control" name="age" type="number" min="3" max="22" step="1" placeholder="Enter Age"/>
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">
 												<div class="form-group local-forms">
 													<label >Religion <span class="login-danger">*</span></label>
-													<select class="form-control select">
+													<select class="form-control select" name="religion">
 														<option>Please Select Religion  </option>
 														<option>Hindu</option>
 														<option>Muslim</option>
@@ -567,19 +568,19 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Community<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Community" >
+													<input class="form-control" name="community" type="text" placeholder="Enter Community" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Caste<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Caste" >
+													<input class="form-control" name="caste" type="text" placeholder="Enter Caste" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">
 												<div class="form-group local-forms">
 													<label >Nationality <span class="login-danger">*</span></label>
-													<select class="form-control select">
+													<select class="form-control select" name="nationality">
 														<option>Please Select Nationality  </option>
 														<option>Indian</option>
 														<option>Others</option>
@@ -589,10 +590,10 @@
 											<div class="col-12 col-sm-4">
 												<div class="form-group local-forms">
 													<label >Mother Tongue <span class="login-danger">*</span></label>
-													<select class="form-control select">
+													<select class="form-control select" name="mother_tongue">
 														<option>Please Select Mother Tongue  </option>
 														<option>Tamil</option>
-														<option>Telugu</option>
+														<option>Telungu</option>
 														<option>Kannada</option>
 														<option>Other</option>
 													  </select>
@@ -601,7 +602,7 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Blood Group<span class="login-danger">*</span></label>
-													<select class="form-control select">
+													<select class="form-control select" name="blood_group">
 														<option>Please Select Blood Group  </option>
 														<option>A+</option>
 														<option>A-</option>
@@ -618,79 +619,79 @@
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Enrollment Number<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Enrollment Number" >
+													<input class="form-control" name="enrollment_number" type="text" placeholder="Enter Enrollment Number" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Parent Contact Number<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Contact Number" >
+													<input class="form-control" name="contact_number" type="number" placeholder="Enter Contact Number" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Father Name<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Father Name" >
+													<input class="form-control" name="father_name" type="text" placeholder="Enter Father Name" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Mother Name<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Mother Name" >
+													<input class="form-control" name="mother_name" type="text" placeholder="Enter Mother Name" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Email address<span class="login-danger">*</span></label>
-													<input class="form-control" type="email" placeholder="Enter Email Address" >
+													<input class="form-control" name="email" type="email" placeholder="Enter Email Address" >
 												</div>
 											</div>
 											<div>
 												<div class="form-group local-forms">
 													<label >Permanent Address<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="" >
+													<input class="form-control" name="permanent_address" type="text" placeholder="" >
 												</div>
 											</div>
 											<div>
 												<div class="form-group local-forms">
 													<label >Present Address<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="" >
+													<input class="form-control" name="present_address" type="text" placeholder="" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Father Occupation<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Father Occupation" >
+													<input class="form-control" name="father_occupation" type="text" placeholder="Enter Father Occupation" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Mother Occupation<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Mother Occupation" >
+													<input class="form-control" name="mother_occupation" type="text" placeholder="Enter Mother Occupation" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Place of work<span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Place of work" >
+													<input class="form-control" name="place_of_work" type="text" placeholder="Enter Place of work" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Father Income<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Father Income" >
+													<input class="form-control" name="father_income" type="number" placeholder="Enter Father Income" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >Mother Income<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="Enter Mother Income" >
+													<input class="form-control" name="mother_income" type="number" placeholder="Enter Mother Income" >
 												</div>
 											</div>
 											<div class="col-12 col-sm-4">  
 												<div class="form-group local-forms">
 													<label >EMIS Number<span class="login-danger">*</span></label>
-													<input class="form-control" type="number" placeholder="EMIS Number" >
+													<input class="form-control" name="emis_number" type="number" placeholder="EMIS Number" >
 												</div>
 											</div>
 											<!--Template code  -->

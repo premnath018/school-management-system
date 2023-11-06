@@ -11,20 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('StudentsBio', function (Blueprint $table) {
+        Schema::create('students_bios', function (Blueprint $table) {
             $table->id();
             $table->integer('batch');
             $table->dateTime('date_of_admission');
             $table->integer('admission_number');
             $table->string('name');
-            $table->enum('gender', ['M', 'F', 'O']);
+            $table->enum('gender', ['Male', 'Female', 'Others']);
             $table->dateTime('dob');
             $table->integer('age');
-            $table->enum('religion', ['H', 'M', 'C']);
+            $table->enum('religion', ['Hindu', 'Muslim', 'Christian','Others']);
             $table->string('community');
             $table->string('caste');
-            $table->enum('nationality', ['I', 'O']);           
+            $table->enum('nationality', ['Indian', 'Others']);           
             $table->enum('mother_tongue', ['Tamil', 'Telungu', 'Kannada', 'Others']);
+            $table->enum('blood_group', ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Others']); 
             $table->integer('enrollment_number');
             $table->integer('contact_number');
             $table->string('father_name');
@@ -47,6 +48,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('StudentBio');
+        Schema::dropIfExists('students_bios');
     }
 };

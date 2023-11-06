@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/register', function () {
-    return view('auth.signup');
-});
+Route::get('/register', function () {return view('auth.signup');});
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -27,9 +26,6 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 
 Route::middleware('auth')->group(function () {
-
     Route::get('/', function () { return view('student.add-student');})->name('home');
-    
-
-
+    Route::post('/addstudent', [StudentController::class, 'add']);
 });
