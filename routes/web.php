@@ -15,20 +15,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/register', function () { return view('auth.signup');});
+Route::get('/register', function () {
+    return view('auth.signup');
+});
 
-Route::post('/login',[LoginController::class, 'login'] );
+Route::post('/login', [LoginController::class, 'login']);
 
-Route::post('/register',[LoginController::class, 'register'] );
+Route::post('/register', [LoginController::class, 'register']);
 
-Route::get('/login', function () { return view('auth.login');}) -> name('login');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () { return view('welcome');});
-    Route::get('/add_student', function () { return view('student.add_student');});
-    
-
-
+    Route::get('/', function () {
+        return view('student/add_student');
+    });
+    Route::get('/add_student', function () {
+        return view('student.add_student');
+    });
 });

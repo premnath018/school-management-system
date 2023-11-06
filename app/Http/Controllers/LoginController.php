@@ -13,18 +13,18 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-    
+
         $user = User::where('email', $credentials['email'])->first();
-        
+
         if ($user && Hash::check($credentials['password'], $user->password)) { //Check the entered password with the stored password
             Auth::login($user);
 
             // Store the users sessions data
             session(['name' => $user->name]);
             session(['email' => $user->email]);
-            return view('welcome');
+            return view('student/add_student');
         }
-        
+
         return redirect()->back()->with('error', 'Invalid Credentials.');
     }
 
@@ -36,9 +36,9 @@ class LoginController extends Controller
                 'required',
                 'confirmed',
                 'min:8',
-            //    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+                //    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
             ],
-           // 'accept_terms' => 'accepted',
+            // 'accept_terms' => 'accepted',
         ]);
         $userData = $request->all();
 
@@ -51,7 +51,6 @@ class LoginController extends Controller
 
         $user->save();
 
-        return  view('auth.login'); 
+        return  view('auth.login');
     }
-
 }
