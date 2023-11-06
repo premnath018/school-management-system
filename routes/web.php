@@ -26,6 +26,9 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/', function () { return view('student.add-student');})->name('home');
     Route::post('/addstudent', [StudentController::class, 'add']);
+    Route::get('/viewstudent', [StudentController::class, 'studentview']);
+    Route::get('/addexam', function () {return view('exams/add_exam');});
 });

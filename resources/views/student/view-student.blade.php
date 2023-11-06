@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     
-<!-- Mirrored from preschool.dreamstechnologies.com/template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:03 GMT -->
+<!-- Mirrored from preschool.dreamstechnologies.com/template/students.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:47:57 GMT -->
 <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <title>Add Student</title>
+        <title>Preskool - Students</title>
 		
 		<!-- Favicon -->
         <link rel="shortcut icon" href="assets/img/favicon.png">
@@ -22,15 +22,12 @@
 		<!-- Pe7 CSS -->
 		<link rel="stylesheet" href="assets/plugins/icons/flags/flags.css">
 		
-		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
-		
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
 
-		<!-- Select CSS -->
-		<link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+		<!-- Datatables CSS -->
+		<link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
 		
 		<!-- Main CSS -->
         <link rel="stylesheet" href="assets/css/style.css">
@@ -218,9 +215,9 @@
 							<li class="submenu active">
 								<a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> <span class="menu-arrow"></span></a>
 								<ul>
-									<li><a href="/viewstudent">Student List</a></li>
+									<li><a href="/viewstudent" class="active">Student List</a></li>
 									<li><a href="#">Student View</a></li>
-									<li><a href="/" class="active">Student Add</a></li>
+									<li><a href="/">Student Add</a></li>
 									<li><a href="edit-student.html">Student Edit</a></li>
 								</ul>
 							</li>
@@ -310,20 +307,7 @@
 							<li class="menu-title"> 
 								<span>Pages</span>
 							</li>
-							<li class="submenu">
-                                <a href="#"><i class="fa fa-newspaper"></i> <span> Blogs</span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul>
-                                    <li><a href="blog.html">All Blogs</a></li>
-                                    <li><a href="add-blog.html">Add Blog</a></li>
-                                    <li><a href="edit-blog.html">Edit Blog</a></li>
-                                    
-                                </ul>
-                            </li>
-							<li> 
-								<a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a>
-							</li>
+
 							<li class="submenu">
 								<a href="#"><i class="fas fa-shield-alt"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
 								<ul>
@@ -481,339 +465,133 @@
 				
 					<!-- Page Header -->
 					<div class="page-header">
-						<div class="row align-items-center">
+						<div class="row">
 							<div class="col-sm-12">
 								<div class="page-sub-header">
-									<h3 class="page-title">Add Students</h3>
+									<h3 class="page-title">Students</h3>
 									<ul class="breadcrumb">
-										<li class="breadcrumb-item active">Add Students</li>
+										<li class="breadcrumb-item active">All Students</li>
 									</ul>
 								</div>
 							</div>
 						</div>
 					</div>
 					<!-- /Page Header -->
+					
+					<div class="student-group-form">
+						<div class="row">
+							<div class="col-lg-3 col-md-6">  
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Search by ID ...">
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-6">  
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Search by Name ...">
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-6">  
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="Search by Phone ...">
+								</div>
+							</div>
+							<div class="col-lg-2">  
+								<div class="search-student-btn">
+									<button type="btn" class="btn btn-primary">Search</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				
 					<div class="row">
 						<div class="col-sm-12">
 						
-							<div class="card comman-shadow">
+							<div class="card card-table comman-shadow">
 								<div class="card-body">
-									<form action="/addstudent" method="post">
-										@csrf
-										<div class="row">
-											<div class="col-12">
-												<h5 class="form-title student-info">Student Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+								
+									<!-- Page Header -->
+									<div class="page-header">
+										<div class="row align-items-center">
+											<div class="col">
+												<h3 class="page-title">Students</h3>
 											</div>
-											<!-- Changes -->
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Batch <span class="login-danger">*</span></label>
-													<input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year name"/>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Date of Admission <span class="login-danger">*</span></label>
-													<input class="form-control" name="date_of_admission" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Admission Number <span class="login-danger">*</span></label>
-													<input class="form-control" name="admission_number" type="number" step="1" placeholder="Admission Number"/>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Full Name <span class="login-danger">*</span></label>
-													<input class="form-control" name="name" type="text" placeholder="Enter Full Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Gender <span class="login-danger">*</span></label>
-													<select class="form-control select" name="gender">
-														<option>Select Gender</option>
-														<option>Female</option>
-														<option>Male</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Date of Birth<span class="login-danger">*</span></label>
-													<input class="form-control" name="dob" type="date" min="2006-01-01" max="2025-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Age<span class="login-danger">*</span></label>
-													<input class="form-control" name="age" type="number" min="3" max="22" step="1" placeholder="Enter Age"/>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Religion <span class="login-danger">*</span></label>
-													<select class="form-control select" name="religion">
-														<option>Please Select Religion  </option>
-														<option>Hindu</option>
-														<option>Muslim</option>
-														<option>Christian</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Community<span class="login-danger">*</span></label>
-													<input class="form-control" name="community" type="text" placeholder="Enter Community" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Caste<span class="login-danger">*</span></label>
-													<input class="form-control" name="caste" type="text" placeholder="Enter Caste" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Nationality <span class="login-danger">*</span></label>
-													<select class="form-control select" name="nationality">
-														<option>Please Select Nationality  </option>
-														<option>Indian</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Mother Tongue <span class="login-danger">*</span></label>
-													<select class="form-control select" name="mother_tongue">
-														<option>Please Select Mother Tongue  </option>
-														<option>Tamil</option>
-														<option>Telungu</option>
-														<option>Kannada</option>
-														<option>Other</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Blood Group<span class="login-danger">*</span></label>
-													<select class="form-control select" name="blood_group">
-														<option>Please Select Blood Group  </option>
-														<option>A+</option>
-														<option>A-</option>
-														<option>B+</option>
-														<option>B-</option>
-														<option>AB+</option>
-														<option>AB-</option>
-														<option>O+</option>
-														<option>O-</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Enrollment Number<span class="login-danger">*</span></label>
-													<input class="form-control" name="enrollment_number" type="text" placeholder="Enter Enrollment Number" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Parent Contact Number<span class="login-danger">*</span></label>
-													<input class="form-control" name="contact_number" type="number" placeholder="Enter Contact Number" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Father Name<span class="login-danger">*</span></label>
-													<input class="form-control" name="father_name" type="text" placeholder="Enter Father Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Mother Name<span class="login-danger">*</span></label>
-													<input class="form-control" name="mother_name" type="text" placeholder="Enter Mother Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Email address<span class="login-danger">*</span></label>
-													<input class="form-control" name="email" type="email" placeholder="Enter Email Address" >
-												</div>
-											</div>
-											<div>
-												<div class="form-group local-forms">
-													<label >Permanent Address<span class="login-danger">*</span></label>
-													<input class="form-control" name="permanent_address" type="text" placeholder="" >
-												</div>
-											</div>
-											<div>
-												<div class="form-group local-forms">
-													<label >Present Address<span class="login-danger">*</span></label>
-													<input class="form-control" name="present_address" type="text" placeholder="" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Father Occupation<span class="login-danger">*</span></label>
-													<input class="form-control" name="father_occupation" type="text" placeholder="Enter Father Occupation" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Mother Occupation<span class="login-danger">*</span></label>
-													<input class="form-control" name="mother_occupation" type="text" placeholder="Enter Mother Occupation" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Place of work<span class="login-danger">*</span></label>
-													<input class="form-control" name="place_of_work" type="text" placeholder="Enter Place of work" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Father Income<span class="login-danger">*</span></label>
-													<input class="form-control" name="father_income" type="number" placeholder="Enter Father Income" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >Mother Income<span class="login-danger">*</span></label>
-													<input class="form-control" name="mother_income" type="number" placeholder="Enter Mother Income" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >EMIS Number<span class="login-danger">*</span></label>
-													<input class="form-control" name="emis_number" type="number" placeholder="EMIS Number" >
-												</div>
-											</div>
-											<!--Template code  -->
-											<!-- <div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >First Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter First Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Last Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter First Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Gender <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Select Gender</option>
-														<option>Female</option>
-														<option>Male</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms calendar-icon">
-													<label >Date Of Birth  <span class="login-danger">*</span></label>
-													<input class="form-control datetimepicker" type="text"  placeholder="DD-MM-YYYY" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Roll </label>
-													<input class="form-control" type="text" placeholder="Enter Roll Number" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Blood Group <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Group </option>
-														<option>B+</option>
-														<option>A+</option>
-														<option>O+</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Religion <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Religion  </option>
-														<option>Hindu</option>
-														<option>Christian</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >E-Mail <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Email Address" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Class <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Class  </option>
-														<option>12</option>
-														<option>11</option>
-														<option>10</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Section <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Section   </option>
-														<option>B</option>
-														<option>A</option>
-														<option>C</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Admission ID </label>
-													<input class="form-control" type="text" placeholder="Enter Admission ID" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Phone </label>
-													<input class="form-control" type="text" placeholder="Enter Phone Number" >
-												</div>
-											</div> 
-											<div class="col-12 col-sm-4">
-												<div class="form-group students-up-files">
-													<label>Upload Student Photo (150px X 150px)</label>
-													<div class="uplod">
-														<label class="file-upload image-upbtn mb-0">
-															Choose File <input type="file">
-														</label>
-													</div>
-												</div>
-											</div> -->
-											<div class="col-12">
-												<div class="student-submit">
-													<button type="submit" class="btn btn-primary">Submit</button>
-												</div>
+											<div class="col-auto text-end float-end ms-auto download-grp">
+												<a href="students.html" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
+												<a href="students-grid.html" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
+												<a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+												<a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
 											</div>
 										</div>
-									</form>
+									</div>
+									<!-- /Page Header -->
+									
+									<div class="table-responsive">
+										<table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+											<thead class="student-thread">
+												<tr>
+													<th>
+														<div class="form-check check-tables">
+															<input class="form-check-input" type="checkbox"  value="something">
+														</div>
+													</th>
+													<th>ID</th>
+													<th>Name</th>
+													<th>Batch</th>
+													<th>DOB</th>
+													<th>Father Name</th>
+													<th>Mobile Number</th>
+													<th>Enrollment Number</th>
+													<th class="text-end">Action</th>
+												</tr>
+											</thead>
+											<tbody>
+												<!-- For Loop Start -->
+												@foreach($values as $values)
+												<tr>
+													<td>
+														<div class="form-check check-tables">
+															<input class="form-check-input" type="checkbox"  value="something">
+														</div>
+													</td>
+													<td>{{$values->id}}</td>
+													<td>
+														<h2 class="table-avatar">
+															<a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a>
+															<a href="#">{{$values->name}}</a>
+														</h2>
+													</td>
+													<td>{{$values->batch}}</td>
+													<td>{{$values->dob}}</td>
+													<td>{{$values->father_name}}</td>
+													<td>{{$values->contact_number}}</td>
+													<td>{{$values->enrollment_number}}</td>
+													<td class="text-end">
+														<div class="actions ">
+															<a href="javascript:;" class="btn btn-sm bg-success-light me-2 ">
+																<i class="feather-eye"></i>
+															</a>
+															<a href="edit-student.html" class="btn btn-sm bg-danger-light">
+																<i class="feather-edit"></i>
+															</a>
+														</div>
+													</td>
+												</tr>
+												@endforeach
+												<!-- For loop ends -->
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</div>							
 						</div>					
 					</div>					
-				</div>				
+				</div>
+
+				<!-- Footer -->
+				<footer>
+					<p>Copyright © 2022 Dreamguys.</p>					
+				</footer>
+				<!-- /Footer -->				
 			</div>
 			<!-- /Page Wrapper -->
 			
@@ -831,18 +609,13 @@
 		
 		<!-- Slimscroll JS -->
 		<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-		<!-- Select2 JS -->
-		<script src="assets/plugins/select2/js/select2.min.js"></script>
 		
-		<!-- Datepicker Core JS -->
-		<script src="assets/plugins/moment/moment.min.js"></script>
-		<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
-
+		<!-- Datatables JS -->
+		<script src="assets/plugins/datatables/datatables.min.js"></script>
+		
 		<!-- Custom JS -->
 		<script src="assets/js/script.js"></script>
-		
     </body>
 
-<!-- Mirrored from preschool.dreamstechnologies.com/template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:06 GMT -->
+<!-- Mirrored from preschool.dreamstechnologies.com/template/students.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:01 GMT -->
 </html>

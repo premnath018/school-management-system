@@ -73,4 +73,8 @@ class StudentController extends Controller
         $student->save();
         return redirect()->route('home');
     }
+    public function studentview(){
+        $values = StudentsBio::all();
+        return view('student.view-student', compact('values'));
+    }
 }
