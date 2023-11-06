@@ -23,13 +23,17 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/register', [LoginController::class, 'register']);
 
-Route::get('/login', function () {return view('auth.login');})->name('login');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
 
+Route::get('/add-exam', function () {
+    return view('exams/add_exam');
+});
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () { return view('student.add-student');})->name('home');
-    
-
-
+    Route::get('/', function () {
+        return view('student.add-student');
+    })->name('home');
 });
