@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/signup', function () { return view('auth.signup');});
+Route::get('/register', function () { return view('auth.signup');});
 
 Route::post('/login',[LoginController::class, 'login'] );
 
@@ -27,6 +27,8 @@ Route::get('/login', function () { return view('auth.login');}) -> name('login')
 Route::middleware('auth')->group(function () {
 
     Route::get('/', function () { return view('welcome');});
+    Route::get('/add_student', function () { return view('student.add_student');});
+    
 
 
 });
