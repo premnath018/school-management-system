@@ -23,9 +23,7 @@ Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/register', [LoginController::class, 'register']);
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::get('/login', function () {return view('auth.login');})->name('login');
 
 
 Route::middleware('auth')->group(function () {
