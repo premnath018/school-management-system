@@ -28,7 +28,7 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () { return view('student.add_student');})->name('home');
+    Route::get('/', function () { return view('student.add-student');})->name('home');
     
 
 
