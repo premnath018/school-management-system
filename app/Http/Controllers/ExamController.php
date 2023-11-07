@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 
 class ExamController extends Controller
 {
-    public function create()
-    {
-        return view('exams.create');
-    }
-
+    
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -38,6 +34,11 @@ class ExamController extends Controller
             'date_of_event' => $validatedData['date_of_event'],
         ]);
 
-        return redirect()->route('exams.view')->with('success', 'Exam details added successfully.');
+        return redirect()->route('exams.create');
+    }
+
+    public function examview(){
+        $values = Exam::all();
+        return view('exams.view-exam', compact('values'));
     }
 }

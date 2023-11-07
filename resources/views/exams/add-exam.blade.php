@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from preschool.dreamstechnologies.com/template/add-exam.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:49:51 GMT -->
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
-    <title>Preskool - Exam</title>
+    <title>Exams</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
