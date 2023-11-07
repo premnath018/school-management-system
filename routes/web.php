@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExamController;
 /*
@@ -27,15 +28,16 @@ Route::get('/login', function () {
     return view('auth.login');
 })->name('login');
 
-Route::get('/add-exam', function () {
-    return view('exams/add_exam');
-})->name('exams.create');
 
-Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
 
 Route::middleware('auth')->group(function () {
 
     Route::get('/', function () {
         return view('student.add-student');
     })->name('home');
+    Route::post('/addstudent', [StudentController::class, 'add']);
+    Route::get('/viewstudent', [StudentController::class, 'studentview']);
+    Route::get('/addexam', function () {
+        return view('exams/add_exam');
+    });
 });
