@@ -40,4 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/addexam', function () {
         return view('exams/add_exam');
     });
+    Route::get('/add-exam', function () {
+        return view('exams/add_exam');
+    })->name('exams.create');
+
+    Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
 });
