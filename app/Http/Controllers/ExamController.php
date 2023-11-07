@@ -38,6 +38,6 @@ class ExamController extends Controller
             'date_of_event' => $validatedData['date_of_event'],
         ]);
 
-        return redirect()->route('exams.create')->with('success', 'Exam details added successfully.');
+        return redirect()->route('exams.view')->with('success', 'Exam details added successfully.');
     }
 }

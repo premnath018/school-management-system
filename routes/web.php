@@ -36,10 +36,13 @@ Route::middleware('auth')->group(function () {
         return view('student.add-student');
     })->name('home');
     Route::post('/addstudent', [StudentController::class, 'add']);
-    Route::get('/viewstudent', [StudentController::class, 'studentview']);
+    Route::get('/students', [StudentController::class, 'studentview']);
     Route::get('/addexam', function () {
         return view('exams/add_exam');
     });
+
+    Route::get('/exams', function () {
+    })->name('exams.view');
     Route::get('/add-exam', function () {
         return view('exams/add_exam');
     })->name('exams.create');

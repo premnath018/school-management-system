@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\StudentsBio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
 class StudentController extends Controller
 {
-    public function add(Request $request){
+    public function add(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'batch' => 'required',
             'date_of_admission' => 'required|date',
@@ -73,7 +75,8 @@ class StudentController extends Controller
         $student->save();
         return redirect()->route('home');
     }
-    public function studentview(){
+    public function studentview()
+    {
         $values = StudentsBio::all();
         return view('student.view-student', compact('values'));
     }

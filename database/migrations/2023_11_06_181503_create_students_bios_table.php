@@ -20,14 +20,14 @@ return new class extends Migration
             $table->enum('gender', ['Male', 'Female', 'Others']);
             $table->dateTime('dob');
             $table->integer('age');
-            $table->enum('religion', ['Hindu', 'Muslim', 'Christian','Others']);
+            $table->enum('religion', ['Hindu', 'Muslim', 'Christian', 'Others']);
             $table->string('community');
             $table->string('caste');
-            $table->enum('nationality', ['Indian', 'Others']);           
+            $table->enum('nationality', ['Indian', 'Others']);
             $table->enum('mother_tongue', ['Tamil', 'Telungu', 'Kannada', 'Others']);
-            $table->enum('blood_group', ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Others']); 
+            $table->enum('blood_group', ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-', 'Others']);
             $table->integer('enrollment_number');
-            $table->integer('contact_number');
+            $table->string('contact_number');
             $table->string('father_name');
             $table->string('mother_name');
             $table->string('email');
