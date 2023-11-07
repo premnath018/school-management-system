@@ -517,15 +517,19 @@
                                         <table class="table text-nowrap">
                                             <tbody>
                                                 <tr>
-                                                    <td>Name:</td>
+                                                    <td>Full Name</td>
+                                                    <td class="font-medium text-dark-medium">07.08.2016</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Batch:</td>
                                                     <td class="font-medium text-dark-medium">Jessia Rose</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Gender:</td>
+                                                    <td>Addmission Date:</td>
                                                     <td class="font-medium text-dark-medium">Female</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Father Name:</td>
+                                                    <td>Addmission Number:
                                                     <td class="font-medium text-dark-medium">Steve Jones</td>
                                                 </tr>
                                                 <tr>
@@ -533,43 +537,78 @@
                                                     <td class="font-medium text-dark-medium">Naomi Rose</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Date Of Birth:</td>
+                                                    <td>Gender:</td>
                                                     <td class="font-medium text-dark-medium">07.08.2016</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Religion:</td>
+                                                    <td>Date of Birth:</td>
                                                     <td class="font-medium text-dark-medium">Islam</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Father Occupation:</td>
+                                                    <td>Age:</td>
                                                     <td class="font-medium text-dark-medium">Graphic Designer</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>E-mail:</td>
+                                                    <td>Religion:</td>
                                                     <td class="font-medium text-dark-medium">jessiarose@gmail.com</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Admission Date:</td>
+                                                    <td>Community:</td>
                                                     <td class="font-medium text-dark-medium">07.08.2019</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Class:</td>
+                                                    <td>Caste:</td>
                                                     <td class="font-medium text-dark-medium">2</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Section:</td>
+                                                    <td>Nationality:</td>
                                                     <td class="font-medium text-dark-medium">Pink</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Roll:</td>
+                                                    <td>Mother Tongue:</td>
                                                     <td class="font-medium text-dark-medium">10005</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Address:</td>
+                                                    <td>Blood Group:</td>
                                                     <td class="font-medium text-dark-medium">House #10, Road #6, Australia</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Phone:</td>
+                                                    <td>Enrollment Number:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Parent Contact Number:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Father Name:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Father Occupation:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <td>Father Income:</td>
+                                                <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mother Income:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mother Occupation:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email Address:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Place of work:</td>
+                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email Address</td>
                                                     <td class="font-medium text-dark-medium">+ 88 98568888418</td>
                                                 </tr>
                                             </tbody>
