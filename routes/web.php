@@ -34,7 +34,9 @@ Route::get('/login', function () {
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () {return view('student.add-student');})->name('home');
+    Route::get('/', function () {
+        return view('student.add-student');
+    })->name('home');
 
     Route::post('/addstudent', [StudentController::class, 'add']);
 
@@ -42,14 +44,21 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/exams', [ExamController::class, 'examview']);
 
-    Route::get('/add-exam', function () {return view('exams.add-exam');})->name('exams.create');
+    Route::get('/add-exam', function () {
+        return view('exams.add-exam');
+    })->name('exams.create');
 
     Route::post('/exams', [ExamController::class, 'store'])->name('exams.store');
 
-    Route::get('/add-classes', function () {return view('Class.add-class');})->name('class.create');
-    
+    Route::get('/add-classes', function () {
+        return view('Class.add-class');
+    })->name('class.create');
+
     Route::get('/classes', [ClassesController::class, 'classview']);
 
     Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
 
+    Route::get('/testviewStudent', function () {
+        return view('student/profile');
+    });
 });
