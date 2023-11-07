@@ -4,11 +4,6 @@
 <!-- Mirrored from preschool.dreamstechnologies.com/template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:03 GMT -->
 
 <head>
-    <style>
-        .hideEdit {
-            display: none;
-        }
-    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Student Details</title>
@@ -498,7 +493,6 @@
                             <div class="page-sub-header">
                                 <h3 class="page-title">Student</h3>
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item active">Student/Student Details</li>
                                 </ul>
                             </div>
                         </div>
@@ -511,10 +505,14 @@
                         <div class="card comman-shadow">
                             <div class="card-body">
                                 <div class="heading-layout1">
-                                    <div class="item-title">
-                                        <h3>About Student</h3>
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h3 class="page-title">Subjects</h3>
+                                        </div>
+                                        <div class="col-auto text-end float-end ms-auto download-grp">
+                                            <input type="button" onclick="ViewEdit()" id="viewedit" class="btn btn-primary" value="Edit Info" />
+                                        </div>
                                     </div>
-                                    <input type="button" onclick="ViewEdit()" id="viewedit" class="btn btn-primary" value="Edit Info" />
                                 </div>
                             </div>
                             <div class="single-info-details">
@@ -940,6 +938,17 @@
             </div>
         </div>
     </div>
+
+
+    <style>
+        .hideEdit {
+            display: none;
+        }
+
+        .single-info-details {
+            padding: 0 30px;
+        }
+    </style>
     <!-- /Page Wrapper -->
 
     </div>
