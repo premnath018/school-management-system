@@ -80,4 +80,43 @@ class StudentController extends Controller
         $values = StudentsBio::all();
         return view('student.view-student', compact('values'));
     }
+
+    public function editstudent($id){
+        $data = StudentsBio::find($id);
+        return view('student.profile', compact('data'));
+    }
+
+    public function updatestudent($id, Request $request){
+        {
+            $data = StudentsBio::find($id);
+            $data->batch = $request->input('batch');
+            $data->date_of_admission = $request->input('date_of_admission');
+            $data->admission_number = $request->input('admission_number');
+            $data->name = $request->input('name');
+            $data->gender = $request->input('gender');
+            $data->dob = $request->input('dob');
+            $data->age = $request->input('age');
+            $data->religion = $request->input('religion');
+            $data->community = $request->input('community');
+            $data->caste = $request->input('caste');
+            $data->nationality = $request->input('nationality');
+            $data->mother_tongue = $request->input('mother_tongue');
+            $data->blood_group = $request->input('blood_group');
+            $data->enrollment_number = $request->input('enrollment_number');
+            $data->contact_number = $request->input('contact_number');
+            $data->father_name = $request->input('father_name');
+            $data->mother_name = $request->input('mother_name');
+            $data->email = $request->input('email');
+            $data->permanent_address = $request->input('permanent_address');
+            $data->present_address = $request->input('present_address');
+            $data->father_occupation = $request->input('father_occupation');
+            $data->mother_occupation = $request->input('mother_occupation');
+            $data->place_of_work = $request->input('place_of_work');
+            $data->father_income = $request->input('father_income');
+            $data->mother_income = $request->input('mother_income');
+            $data->emis_number = $request->input('emis_number');
+            $data->save();
+            return redirect()->route('list');
+        }
+    }
 }

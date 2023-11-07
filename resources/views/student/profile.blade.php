@@ -9,32 +9,32 @@
     <title>Student Details</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="shortcut icon" href="{{asset('assets//img/favicon.png')}}">
 
     <!-- Fontfamily -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700&amp;display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets//plugins/bootstrap/css/bootstrap.min.css')}}">
 
     <!-- Feathericon CSS -->
-    <link rel="stylesheet" href="assets/plugins/feather/feather.css">
+    <link rel="stylesheet" href="{{asset('assets//plugins/feather/feather.css')}}">
 
     <!-- Pe7 CSS -->
-    <link rel="stylesheet" href="assets/plugins/icons/flags/flags.css">
+    <link rel="stylesheet" href="{{asset('assets//plugins/icons/flags/flags.css')}}">
 
     <!-- Datepicker CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="{{asset('assets//css/bootstrap-datetimepicker.min.css')}}">
 
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="{{asset('assets//plugins/fontawesome/css/fontawesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets//plugins/fontawesome/css/all.min.css')}}">
 
     <!-- Select CSS -->
-    <link rel="stylesheet" href="assets/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="{{asset('assets//plugins/select2/css/select2.min.css')}}">
 
     <!-- Main CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="{{asset('assets//css/style.css')}}">
 </head>
 
 <body>
@@ -48,10 +48,10 @@
             <!-- Logo -->
             <div class="header-left">
                 <a href="index.html" class="logo">
-                    <img src="assets/img/logo.png" alt="Logo">
+                    <img src="{{asset('assets//img/logo.png')}}" alt="Logo">
                 </a>
                 <a href="index.html" class="logo logo-small">
-                    <img src="assets/img/logo-small.png" alt="Logo" width="30" height="30">
+                    <img src="{{asset('assets//img/logo-small.png')}}" alt="Logo" width="30" height="30">
                 </a>
             </div>
             <!-- /Logo -->
@@ -81,7 +81,7 @@
             <ul class="nav user-menu">
                 <li class="nav-item dropdown language-drop me-2">
                     <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
-                        <img src="assets/img/icons/header-icon-01.svg" alt="">
+                        <img src="{{asset('assets//img/icons/header-icon-01.svg')}}" alt="">
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="javascript:;"><i class="flag flag-lr me-2"></i>English</a>
@@ -92,7 +92,7 @@
                 <!-- Notifications -->
                 <li class="nav-item dropdown noti-dropdown me-2">
                     <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
-                        <img src="assets/img/icons/header-icon-05.svg" alt="">
+                        <img src="{{asset('assets//img/icons/header-icon-05.svg')}}" alt="">
                     </a>
                     <div class="dropdown-menu notifications">
                         <div class="topnav-dropdown-header">
@@ -105,7 +105,7 @@
                                     <a href="#">
                                         <div class="media d-flex">
                                             <span class="avatar avatar-sm flex-shrink-0">
-                                                <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-02.jpg">
+                                                <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('assets//img/profiles/avatar-02.jpg')}}">
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">Carlson Tech</span> has approved <span class="noti-title">your estimate</span></p>
@@ -118,7 +118,7 @@
                                     <a href="#">
                                         <div class="media d-flex">
                                             <span class="avatar avatar-sm flex-shrink-0">
-                                                <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-11.jpg">
+                                                <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('assets//img/profiles/avatar-11.jpg')}}">
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">International Software Inc</span> has sent you a invoice in the amount of <span class="noti-title">$218</span></p>
@@ -131,7 +131,7 @@
                                     <a href="#">
                                         <div class="media d-flex">
                                             <span class="avatar avatar-sm flex-shrink-0">
-                                                <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-17.jpg">
+                                                <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('assets//img/profiles/avatar-17.jpg')}}">
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">John Hendry</span> sent a cancellation request <span class="noti-title">Apple iPhone XR</span></p>
@@ -144,7 +144,7 @@
                                     <a href="#">
                                         <div class="media d-flex">
                                             <span class="avatar avatar-sm flex-shrink-0">
-                                                <img class="avatar-img rounded-circle" alt="User Image" src="assets/img/profiles/avatar-13.jpg">
+                                                <img class="avatar-img rounded-circle" alt="User Image" src="{{asset('assets//img/profiles/avatar-13.jpg')}}">
                                             </span>
                                             <div class="media-body flex-grow-1">
                                                 <p class="noti-details"><span class="noti-title">Mercury Software Inc</span> added a new product <span class="noti-title">Apple MacBook Pro</span></p>
@@ -163,7 +163,7 @@
                 <!-- /Notifications -->
                 <li class="nav-item zoom-screen me-2">
                     <a href="#" class="nav-link header-nav-list">
-                        <img src="assets/img/icons/header-icon-04.svg" alt="">
+                        <img src="{{asset('assets//img/icons/header-icon-04.svg')}}" alt="">
                     </a>
                 </li>
 
@@ -171,7 +171,7 @@
                 <li class="nav-item dropdown has-arrow new-user-menus">
                     <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                         <span class="user-img">
-                            <img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Ryan Taylor">
+                            <img class="rounded-circle" src="{{asset('assets//img/profiles/avatar-01.jpg')}}" width="31" alt="Ryan Taylor">
                             <div class="user-text">
                                 <h6>Ryan Taylor</h6>
                                 <p class="text-muted mb-0">Administrator</p>
@@ -181,7 +181,7 @@
                     <div class="dropdown-menu">
                         <div class="user-header">
                             <div class="avatar avatar-sm">
-                                <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                <img src="{{asset('assets//img/profiles/avatar-01.jpg')}}" alt="User Image" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
                                 <h6>Ryan Taylor</h6>
@@ -521,99 +521,107 @@
                                         <table class="table text-nowrap">
                                             <tbody>
                                                 <tr>
-                                                    <td>Full Name</td>
-                                                    <td class="font-medium text-dark-medium">07.08.2016</td>
+                                                    <td>Full Name:</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->name}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Batch:</td>
-                                                    <td class="font-medium text-dark-medium">Jessia Rose</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->batch}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Addmission Date:</td>
-                                                    <td class="font-medium text-dark-medium">Female</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->date_of_admission}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Addmission Number:
-                                                    <td class="font-medium text-dark-medium">Steve Jones</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Mother Name:</td>
-                                                    <td class="font-medium text-dark-medium">Naomi Rose</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->admission_number}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Gender:</td>
-                                                    <td class="font-medium text-dark-medium">07.08.2016</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->gender}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Date of Birth:</td>
-                                                    <td class="font-medium text-dark-medium">Islam</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->dob}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Age:</td>
-                                                    <td class="font-medium text-dark-medium">Graphic Designer</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->age}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Religion:</td>
-                                                    <td class="font-medium text-dark-medium">jessiarose@gmail.com</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->religion}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Community:</td>
-                                                    <td class="font-medium text-dark-medium">07.08.2019</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->community}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Caste:</td>
-                                                    <td class="font-medium text-dark-medium">2</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->caste}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Nationality:</td>
-                                                    <td class="font-medium text-dark-medium">Pink</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->nationality}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Mother Tongue:</td>
-                                                    <td class="font-medium text-dark-medium">10005</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->mother_tongue}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Blood Group:</td>
-                                                    <td class="font-medium text-dark-medium">House #10, Road #6, Australia</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->blood_group}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Enrollment Number:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->enrollment_number}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Parent Contact Number:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->contact_number}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Permanent Address:</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->permanent_address}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Present Address:</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->present_address}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Father Name:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->father_name}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Father Occupation:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->father_occupation}}</td>
                                                 </tr>
                                                 <td>Father Income:</td>
-                                                <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                <td class="font-medium text-dark-medium">{{$data->father_income}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mother Name:</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->mother_name}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Mother Income:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->mother_income}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Mother Occupation:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->mother_occupation}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Email Address:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->email}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Place of work:</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->place_of_work}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Email Address</td>
-                                                    <td class="font-medium text-dark-medium">+ 88 98568888418</td>
+                                                    <td>EMIS Number:</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->emis_number}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -622,8 +630,8 @@
                             </div>
                         </div>
                         <div class="hideEdit card-body" id="editform">
-                            <form action="/addstudent" method="post">
-                                <input type="hidden" name="_token" value="2mBSzfZh5tVGCkBDkV9mnloIHhQmJ2gSDYpUSCQO" autocomplete="off">
+                            <form action="{{url('updatestudent',$data->id)}}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <h5 class="form-title student-info">Student Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
@@ -632,7 +640,7 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Batch <span class="login-danger">*</span></label>
-                                            <input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year name" />
+                                            <input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
@@ -955,26 +963,26 @@
     <!-- /Main Wrapper -->
 
     <!-- jQuery -->
-    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="{{asset('assets//js/jquery-3.6.0.min.js')}}"></script>
 
     <!-- Bootstrap Core JS -->
-    <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets//plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
     <!-- Feather Icon JS -->
-    <script src="assets/js/feather.min.js"></script>
+    <script src="{{asset('assets//js/feather.min.js')}}"></script>
 
     <!-- Slimscroll JS -->
-    <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="{{asset('assets//plugins/slimscroll/jquery.slimscroll.min.js')}}"></script>
 
     <!-- Select2 JS -->
-    <script src="assets/plugins/select2/js/select2.min.js"></script>
+    <script src="{{asset('assets//plugins/select2/js/select2.min.js')}}"></script>
 
     <!-- Datepicker Core JS -->
-    <script src="assets/plugins/moment/moment.min.js"></script>
-    <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="{{asset('assets//plugins/moment/moment.min.js')}}"></script>
+    <script src="{{asset('assets//js/bootstrap-datetimepicker.min.js')}}"></script>
 
     <!-- Custom JS -->
-    <script src="assets/js/script.js"></script>
+    <script src="{{asset('assets//js/script.js')}}"></script>
 
 </body>
 
@@ -988,7 +996,5 @@
         }
     });
 </script>
-
-<!-- Mirrored from preschool.dreamstechnologies.com/template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:06 GMT -->
 
 </html>

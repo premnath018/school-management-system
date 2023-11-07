@@ -569,7 +569,7 @@
 												<td>{{$values->enrollment_number}}</td>
 												<td class="text-end">
 													<div class="actions ">
-														<a href="edit-student.html" class="btn btn-sm bg-danger-light">
+														<a href="/studentprofile/{{$values->id}}" class="btn btn-sm bg-danger-light">
 															<i class="feather-edit"></i>
 														</a>
 													</div>

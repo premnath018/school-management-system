@@ -515,7 +515,7 @@
 										<div class="col-12 col-sm-4">
 											<div class="form-group local-forms">
 												<label>Batch <span class="login-danger">*</span></label>
-												<input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year name" />
+												<input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year" />
 											</div>
 										</div>
 										<div class="col-12 col-sm-4">

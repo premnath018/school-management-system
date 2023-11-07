@@ -21,6 +21,7 @@ class StudentsBio extends Model
         'caste',
         'nationality',
         'mother_tongue',
+        'blood_group',
         'enrollment_number',
         'contact_number',
         'father_name',
