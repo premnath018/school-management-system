@@ -218,7 +218,7 @@
 							<li class="submenu active">
 								<a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> <span class="menu-arrow"></span></a>
 								<ul>
-									<li><a href="/viewstudent">Student List</a></li>
+									<li><a href="/students">Student List</a></li>
 									<li><a href="#">Student View</a></li>
 									<li><a href="/" class="active">Student Add</a></li>
 									<li><a href="edit-student.html">Student Edit</a></li>
@@ -242,11 +242,11 @@
 								</ul>
 							</li>
 							<li class="submenu">
-								<a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fas fa-book-reader"></i> <span> Class</span> <span class="menu-arrow"></span></a>
 								<ul>
-									<li><a href="subjects.html">Subject List</a></li>
-									<li><a href="add-subject.html">Subject Add</a></li>
-									<li><a href="edit-subject.html">Subject Edit</a></li>
+									<li><a href="/classes">Class List</a></li>
+									<li><a href="/add-classes">Class Add</a></li>
+									<li><a href="edit-subject.html">Class Edit</a></li>
 								</ul>
 							</li>
 							<li class="submenu">
@@ -281,8 +281,13 @@
 							<li> 
 								<a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
 							</li>
-							<li> 
-								<a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+							<li class="submenu">
+								<a href="#"><i class="fas fa-clipboard-list"></i> <span> Exams</span> <span class="menu-arrow"></span></a>
+								<ul>
+									<li><a href="/exams">Exam List</a></li>
+									<li><a href="/add-exam">Exam Add</a></li>
+									<li><a href="edit-subject.html">Exam Edit</a></li>
+								</ul>
 							</li>
 							<li> 
 								<a href="event.html"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
@@ -310,20 +315,7 @@
 							<li class="menu-title"> 
 								<span>Pages</span>
 							</li>
-							<li class="submenu">
-                                <a href="#"><i class="fa fa-newspaper"></i> <span> Blogs</span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <ul>
-                                    <li><a href="blog.html">All Blogs</a></li>
-                                    <li><a href="add-blog.html">Add Blog</a></li>
-                                    <li><a href="edit-blog.html">Edit Blog</a></li>
-                                    
-                                </ul>
-                            </li>
-							<li> 
-								<a href="settings.html"><i class="fas fa-cog"></i> <span>Settings</span></a>
-							</li>
+
 							<li class="submenu">
 								<a href="#"><i class="fas fa-shield-alt"></i> <span> Authentication </span> <span class="menu-arrow"></span></a>
 								<ul>

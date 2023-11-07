@@ -17,6 +17,10 @@ class ClassesController extends Controller
 
         Classes::create($data);
 
-        return redirect()->route('exams.view')->with('success', 'Class details added successfully.');
+        return redirect()->route('class.create')->with('success', 'Class details added successfully.');
+    }
+    public function classview(){
+        $values = Classes::all();
+        return view('class.view-class', compact('values'));
     }
 }

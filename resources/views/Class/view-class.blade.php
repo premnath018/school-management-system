@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=0"
     />
-    <title>Exams</title>
+    <title>Classes</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -323,10 +323,10 @@
 									<li><a href="edit-department.html">Department Edit</a></li>
 								</ul>
 							</li>
-							<li class="submenu">
+							<li class="submenu active">
 								<a href="#"><i class="fas fa-book-reader"></i> <span> Class</span> <span class="menu-arrow"></span></a>
 								<ul>
-									<li><a href="/classes">Class List</a></li>
+									<li><a href="/classes" class='active'>Class List</a></li>
 									<li><a href="/add-classes">Class Add</a></li>
 									<li><a href="edit-subject.html">Class Edit</a></li>
 								</ul>
@@ -363,10 +363,10 @@
 							<li> 
 								<a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
 							</li>
-							<li class="submenu active">
+							<li class="submenu">
 								<a href="#"><i class="fas fa-clipboard-list"></i> <span> Exams</span> <span class="menu-arrow"></span></a>
 								<ul>
-									<li><a href="/exams" class="active">Exam List</a></li>
+									<li><a href="/exams">Exam List</a></li>
 									<li><a href="/add-exam">Exam Add</a></li>
 									<li><a href="edit-subject.html">Exam Edit</a></li>
 								</ul>
@@ -556,7 +556,7 @@
           <div class="page-header">
             <div class="row align-items-center">
               <div class="col">
-                <h3 class="page-title">Exam</h3>
+                <h3 class="page-title">Class</h3>
               </div>
             </div>
           </div>
@@ -570,7 +570,7 @@
                   <div class="page-header">
                     <div class="row align-items-center">
                       <div class="col">
-                        <h3 class="page-title">Exam</h3>
+                        <h3 class="page-title">Class</h3>
                       </div>
                       <div
                         class="col-auto text-end float-end ms-auto download-grp"
@@ -591,12 +591,9 @@
                     >
                       <thead class="student-thread">
                         <tr>
-                          <th>Exam Name</th>
+                          <th>Class Name</th>
                           <th>Class</th>
-                          <th>Subject</th>
-                          <th>Start Time</th>
-                          <th>End Time</th>
-                          <th>Date</th>
+                          <th>Class Section</th>
                           <th class="text-end">Action</th>
                         </tr>
                       </thead>
@@ -605,14 +602,11 @@
                         <tr>
                           <td>
                             <h2>
-                              <a>{{$values->exam_name}}</a>
+                              <a>{{$values->ClassID}}</a>
                             </h2>
                           </td>
-                          <td>{{$values->class}}</td>
-                          <td>{{$values->subject}}</td>
-                          <td>{{$values->start_time}}</td>
-                          <td>{{$values->end_time}}</td>
-                          <td>{{$values->date_of_event}}</td>
+                          <td>{{$values->Class}}</td>
+                          <td>{{$values->section}}</td>
                           <td class="text-end">
                             <div class="actions">
                               <a
