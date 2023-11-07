@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
 
-    Route::get('/testviewStudent', function () {
+    Route::get('/StudentProfile', function () {
         return view('student/profile');
     });
 });

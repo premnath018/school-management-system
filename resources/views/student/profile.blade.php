@@ -4,6 +4,11 @@
 <!-- Mirrored from preschool.dreamstechnologies.com/template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:03 GMT -->
 
 <head>
+    <style>
+        .hideEdit {
+            display: none;
+        }
+    </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <title>Student Details</title>
@@ -509,6 +514,7 @@
                                     <div class="item-title">
                                         <h3>About Student</h3>
                                     </div>
+                                    <input type="button" onclick="ViewEdit()" id="viewedit" class="btn btn-primary" value="Edit Info" />
                                 </div>
                             </div>
                             <div class="single-info-details">
@@ -617,7 +623,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
+                        <div class="hideEdit card-body" id="editform">
                             <form action="/addstudent" method="post">
                                 <input type="hidden" name="_token" value="2mBSzfZh5tVGCkBDkV9mnloIHhQmJ2gSDYpUSCQO" autocomplete="off">
                                 <div class="row">
@@ -962,6 +968,17 @@
     <script src="assets/js/script.js"></script>
 
 </body>
+
+<script>
+    document.getElementById("viewedit").addEventListener('click', function() {
+        document.getElementById('editform').classList.toggle("hideEdit");
+        if (document.getElementById("viewedit").value == 'Edit Info') {
+            document.getElementById("viewedit").value = 'Close Edit'
+        } else {
+            document.getElementById("viewedit").value = 'Edit Info'
+        }
+    });
+</script>
 
 <!-- Mirrored from preschool.dreamstechnologies.com/template/add-student.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:48:06 GMT -->
 
