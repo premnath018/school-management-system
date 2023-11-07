@@ -530,7 +530,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="add-exam" method="POST">
+                                <form action="{{ route('exams.store') }}" method="POST">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
@@ -541,13 +541,13 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Exam Name</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="exam_name" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Class</label>
-                                                <select class="form-control select">
+                                                <select class="form-control select" name="class">
                                                     <option>Select Class</option>
                                                     <option>LKG</option>
                                                     <option>UKG</option>
@@ -569,25 +569,25 @@
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Subject</label>
-                                                <input type="text" class="form-control" />
+                                                <input type="text" class="form-control" name="subject" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Start Time</label>
-                                                <input type="time" class="form-control" />
+                                                <input type="time" class="form-control" name="start_time" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
-                                            <div class="form-group">
+                                            <div class form-group>
                                                 <label>End Time</label>
-                                                <input type="time" class="form-control" />
+                                                <input type="time" class="form-control" name="end_time" />
                                             </div>
                                         </div>
                                         <div class="col-12 col-sm-6">
                                             <div class="form-group">
                                                 <label>Event Date</label>
-                                                <input type="date" class="form-control" />
+                                                <input type="date" class="form-control" name="date_of_event" />
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -596,6 +596,7 @@
                                             </button>
                                         </div>
                                     </div>
+
                                 </form>
                             </div>
                         </div>

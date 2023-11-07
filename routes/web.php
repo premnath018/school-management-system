@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ExamController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +29,9 @@ Route::get('/login', function () {
 
 Route::get('/add-exam', function () {
     return view('exams/add_exam');
-});
+})->name('exams.create');
+
+Route::post('exams', [ExamController::class, 'store'])->name('exams.store');
 
 Route::middleware('auth')->group(function () {
 
