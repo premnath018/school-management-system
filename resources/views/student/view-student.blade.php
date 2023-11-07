@@ -217,7 +217,7 @@
 						<li class="submenu active">
 							<a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> <span class="menu-arrow"></span></a>
 							<ul>
-								<li><a href="/viewstudent" class="active">Student List</a></li>
+								<li><a href="/students" class="active">Student List</a></li>
 								<li><a href="#">Student View</a></li>
 								<li><a href="/">Student Add</a></li>
 								<li><a href="edit-student.html">Student Edit</a></li>
@@ -241,11 +241,11 @@
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fas fa-book-reader"></i> <span> Class</span> <span class="menu-arrow"></span></a>
 							<ul>
-								<li><a href="subjects.html">Subject List</a></li>
-								<li><a href="add-subject.html">Subject Add</a></li>
-								<li><a href="edit-subject.html">Subject Edit</a></li>
+								<li><a href="/classes">Class List</a></li>
+								<li><a href="/add-classes">Class Add</a></li>
+								<li><a href="edit-subject.html">Class Edit</a></li>
 							</ul>
 						</li>
 						<li class="submenu">

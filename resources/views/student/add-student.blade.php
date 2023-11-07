@@ -244,11 +244,11 @@
 							</ul>
 						</li>
 						<li class="submenu">
-							<a href="#"><i class="fas fa-book-reader"></i> <span> Subjects</span> <span class="menu-arrow"></span></a>
+							<a href="#"><i class="fas fa-book-reader"></i> <span> Class</span> <span class="menu-arrow"></span></a>
 							<ul>
-								<li><a href="subjects.html">Subject List</a></li>
-								<li><a href="add-subject.html">Subject Add</a></li>
-								<li><a href="edit-subject.html">Subject Edit</a></li>
+								<li><a href="/classes">Class List</a></li>
+								<li><a href="/add-classes">Class Add</a></li>
+								<li><a href="edit-subject.html">Class Edit</a></li>
 							</ul>
 						</li>
 						<li class="submenu">
@@ -283,8 +283,13 @@
 						<li>
 							<a href="fees.html"><i class="fas fa-comment-dollar"></i> <span>Fees</span></a>
 						</li>
-						<li>
-							<a href="exam.html"><i class="fas fa-clipboard-list"></i> <span>Exam list</span></a>
+						<li class="submenu">
+							<a href="#"><i class="fas fa-clipboard-list"></i> <span> Exams</span> <span class="menu-arrow"></span></a>
+							<ul>
+								<li><a href="/exams">Exam List</a></li>
+								<li><a href="/add-exam">Exam Add</a></li>
+								<li><a href="edit-subject.html">Exam Edit</a></li>
+							</ul>
 						</li>
 						<li>
 							<a href="event.html"><i class="fas fa-calendar-day"></i> <span>Events</span></a>
