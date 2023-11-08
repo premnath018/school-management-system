@@ -60,4 +60,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/classes', [ClassesController::class, 'classview']);
 
     Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
+
+    Route::get('/edit-class', function () {
+        return view('Class/edit-class');
+    });
 });
