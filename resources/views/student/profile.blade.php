@@ -666,9 +666,9 @@
                                             <label>Gender <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="gender">
                                                 <option>Select Gender</option>
-                                                <option>Female</option>
-                                                <option>Male</option>
-                                                <option>Others</option>
+                                                <option value="Female" {{  $data->gender === 'Male' ? 'selected' : ''}}>Female</option>
+                                                <option value="Male" {{  $data->gender === 'Male' ? 'selected' : ''}}>Male</option>
+                                                <option value="Others" {{ $data->gender === 'Others' ? 'selected' : ''}}>Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -689,10 +689,10 @@
                                             <label>Religion <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="religion">
                                                 <option>Please Select Religion </option>
-                                                <option>Hindu</option>
-                                                <option>Muslim</option>
-                                                <option>Christian</option>
-                                                <option>Others</option>
+                                                <option value="Hindu" {{  $data->religion === 'Hindu' ? 'selected' : ''}}>Hindu</option>
+                                                <option value="Muslim" {{  $data->religion === 'Muslim' ? 'selected' : ''}}>Muslim</option>
+                                                <option value="Christian" {{  $data->religion === 'Christian' ? 'selected' : ''}}>Christian</option>
+                                                <option value="Others" {{  $data->religion === 'Others' ? 'selected' : ''}}>Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -713,8 +713,8 @@
                                             <label>Nationality <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="nationality">
                                                 <option>Please Select Nationality </option>
-                                                <option>Indian</option>
-                                                <option>Others</option>
+                                                <option value="Indian" {{  $data->nationality === 'Indian' ? 'selected' : ''}}>Indian</option>
+                                                <option value="Others" {{  $data->religion === 'Others' ? 'selected' : ''}}>Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -723,10 +723,10 @@
                                             <label>Mother Tongue <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="mother_tongue">
                                                 <option>Please Select Mother Tongue </option>
-                                                <option>Tamil</option>
-                                                <option>Telungu</option>
-                                                <option>Kannada</option>
-                                                <option>Other</option>
+                                                <option value="Tamil" {{  $data->mother_tongue === 'Tamil' ? 'selected' : ''}}>Tamil</option>
+                                                <option value="Telungu" {{  $data->mother_tongue === 'Telungu' ? 'selected' : ''}}>Telungu</option>
+                                                <option value="Kannada" {{  $data->mother_tongue === 'Kannada' ? 'selected' : ''}}>Kannada</option>
+                                                <option value="Others" {{  $data->mother_tongue === 'Others' ? 'selected' : ''}}>Others</option>
                                             </select>
                                         </div>
                                     </div>
@@ -735,15 +735,15 @@
                                             <label>Blood Group<span class="login-danger">*</span></label>
                                             <select class="form-control select" name="blood_group">
                                                 <option>Please Select Blood Group </option>
-                                                <option>A+</option>
-                                                <option>A-</option>
-                                                <option>B+</option>
-                                                <option>B-</option>
-                                                <option>AB+</option>
-                                                <option>AB-</option>
-                                                <option>O+</option>
-                                                <option>O-</option>
-                                                <option>Others</option>
+                                                <option value="A+" {{  $data->blood_group === 'A+' ? 'selected' : ''}}>A+</option>
+                                                <option value="A-" {{  $data->blood_group === 'A-' ? 'selected' : ''}}>A-</option>
+                                                <option value="B+" {{  $data->blood_group === 'B+' ? 'selected' : ''}}>B+</option>
+                                                <option value="B-" {{  $data->blood_group === 'B-' ? 'selected' : ''}}>B-</option>
+                                                <option value="AB+" {{  $data->blood_group === 'AB+' ? 'selected' : ''}}>AB+</option>
+                                                <option value="AB-" {{  $data->blood_group === 'AB-' ? 'selected' : ''}}>AB-</option>
+                                                <option value="O+" {{  $data->blood_group === 'O+' ? 'selected' : ''}}>O+</option>
+                                                <option value="O-" {{  $data->blood_group === 'O-' ? 'selected' : ''}}>O-</option>
+                                                <option value="Others" {{  $data->blood_group === 'Others' ? 'selected' : ''}}>Others</option>
                                             </select>
                                         </div>
                                     </div>

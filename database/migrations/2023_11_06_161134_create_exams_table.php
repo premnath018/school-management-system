@@ -13,8 +13,8 @@ class CreateExamsTable extends Migration
             $table->string('exam_name');
             $table->string('class');
             $table->string('subject');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->Time('start_time');
+            $table->Time('end_time');
             $table->date('date_of_event');
             $table->timestamps();
         });

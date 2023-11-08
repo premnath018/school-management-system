@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('students_bios', function (Blueprint $table) {
             $table->id();
             $table->integer('batch');
-            $table->dateTime('date_of_admission');
+            $table->date('date_of_admission');
             $table->integer('admission_number');
             $table->string('name');
             $table->enum('gender', ['Male', 'Female', 'Others']);
-            $table->dateTime('dob');
+            $table->date('dob');
             $table->integer('age');
             $table->enum('religion', ['Hindu', 'Muslim', 'Christian', 'Others']);
             $table->string('community');
