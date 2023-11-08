@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\StudentsBio;
 use App\Models\Classes;
 use Illuminate\Http\Request;
 
@@ -26,10 +27,20 @@ class ClassesController extends Controller
 
     public function editclass($id){
         $data = Classes::find($id);
-        return view('class.edit-class', compact('data'));
+        $values = StudentsBio::all();
+        return view('class.edit-class', compact('data','values'));
     }
 
     public function updateclass(Request $request, $id){
+        $data = Classes::find($id);
+        $data->ClassID = $request->input('ClassID');
+        $data->Class = $request->input('Class');
+        $data->section = $request->input('section');
+        $data->save();
+        return redirect()->route('classlist');
+    }
+
+    public function updateclass1(Request $request, $id){
         $data = Classes::find($id);
         $data->ClassID = $request->input('ClassID');
         $data->Class = $request->input('Class');

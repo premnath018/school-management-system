@@ -42,4 +42,21 @@ class ExamController extends Controller
         $values = Exam::all();
         return view('exams.view-exam', compact('values'));
     }
+
+    public function editexam($id){
+        $data = Exam::find($id);
+        return view('exams.edit-exam', compact('data'));
+    }
+
+    public function updateexam(Request $request, $id){
+        $data = Exam::find($id);
+        $data->exam_name = $request->input('exam_name');
+        $data->class = $request->input('class');
+        $data->subject = $request->input('subject');
+        $data->start_time = $request->input('start_time');
+        $data->end_time = $request->input('end_time');
+        $data->date_of_event = $request->input('date_of_event');
+        $data->save();
+        return redirect()->route('examlist');
+    }
 }

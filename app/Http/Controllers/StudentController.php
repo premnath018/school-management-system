@@ -115,6 +115,6 @@ class StudentController extends Controller
             $data->mother_income = $request->input('mother_income');
             $data->emis_number = $request->input('emis_number');
             $data->save();
-            return redirect()->route('list');
+            return redirect()->route('studentlist');
     }
 }

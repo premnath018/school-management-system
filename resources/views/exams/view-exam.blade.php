@@ -616,7 +616,7 @@
                           <td class="text-end">
                             <div class="actions">
                               <a
-                                href="edit-exam.html"
+                                href="/editexam/{{$values->id}}"
                                 class="btn btn-sm bg-danger-light"
                               >
                                 <i class="feather-edit"></i>

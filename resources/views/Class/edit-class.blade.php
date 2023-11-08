@@ -507,7 +507,7 @@
                                 <div class="heading-layout1">
                                     <div class="row align-items-center">
                                         <div class="col">
-                                            <h3 class="page-title">Edit Class</h3>
+                                            <h3 class="page-title">Class Info</h3>
                                         </div>
                                         <div class="col-auto text-end float-end ms-auto download-grp">
                                             <input type="button" onclick="AddStd()" id="AddStd" class="btn btn-primary" value="Add Student" />
@@ -579,23 +579,23 @@
                                                     </thead>
                                                     <tbody>
                                                         <!-- For Loop Start -->
-
-                                                        <!-- For loop ends -->
+											            @foreach($values as $values)
                                                         <tr role="row" class="odd">
-                                                            <td>Batch</td>
+                                                            <td>{{$values->batch}}</td>
                                                             <td>
                                                                 <h2 class="table-avatar">
-                                                                    <a href="student-details.html">Student ID</a>
+                                                                    <a href="student-details.html">{{$values->id}}</a>
                                                                 </h2>
                                                             </td>
-                                                            <td>Name</td>
-                                                            <td>Enrollment</td>
+                                                            <td>{{$values->name}}</td>
+                                                            <td>{{$values->enrollment_number}}</td>
                                                             <td class="text-end">
-                                                                <div class="actions "> <input type="button" id="" class="btn btn-primary" value="Add" />
-
+                                                                <div class="actions "> <input type="button" id="" class="btn btn-primary" value="Add" onclick=""/>
                                                                 </div>
                                                             </td>
                                                         </tr>
+                                                        @endforeach
+                                                        <!-- For loop ends -->
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -620,7 +620,7 @@
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
-                                        <h5 class="form-title student-info">Student Information <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
+                                        <h5 class="form-title student-info">Edit Class <span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
                                     </div>
                                     <!-- Changes -->
                                     <div class="col-12 col-sm-4">
@@ -634,7 +634,7 @@
                                             <label>Class <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="Class">
                                                 <option>Select Section</option>
-                                                <option value="I"  $data->Class === 'I' ? 'selected' : ''}}>I</option>
+                                                <option value="I"  {{$data->Class === 'I' ? 'selected' : ''}}>I</option>
                                                 <option value="II" {{  $data->Class === 'II' ? 'selected' : ''}}>II</option>
                                                 <option value="III" {{  $data->Class === 'III' ? 'selected' : ''}}>III</option>
                                                 <option value="IV" {{  $data->Class === 'IV' ? 'selected' : ''}}>IV</option>
