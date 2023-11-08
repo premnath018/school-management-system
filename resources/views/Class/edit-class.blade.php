@@ -510,7 +510,8 @@
                                             <h3 class="page-title">Edit Class</h3>
                                         </div>
                                         <div class="col-auto text-end float-end ms-auto download-grp">
-                                            <input type="button" onclick="ViewEdit()" id="viewedit" class="btn btn-primary" value="Edit Info" />
+                                            <input type="button" onclick="AddStd()" id="AddStd" class="btn btn-primary" value="Add Student" />
+                                            <input type="button" id="viewedit" class="btn btn-primary" value="Edit Info" />
                                         </div>
                                     </div>
                                 </div>
@@ -534,6 +535,82 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hideEdit m-b-30" id="SearchStudent">
+                            <div class="student-group-form">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search by ID ...">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Search by Name ...">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2">
+                                        <div class="search-student-btn">
+                                            <button type="btn" class="btn btn-primary">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+
+                                <div class="table-responsive">
+                                    <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                                    <thead class="student-thread">
+                                                        <tr role="row">
+
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 38.8625px;">Batch</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 75.4px;">Student ID </th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Class: activate to sort column ascending" style="width: 37.2625px;">Name</th>
+                                                            <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending" style="width: 51.1125px;">Enrollment No</th>
+                                                            <th class="text-end sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 72px;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <!-- For Loop Start -->
+
+                                                        <!-- For loop ends -->
+                                                        <tr role="row" class="odd">
+                                                            <td>Batch</td>
+                                                            <td>
+                                                                <h2 class="table-avatar">
+                                                                    <a href="student-details.html">Student ID</a>
+                                                                </h2>
+                                                            </td>
+                                                            <td>Name</td>
+                                                            <td>Enrollment</td>
+                                                            <td class="text-end">
+                                                                <div class="actions "> <input type="button" id="" class="btn btn-primary" value="Add" />
+
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-7">
+                                                <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                                    <ul class="pagination">
+                                                        <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                                        <li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                                        <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -700,28 +777,30 @@
                                     <div class="col-12">
                                         <div class="student-submit">
                                             <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="button" class="btn btn-primary border-0 bg-danger text-white" data-bs-toggle="modal" data-bs-target="#centermodal">Remove Students</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
-    <style>
-        .hideEdit {
-            display: none;
-        }
+        <style>
+            .hideEdit {
+                display: none;
+            }
 
-        .single-info-details {
-            padding: 0 30px;
-        }
-    </style>
-    <!-- /Page Wrapper -->
+            .single-info-details {
+                padding: 0 30px;
+            }
+        </style>
+        <!-- /Page Wrapper -->
 
     </div>
     <!-- /Main Wrapper -->
@@ -757,6 +836,15 @@
             document.getElementById("viewedit").value = 'Close Edit'
         } else {
             document.getElementById("viewedit").value = 'Edit Info'
+        }
+        document.getElementById("AddStd").setAttribute = 'disabled'
+    });
+    document.getElementById("AddStd").addEventListener('click', function() {
+        document.getElementById('SearchStudent').classList.toggle("hideEdit");
+        if (document.getElementById("AddStd").value == 'Add Student') {
+            document.getElementById("AddStd").value = 'Close Add Student'
+        } else {
+            document.getElementById("AddStd").value = 'Add Student'
         }
     });
 </script>
