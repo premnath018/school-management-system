@@ -31,32 +31,33 @@ Route::get('/login', function () {
 })->name('login');
 
 
-
 Route::middleware('auth')->group(function () {
-
 
     Route::get('/', function () {
         return view('student.add-student');
     })->name('home');
 
-    // Student
     Route::post('/addstudent', [StudentController::class, 'add']);
-    Route::get('/students', [StudentController::class, 'studentview']);
 
-    // Exams
+    Route::get('/students', [StudentController::class, 'studentview'])->name('list');
+
+    Route::get('/studentprofile/{id}', [StudentController::class, 'editstudent']);
+
+    Route::post('/updatestudent/{id}', [StudentController::class, 'updatestudent']);
+
     Route::get('/exams', [ExamController::class, 'examview']);
+
     Route::get('/add-exam', function () {
         return view('exams.add-exam');
     })->name('exams.create');
-    Route::post('/exams', [ExamController::class, 'store']);
 
-    // Classes
+    Route::post('/exams', [ExamController::class, 'store'])->name('exams.store');
+
     Route::get('/add-classes', function () {
         return view('Class.add-class');
     })->name('class.create');
+
     Route::get('/classes', [ClassesController::class, 'classview']);
-    Route::get('/StudentProfile', function () {
-        return view('student/profile');
-    });
-    Route::post('/add-class', [ClassesController::class, 'store']);
+
+    Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
 });

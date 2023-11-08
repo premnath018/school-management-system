@@ -640,25 +640,25 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Batch <span class="login-danger">*</span></label>
-                                            <input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year" />
+                                            <input class="form-control" name="batch" type="number" step="1" placeholder="Batch Year" value="{{$data->batch}}" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Date of Admission <span class="login-danger">*</span></label>
-                                            <input class="form-control" name="date_of_admission" type="date" min="2006-01-01" max="2023-12-31" step="1" value="2023-11-07" />
+                                            <input class="form-control" name="date_of_admission" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{$data->date_of_admission}}" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Admission Number <span class="login-danger">*</span></label>
-                                            <input class="form-control" name="admission_number" type="number" step="1" placeholder="Admission Number" />
+                                            <input class="form-control" name="admission_number" type="number" step="1" placeholder="Admission Number" value="{{$data->admission_number}}" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Full Name <span class="login-danger">*</span></label>
-                                            <input class="form-control" name="name" type="text" placeholder="Enter Full Name">
+                                            <input class="form-control" name="name" type="text" placeholder="Enter Full Name" value="{{$data->name}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
@@ -675,13 +675,13 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Date of Birth<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="dob" type="date" min="2006-01-01" max="2025-12-31" step="1" value="2023-11-07" />
+                                            <input class="form-control" name="dob" type="date" min="2006-01-01" max="2025-12-31" step="1" value="{{$data->dob}}" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Age<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="age" type="number" min="3" max="22" step="1" placeholder="Enter Age" />
+                                            <input class="form-control" name="age" type="number" min="3" max="22" step="1" placeholder="Enter Age" value="{{$data->age}}" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
@@ -699,13 +699,13 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Community<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="community" type="text" placeholder="Enter Community">
+                                            <input class="form-control" name="community" type="text" placeholder="Enter Community" value="{{$data->community}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Caste<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="caste" type="text" placeholder="Enter Caste">
+                                            <input class="form-control" name="caste" type="text" placeholder="Enter Caste" value="{{$data->caste}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
@@ -750,79 +750,79 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Enrollment Number<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="enrollment_number" type="text" placeholder="Enter Enrollment Number">
+                                            <input class="form-control" name="enrollment_number" type="text" placeholder="Enter Enrollment Number" value="{{$data->enrollment_number}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Parent Contact Number<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="contact_number" type="number" placeholder="Enter Contact Number">
+                                            <input class="form-control" name="contact_number" type="number" placeholder="Enter Contact Number" value="{{$data->contact_number}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Father Name<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="father_name" type="text" placeholder="Enter Father Name">
+                                            <input class="form-control" name="father_name" type="text" placeholder="Enter Father Name" value="{{$data->father_name}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Mother Name<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="mother_name" type="text" placeholder="Enter Mother Name">
+                                            <input class="form-control" name="mother_name" type="text" placeholder="Enter Mother Name" value="{{$data->mother_name}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Email address<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="email" type="email" placeholder="Enter Email Address">
+                                            <input class="form-control" name="email" type="email" placeholder="Enter Email Address" value="{{$data->email}}">
                                         </div>
                                     </div>
                                     <div>
                                         <div class="form-group local-forms">
                                             <label>Permanent Address<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="permanent_address" type="text" placeholder="">
+                                            <input class="form-control" name="permanent_address" type="text" placeholder="" value="{{$data->permanent_address}}">
                                         </div>
                                     </div>
                                     <div>
                                         <div class="form-group local-forms">
                                             <label>Present Address<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="present_address" type="text" placeholder="">
+                                            <input class="form-control" name="present_address" type="text" placeholder="" value="{{$data->present_address}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Father Occupation<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="father_occupation" type="text" placeholder="Enter Father Occupation">
+                                            <input class="form-control" name="father_occupation" type="text" placeholder="Enter Father Occupation" value="{{$data->father_occupation}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Mother Occupation<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="mother_occupation" type="text" placeholder="Enter Mother Occupation">
+                                            <input class="form-control" name="mother_occupation" type="text" placeholder="Enter Mother Occupation" value="{{$data->mother_occupation}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Place of work<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="place_of_work" type="text" placeholder="Enter Place of work">
+                                            <input class="form-control" name="place_of_work" type="text" placeholder="Enter Place of work" value="{{$data->place_of_work}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Father Income<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="father_income" type="number" placeholder="Enter Father Income">
+                                            <input class="form-control" name="father_income" type="number" placeholder="Enter Father Income" value="{{$data->father_income}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Mother Income<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="mother_income" type="number" placeholder="Enter Mother Income">
+                                            <input class="form-control" name="mother_income" type="number" placeholder="Enter Mother Income" value="{{$data->mother_income}}">
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>EMIS Number<span class="login-danger">*</span></label>
-                                            <input class="form-control" name="emis_number" type="number" placeholder="EMIS Number">
+                                            <input class="form-control" name="emis_number" type="number" placeholder="EMIS Number" value="{{$data->emis_number}}">
                                         </div>
                                     </div>
                                     <!--Template code  -->
