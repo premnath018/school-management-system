@@ -18,37 +18,45 @@ use App\Http\Controllers\ExamController;
 */
 
 
-Route::get('/register', function () {return view('auth.signup');});
+Route::get('/register', function () {
+    return view('auth.signup');
+});
 
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/register', [LoginController::class, 'register']);
 
-Route::get('/login', function () {return view('auth.login');})->name('login');
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function () {return view('student.add-student');})->name('home');
 
+    Route::get('/', function () {
+        return view('student.add-student');
+    })->name('home');
+
+    // Student
     Route::post('/addstudent', [StudentController::class, 'add']);
+    Route::get('/students', [StudentController::class, 'studentview']);
 
-    Route::get('/students', [StudentController::class, 'studentview'])->name('list');
-
-    Route::get('/studentprofile/{id}', [StudentController::class,'editstudent']);
-    
-    Route::post('/updatestudent/{id}', [StudentController::class,'updatestudent']);
-
+    // Exams
     Route::get('/exams', [ExamController::class, 'examview']);
+    Route::get('/add-exam', function () {
+        return view('exams.add-exam');
+    })->name('exams.create');
+    Route::post('/exams', [ExamController::class, 'store']);
 
-    Route::get('/add-exam', function () {return view('exams.add-exam');})->name('exams.create');
-
-    Route::post('/exams', [ExamController::class, 'store'])->name('exams.store');
-
-    Route::get('/add-classes', function () {return view('Class.add-class');})->name('class.create');
-
+    // Classes
+    Route::get('/add-classes', function () {
+        return view('Class.add-class');
+    })->name('class.create');
     Route::get('/classes', [ClassesController::class, 'classview']);
-
-    Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
-    
+    Route::get('/StudentProfile', function () {
+        return view('student/profile');
+    });
+    Route::post('/add-class', [ClassesController::class, 'store']);
 });
