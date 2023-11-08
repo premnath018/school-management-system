@@ -601,7 +601,7 @@
 													<option>Tamil</option>
 													<option>Telungu</option>
 													<option>Kannada</option>
-													<option>Other</option>
+													<option>Others</option>
 												</select>
 											</div>
 										</div>
