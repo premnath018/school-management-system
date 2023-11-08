@@ -51,11 +51,11 @@ Route::middleware('auth')->group(function () {
     //classes
     Route::get('/add-classes', function () {return view('Class.add-class');})->name('class.create');
 
-    Route::get('/classes', [ClassesController::class, 'classview']);
+    Route::get('/classes', [ClassesController::class, 'classview'])->name('classlist');
 
     Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
 
-    Route::get('/edit-class', function () {
-        return view('Class/edit-class');
-    });
+    Route::get('/editclass/{id}', [ClassesController::class,'editclass']);
+
+    Route::post('/updateclass/{id}', [ClassesController::class,'updateclass']);
 });

@@ -23,4 +23,18 @@ class ClassesController extends Controller
         $values = Classes::all();
         return view('class.view-class', compact('values'));
     }
+
+    public function editclass($id){
+        $data = Classes::find($id);
+        return view('class.edit-class', compact('data'));
+    }
+
+    public function updateclass(Request $request, $id){
+        $data = Classes::find($id);
+        $data->ClassID = $request->input('ClassID');
+        $data->Class = $request->input('Class');
+        $data->section = $request->input('section');
+        $data->save();
+        return redirect()->route('classlist');
+    }
 }

@@ -87,7 +87,6 @@ class StudentController extends Controller
     }
 
     public function updatestudent($id, Request $request){
-        {
             $data = StudentsBio::find($id);
             $data->batch = $request->input('batch');
             $data->date_of_admission = $request->input('date_of_admission');
@@ -117,6 +116,5 @@ class StudentController extends Controller
             $data->emis_number = $request->input('emis_number');
             $data->save();
             return redirect()->route('list');
-        }
     }
 }

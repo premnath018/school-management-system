@@ -538,7 +538,7 @@
                         <td>{{$values->section}}</td>
                         <td class="text-end">
                           <div class="actions">
-                            <a href="edit-class" class="btn btn-sm bg-danger-light">
+                            <a href="/editclass/{{$values->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>
                             </a>
                           </div>

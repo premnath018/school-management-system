@@ -522,15 +522,15 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Class ID:</td>
-                                                    <td class="font-medium text-dark-medium">Class ID</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->ClassID}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Class:</td>
-                                                    <td class="font-medium text-dark-medium">Class</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->Class}}</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Section</td>
-                                                    <td class="font-medium text-dark-medium">Section</td>
+                                                    <td>Section:</td>
+                                                    <td class="font-medium text-dark-medium">{{$data->section}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -539,7 +539,7 @@
                             </div>
                         </div>
                         <div class="hideEdit card-body" id="editform">
-                            <form action="{}" method="post">
+                            <form action="{{url('updateclass',$data->id)}}" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -549,7 +549,7 @@
                                     <div class="col-12 col-sm-4">
                                         <div class="form-group local-forms">
                                             <label>Class Name<span class="login-danger">*</span></label>
-                                            <input type="text" class="form-control" name="ClassID" />
+                                            <input type="text" class="form-control" name="ClassID" value="{{$data->ClassID}}" />
                                         </div>
                                     </div>
                                     <div class="col-12 col-sm-4">
@@ -557,18 +557,18 @@
                                             <label>Class <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="Class">
                                                 <option>Select Section</option>
-                                                <option>I</option>
-                                                <option>II</option>
-                                                <option>III</option>
-                                                <option>IV</option>
-                                                <option>V</option>
-                                                <option>VI</option>
-                                                <option>VII</option>
-                                                <option>VIII</option>
-                                                <option>IX</option>
-                                                <option>X</option>
-                                                <option>XI</option>
-                                                <option>XII</option>
+                                                <option value="I"  $data->Class === 'I' ? 'selected' : ''}}>I</option>
+                                                <option value="II" {{  $data->Class === 'II' ? 'selected' : ''}}>II</option>
+                                                <option value="III" {{  $data->Class === 'III' ? 'selected' : ''}}>III</option>
+                                                <option value="IV" {{  $data->Class === 'IV' ? 'selected' : ''}}>IV</option>
+                                                <option value="V" {{  $data->Class === 'V' ? 'selected' : ''}}>V</option>
+                                                <option value="VI" {{  $data->Class === 'VI' ? 'selected' : ''}}>VI</option>
+                                                <option value="VII" {{  $data->Class === 'VII' ? 'selected' : ''}}>VII</option>
+                                                <option value="VIII" {{  $data->Class === 'VIII' ? 'selected' : ''}}>VIII</option>
+                                                <option value="IX" {{  $data->Class === 'IX' ? 'selected' : ''}}>IX</option>
+                                                <option value="X" {{  $data->Class === 'X' ? 'selected' : ''}}>X</option>
+                                                <option value="XI" {{  $data->Class === 'XI' ? 'selected' : ''}}>XI</option>
+                                                <option value="XII" {{  $data->Class === 'XII' ? 'selected' : ''}}>XII</option>
                                             </select>
                                         </div>
                                     </div>
@@ -578,14 +578,14 @@
                                                 <span class="login-danger">*</span></label>
                                             <select class="form-control select" name="section">
                                                 <option>Select Section</option>
-                                                <option>A</option>
-                                                <option>B</option>
-                                                <option>C</option>
-                                                <option>D</option>
-                                                <option>E</option>
-                                                <option>G</option>
-                                                <option>H</option>
-                                                <option>J</option>
+                                                <option value="A" {{  $data->section === 'A' ? 'selected' : ''}}>A</option>
+                                                <option value="B" {{  $data->section === 'B' ? 'selected' : ''}}>B</option>
+                                                <option value="C" {{  $data->section === 'C' ? 'selected' : ''}}>C</option>
+                                                <option value="D" {{  $data->section === 'D' ? 'selected' : ''}}>D</option>
+                                                <option value="E" {{  $data->section === 'E' ? 'selected' : ''}}>E</option>
+                                                <option value="F" {{  $data->section === 'F' ? 'selected' : ''}}>F</option>
+                                                <option value="G" {{  $data->section === 'G' ? 'selected' : ''}}>G</option>
+                                                <option value="H" {{  $data->section === 'H' ? 'selected' : ''}}>H</option>
                                             </select>
                                         </div>
                                     </div>
@@ -604,9 +604,9 @@
 											</div>
 											<div class="col-12 col-sm-4">
 												<div class="form-group local-forms">
-													<label >Gender <span class="login-danger">*</span></label>
+													<label >Class <span class="login-danger">*</span></label>
 													<select class="form-control select">
-														<option>Select Gender</option>
+														<option>Select Class</option>
 														<option>Female</option>
 														<option>Male</option>
 														<option>Others</option>
