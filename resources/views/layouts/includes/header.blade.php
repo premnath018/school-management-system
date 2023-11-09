@@ -19,12 +19,12 @@
     </div>
 
     <!-- Search Bar -->
-    <div class="top-nav-search">
+    <!-- <div class="top-nav-search">
         <form>
             <input type="text" class="form-control" placeholder="Search here">
             <button class="btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
-    </div>
+    </div> -->
     <!-- /Search Bar -->
 
     <!-- Mobile Menu Toggle -->
@@ -35,7 +35,7 @@
 
     <!-- Header Right Menu -->
     <ul class="nav user-menu">
-        <li class="nav-item dropdown language-drop me-2">
+        <!-- <li class="nav-item dropdown language-drop me-2">
             <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
                 <img src="{{asset('assets//img/icons/header-icon-01.svg')}}" alt="">
             </a>
@@ -44,9 +44,9 @@
                 <a class="dropdown-item" href="javascript:;"><i class="flag flag-bl me-2"></i>Francais</a>
                 <a class="dropdown-item" href="javascript:;"><i class="flag flag-cn me-2"></i>Turkce</a>
             </div>
-        </li>
+        </li> -->
         <!-- Notifications -->
-        <li class="nav-item dropdown noti-dropdown me-2">
+        <!-- <li class="nav-item dropdown noti-dropdown me-2">
             <a href="#" class="dropdown-toggle nav-link header-nav-list" data-bs-toggle="dropdown">
                 <img src="{{asset('assets//img/icons/header-icon-05.svg')}}" alt="">
             </a>
@@ -115,7 +115,7 @@
                     <a href="#">View all Notifications</a>
                 </div>
             </div>
-        </li>
+        </li> -->
         <!-- /Notifications -->
         <li class="nav-item zoom-screen me-2">
             <a href="#" class="nav-link header-nav-list">
@@ -127,9 +127,9 @@
         <li class="nav-item dropdown has-arrow new-user-menus">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                 <span class="user-img">
-                    <img class="rounded-circle" src="{{asset('assets//img/profiles/avatar-01.jpg')}}" width="31" alt="Ryan Taylor">
+                    <!-- <img class="rounded-circle" src="{{asset('assets//img/profiles/avatar-01.jpg')}}" width="31" alt="Ryan Taylor"> -->
                     <div class="user-text">
-                        <h6>Ryan Taylor</h6>
+                        <h6>Principal</h6>
                         <p class="text-muted mb-0">Administrator</p>
                     </div>
                 </span>
@@ -137,10 +137,11 @@
             <div class="dropdown-menu">
                 <div class="user-header">
                     <div class="avatar avatar-sm">
-                        <img src="{{asset('assets//img/profiles/avatar-01.jpg')}}" alt="User Image" class="avatar-img rounded-circle">
+                        <i  class="fas fa-user-shield"></i>
+                        <!-- <img src="{{asset('assets//img/profiles/avatar-01.jpg')}}" alt="User Image" class="avatar-img rounded-circle"> -->
                     </div>
                     <div class="user-text">
-                        <h6>Ryan Taylor</h6>
+                        <h6>Principal</h6>
                         <p class="text-muted mb-0">Administrator</p>
                     </div>
                 </div>

@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
 
     // Student
     Route::get('/', function () {return view('student.add-student');})->name('home');
+    
+    Route::get('/addstudent', function () {return view('student.add-student');})->name('home');
 
     Route::post('/addstudent', [StudentController::class, 'add']);
 
