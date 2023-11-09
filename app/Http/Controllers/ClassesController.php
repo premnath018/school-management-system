@@ -31,6 +31,12 @@ class ClassesController extends Controller
         return view('class.edit-class', compact('data','values'));
     }
 
+    public function classstudents($id){
+        $data = Classes::find($id);
+        $values = StudentsBio::where('class_id', $id)->get();
+        return view('class.view-class-students', compact('data','values'));
+    }
+
     public function updateclass(Request $request, $id){
         $data = Classes::find($id);
         $data->ClassID = $request->input('ClassID');
@@ -40,7 +46,7 @@ class ClassesController extends Controller
         return redirect()->route('classlist');
     }
 
-    public function studentclassadd(Request $request, $id_student){
+    public function studentclassadd($id_student){
         list($id, $student) = explode('-', $id_student);
         $data = StudentsBio::find($student);
         $data->class_id = $id;

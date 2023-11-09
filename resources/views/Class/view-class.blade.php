@@ -523,6 +523,7 @@
                         <th>Class Name</th>
                         <th>Class</th>
                         <th>Class Section</th>
+                        <th class="text-end">View</th>
                         <th class="text-end">Action</th>
                       </tr>
                     </thead>
@@ -537,6 +538,13 @@
                         <td>{{$values->Class}}</td>
                         <td>{{$values->section}}</td>
                         <td class="text-end">
+                         <div class="actions">
+                            <a href="/classstudents/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                              <i class="fa fa-eye"></i>
+                            </a>
+                          </div>
+                        </td>
+                        <td>
                           <div class="actions">
                             <a href="/editclass/{{$values->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>

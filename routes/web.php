@@ -60,6 +60,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/editclass/{id}', [ClassesController::class,'editclass']);
 
+    Route::get('/classstudents/{id}', [ClassesController::class,'classstudents']);
+
     Route::post('/updateclass/{id}', [ClassesController::class,'updateclass']);
     
     Route::post('studentclassadd/{id_student}', [ClassesController::class,'studentclassadd']);
