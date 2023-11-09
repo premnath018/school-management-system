@@ -44,6 +44,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/updatestudent/{id}', [StudentController::class,'updatestudent']);
 
+    // Teacher
+    Route::get('/add-teacher',function(){return view('teachers.add-teacher');});
+
+    Route::get('/teachers',function(){return view('teachers.teachers');});
+
     // Exams
     Route::get('/exams', [ExamController::class, 'examview'])->name('examlist');
 

@@ -104,7 +104,7 @@
 										<td>{{$values->id}}</td>
 										<td>
 											<h2 class="table-avatar">
-												<a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a>
+												<!-- <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a> -->
 												<a href="#">{{$values->name}}</a>
 											</h2>
 										</td>
