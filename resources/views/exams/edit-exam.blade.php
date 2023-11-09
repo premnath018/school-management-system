@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Welcome')
+@section('title','Edit Exam')
 @push('internalCss')
 <style>
     .hideEdit {
