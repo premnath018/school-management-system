@@ -61,7 +61,7 @@
                                         </tr>
                                         <tr>
                                             <td>Class:</td>
-                                            <td class="font-medium text-dark-medium">{{$data->class_id ? $data->class_id : 'Not added to class'}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->class_id ? $values->Class.'-'.$values->section : 'Not added to class'}}</td>
                                         </tr>
                                         <tr>
                                             <td>Addmission Date:</td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\StudentsBio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -84,7 +85,8 @@ class StudentController extends Controller
 
     public function editstudent($id){
         $data = StudentsBio::find($id);
-        return view('student.profile', compact('data'));
+        $values = Classes::where('id', $data->class_id)->first();  
+        return view('student.profile', compact('data','values'));
     }
 
     public function updatestudent($id, Request $request){

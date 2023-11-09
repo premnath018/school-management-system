@@ -30,7 +30,7 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
-    //Test
+    //Demo
     Route::get('/test',function(){return view('layouts.demo');});
 
     // Student
