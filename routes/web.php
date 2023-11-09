@@ -17,8 +17,7 @@ use App\Http\Controllers\ExamController;
 */
 
 
-Route::get('/register', function () {return view('auth.signup');
-});
+Route::get('/register', function () {return view('auth.signup');});
 
 Route::post('/login', [LoginController::class, 'login']);
 
@@ -30,7 +29,7 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::middleware('auth')->group(function () {
 
     //Test
-    Route::get('/Test',function(){return view('layouts.demo');});
+    Route::get('/test',function(){return view('layouts.demo');});
 
     // Student
     Route::get('/', function () {return view('student.add-student');})->name('home');
@@ -62,6 +61,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/add-class', [ClassesController::class, 'store'])->name('class.store');
 
     Route::get('/editclass/{id}', [ClassesController::class,'editclass']);
+
+    Route::get('/classstudents/{id}', [ClassesController::class,'classstudents']);
 
     Route::post('/updateclass/{id}', [ClassesController::class,'updateclass']);
     
