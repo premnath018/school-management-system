@@ -529,6 +529,10 @@
                                                     <td class="font-medium text-dark-medium">{{$data->batch}}</td>
                                                 </tr>
                                                 <tr>
+                                                    <td>Class:</td>
+                                                    <td class="font-medium text-dark-medium" >{{$data->class_id ? $data->class_id : 'Not added to class'}}</td>
+                                                </tr>
+                                                <tr>
                                                     <td>Addmission Date:</td>
                                                     <td class="font-medium text-dark-medium">{{$data->date_of_admission}}</td>
                                                 </tr>

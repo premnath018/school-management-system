@@ -511,7 +511,7 @@
                                         </div>
                                         <div class="col-auto text-end float-end ms-auto download-grp">
                                             <input type="button" onclick="AddStd()" id="AddStd" class="btn btn-primary" value="Add Student" />
-                                            <input type="button" id="viewedit" class="btn btn-primary" value="Edit Info" />
+                                            <input type="button" id="viewedit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Edit Info" />
                                         </div>
                                     </div>
                                 </div>
@@ -539,6 +539,90 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- sample modal content -->
+
+                        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                            <div class="modal-dialog">
+                                <div class="modal-content card-body">
+                                <form action="{{url('updateclass',$data->id)}}" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="form-title student-info">Edit Class <span><a href="javascript:;"></a></span></h5>
+                                    </div>
+                                    <!-- Changes -->
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Class Name<span class="login-danger">*</span></label>
+                                            <input type="text" class="form-control" name="ClassID" value="{{$data->ClassID}}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Class <span class="login-danger">*</span></label>
+                                            <select class="form-control" name="Class">
+                                                <option>Select Section</option>
+                                                <option value="I"  {{$data->Class === 'I' ? 'selected' : ''}}>I</option>
+                                                <option value="II" {{  $data->Class === 'II' ? 'selected' : ''}}>II</option>
+                                                <option value="III" {{  $data->Class === 'III' ? 'selected' : ''}}>III</option>
+                                                <option value="IV" {{  $data->Class === 'IV' ? 'selected' : ''}}>IV</option>
+                                                <option value="V" {{  $data->Class === 'V' ? 'selected' : ''}}>V</option>
+                                                <option value="VI" {{  $data->Class === 'VI' ? 'selected' : ''}}>VI</option>
+                                                <option value="VII" {{  $data->Class === 'VII' ? 'selected' : ''}}>VII</option>
+                                                <option value="VIII" {{  $data->Class === 'VIII' ? 'selected' : ''}}>VIII</option>
+                                                <option value="IX" {{  $data->Class === 'IX' ? 'selected' : ''}}>IX</option>
+                                                <option value="X" {{  $data->Class === 'X' ? 'selected' : ''}}>X</option>
+                                                <option value="XI" {{  $data->Class === 'XI' ? 'selected' : ''}}>XI</option>
+                                                <option value="XII" {{  $data->Class === 'XII' ? 'selected' : ''}}>XII</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-4">
+                                        <div class="form-group local-forms">
+                                            <label>Class Section
+                                                <span class="login-danger">*</span></label>
+                                            <select class="form-control" name="section">
+                                                <option>Select Section</option>
+                                                <option value="A" {{  $data->section === 'A' ? 'selected' : ''}}>A</option>
+                                                <option value="B" {{  $data->section === 'B' ? 'selected' : ''}}>B</option>
+                                                <option value="C" {{  $data->section === 'C' ? 'selected' : ''}}>C</option>
+                                                <option value="D" {{  $data->section === 'D' ? 'selected' : ''}}>D</option>
+                                                <option value="E" {{  $data->section === 'E' ? 'selected' : ''}}>E</option>
+                                                <option value="F" {{  $data->section === 'F' ? 'selected' : ''}}>F</option>
+                                                <option value="G" {{  $data->section === 'G' ? 'selected' : ''}}>G</option>
+                                                <option value="H" {{  $data->section === 'H' ? 'selected' : ''}}>H</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="student-submit">
+                                            <button type="submit" class="btn btn-primary m-r-10">Submit</button>
+                                            <button type="button" class="btn btn-primary border-0 bg-danger text-white" data-bs-toggle="modal" data-bs-target="#info-alert-modal">Remove Students</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                                </div>
+                            </div>
+                        </div><!-- /.modal -->
+
+                        <div id="info-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-sm">
+                                <div class="modal-content">
+                                    <div class="modal-body p-4">
+                                        <div class="text-center">
+                                            <i class="dripicons-information h1 text-info"></i>
+                                            <h4 class="mt-2">Heads up!</h4>
+                                            <p class="mt-3">Do you want to remove all the students?</p>
+                                            <button type="button" class="btn btn-danger m-r-10 my-2" data-bs-dismiss="modal">Remove</button>
+                                            <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
+                                        </div>
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+
                         <div class="hideEdit m-b-30" id="SearchStudent">
                             <div class="student-group-form">
                                 <div class="row">
@@ -590,8 +674,12 @@
                                                             <td>{{$values->name}}</td>
                                                             <td>{{$values->enrollment_number}}</td>
                                                             <td class="text-end">
-                                                                <div class="actions "> <input type="button" id="" class="btn btn-primary" value="Add" onclick=""/>
+                                                                <form action="{{url('studentclassadd', ['id_student' => $data->id . '-' . $values->id]) }}" method="post">
+                                                                @csrf
+                                                                <div class="actions ">
+                                                                    <button type="submit" class="btn btn-primary">Add</button>
                                                                 </div>
+                                                                </form>
                                                             </td>
                                                         </tr>
                                                         @endforeach
@@ -666,114 +754,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <!--Template code  -->
-                                    <!-- <div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >First Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter First Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Last Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter First Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Class <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Select Class</option>
-														<option>Female</option>
-														<option>Male</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms calendar-icon">
-													<label >Date Of Birth  <span class="login-danger">*</span></label>
-													<input class="form-control datetimepicker" type="text"  placeholder="DD-MM-YYYY" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Roll </label>
-													<input class="form-control" type="text" placeholder="Enter Roll Number" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Blood Group <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Group </option>
-														<option>B+</option>
-														<option>A+</option>
-														<option>O+</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Religion <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Religion  </option>
-														<option>Hindu</option>
-														<option>Christian</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >E-Mail <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Email Address" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Class <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Class  </option>
-														<option>12</option>
-														<option>11</option>
-														<option>10</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Section <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Section   </option>
-														<option>B</option>
-														<option>A</option>
-														<option>C</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Admission ID </label>
-													<input class="form-control" type="text" placeholder="Enter Admission ID" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Phone </label>
-													<input class="form-control" type="text" placeholder="Enter Phone Number" >
-												</div>
-											</div> 
-											<div class="col-12 col-sm-4">
-												<div class="form-group students-up-files">
-													<label>Upload Student Photo (150px X 150px)</label>
-													<div class="uplod">
-														<label class="file-upload image-upbtn mb-0">
-															Choose File <input type="file">
-														</label>
-													</div>
-												</div>
-											</div> -->
                                     <div class="col-12">
                                         <div class="student-submit">
                                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -830,15 +810,6 @@
 </body>
 
 <script>
-    document.getElementById("viewedit").addEventListener('click', function() {
-        document.getElementById('editform').classList.toggle("hideEdit");
-        if (document.getElementById("viewedit").value == 'Edit Info') {
-            document.getElementById("viewedit").value = 'Close Edit'
-        } else {
-            document.getElementById("viewedit").value = 'Edit Info'
-        }
-        document.getElementById("AddStd").setAttribute = 'disabled'
-    });
     document.getElementById("AddStd").addEventListener('click', function() {
         document.getElementById('SearchStudent').classList.toggle("hideEdit");
         if (document.getElementById("AddStd").value == 'Add Student') {

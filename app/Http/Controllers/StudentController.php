@@ -37,6 +37,7 @@ class StudentController extends Controller
             'father_income' => 'required',
             'mother_income' => 'required',
             'emis_number' => 'required',
+            'class_id' => 'nullable'
         ]);
         if ($validator->fails()) {
             dd($validator->errors());

@@ -29,10 +29,9 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
-    //students
+    // Student
     Route::get('/', function () {return view('student.add-student');})->name('home');
 
-    // Student
     Route::post('/addstudent', [StudentController::class, 'add']);
 
     Route::get('/students', [StudentController::class, 'studentview'])->name('studentlist');
@@ -51,7 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/editexam/{id}', [ExamController::class,'editexam']);
 
     Route::post('/updateexam/{id}', [ExamController::class,'updateexam']);
-
+    
     //classes
     Route::get('/add-classes', function () {return view('Class.add-class');})->name('class.create');
 
@@ -62,4 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/editclass/{id}', [ClassesController::class,'editclass']);
 
     Route::post('/updateclass/{id}', [ClassesController::class,'updateclass']);
+    
+    Route::post('studentclassadd/{id_student}', [ClassesController::class,'studentclassadd']);
 });

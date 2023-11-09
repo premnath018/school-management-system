@@ -40,11 +40,10 @@ class ClassesController extends Controller
         return redirect()->route('classlist');
     }
 
-    public function updateclass1(Request $request, $id){
-        $data = Classes::find($id);
-        $data->ClassID = $request->input('ClassID');
-        $data->Class = $request->input('Class');
-        $data->section = $request->input('section');
+    public function studentclassadd(Request $request, $id_student){
+        list($id, $student) = explode('-', $id_student);
+        $data = StudentsBio::find($student);
+        $data->class_id = $id;
         $data->save();
         return redirect()->route('classlist');
     }

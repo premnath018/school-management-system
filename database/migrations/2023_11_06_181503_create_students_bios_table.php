@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('father_income');
             $table->string('mother_income');
             $table->string('emis_number');
+            $table->integer('class_id');
             $table->timestamps();
         });
     }
