@@ -29,6 +29,9 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
+    //Test
+    Route::get('/Test',function(){return view('layouts.demo');});
+
     // Student
     Route::get('/', function () {return view('student.add-student');})->name('home');
 
