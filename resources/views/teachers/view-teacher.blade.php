@@ -110,7 +110,7 @@
                                         <td>{{$values->subject}}</td>
                                         <td>{{$values->total_experience}}</td>
                                         <td>{{$values->salary}}</td>
-                                        <td>{{$values->contact_number.','.$values->emergency_contact_number}}</td>
+                                        <td>{{$values->contact_number}}</td>
                                         <td class="text-end">
                                             <div class="actions ">
                                                 <a href="/teacherprofile/{{$values->id}}" class="btn btn-sm bg-danger-light">

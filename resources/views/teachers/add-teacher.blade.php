@@ -52,8 +52,8 @@
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Date of Birth <span class="login-danger">*</span></label>
-                                        <input class="form-control" name="dob" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
+                                        <label>Date of Join <span class="login-danger">*</span></label>
+                                        <input class="form-control" name="date_of_joining" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
                                     </div>
                                 </div>
                                 <div>
@@ -75,14 +75,14 @@
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Date of Joining<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="date_of_joining" type="date" min="2006-01-01" max="2025-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
+                                        <label>Date of Birth<span class="login-danger">*</span></label>
+                                        <input class="form-control" name="dob" type="date" min="2000-01-01" max="2025-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Age<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="age" type="number" min="3" max="22" step="1" placeholder="Enter Age" />
+                                        <input class="form-control" name="age" type="number" min="3" step="1" placeholder="Enter Age" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
@@ -106,13 +106,13 @@
                                 <div>
                                     <div class="form-group local-forms">
                                         <label>Previous Work Experience<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="previous_work_experience" type="text" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="Work Experience">
+                                        <input class="form-control" name="previous_work_experience" type="text" placeholder="Work Experience">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Total Experience<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="total_experience" type="number" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="In years">
+                                        <input class="form-control" name="total_experience" type="number" placeholder="In years">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">

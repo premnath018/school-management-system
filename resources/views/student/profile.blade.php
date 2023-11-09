@@ -68,7 +68,7 @@
                                             <td class="font-medium text-dark-medium">{{$data->date_of_admission}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Addmission Number:
+                                            <td>Addmission Number:</td>
                                             <td class="font-medium text-dark-medium">{{$data->admission_number}}</td>
                                         </tr>
                                         <tr>

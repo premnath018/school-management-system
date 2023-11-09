@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('emergency_contact_number');
             $table->string('previous_work_experience');
             $table->integer('total_experience');
-            $table->enum('subject', ['Tamil', 'English', 'Maths', 'Social Science', 'Physics', 'Chemistry', 'Zoology', 'Biology']);
+            $table->enum('subject', ['Tamil', 'English', 'Maths', 'SocialScience', 'Physics', 'Chemistry', 'Zoology', 'Biology']);
             $table->integer('salary');            
             $table->timestamps();
         });

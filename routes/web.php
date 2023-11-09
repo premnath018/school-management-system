@@ -50,8 +50,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/addteacher',function(){return view('teachers.add-teacher');})->name('teacher.create');
 
     Route::get('/teachers',[TeacherController::class, 'teacherview'])->name('teacherlist');
+
+    Route::get('/teacherprofile/{id}',[TeacherController::class,'editteacher'])->name('teacher.profile');
     
     Route::post('/addteacher', [TeacherController::class, 'add'])->name('teacher.store');
+
+    Route::post('/updateteacher/{id}',[TeacherController::class,'updateteacher']);
 
     // Exams
     Route::get('/addexam', function () {return view('exams.add-exam');})->name('exams.create');

@@ -50,9 +50,35 @@ class TeacherController extends Controller
         $teacher->save();
         return redirect()->route('teacher.create');
     }
+
     public function teacherview()
     {
         $values = TeachersBio::all();
         return view('teachers.view-teacher', compact('values'));
+    }
+
+    public function editteacher($id) {
+        $data = TeachersBio::find($id);
+        return view('teachers.profile',compact('data'));
+    }
+
+    public function updateteacher($id, Request $request ){
+        $data = TeachersBio::find($id);
+        $data->name = $request->name;
+        $data->teacher_id = $request->teacher_id;
+        $data->dob = $request->dob;
+        $data->permanent_address = $request->permanent_address;
+        $data->gender = $request->gender;
+        $data->date_of_joining = $request->date_of_joining;
+        $data->age = $request->age;
+        $data->contact_number = $request->contact_number;
+        $data->email = $request->email;
+        $data->emergency_contact_number = $request->emergency_contact_number;
+        $data->previous_work_experience = $request->previous_work_experience;
+        $data->total_experience = $request->total_experience;
+        $data->subject = $request->subject;
+        $data->salary = $request->salary;
+        $data->save();
+        return redirect()->route('teacherlist');
     }
 }
