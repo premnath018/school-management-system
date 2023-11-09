@@ -82,7 +82,7 @@
                                                 <input class="form-check-input" type="checkbox" value="something">
                                             </div>
                                         </th>
-                                        <th>ID</th>
+                                        <th>Teacher ID</th>
                                         <th>Name</th>
                                         <th>Subject</th>
                                         <th>Work Experience</th>
@@ -100,7 +100,7 @@
                                                 <input class="form-check-input" type="checkbox" value="something">
                                             </div>
                                         </td>
-                                        <td>{{$values->id}}</td>
+                                        <td>{{$values->teacher_id}}</td>
                                         <td>
                                             <h2 class="table-avatar">
                                                 <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a>
@@ -108,12 +108,12 @@
                                             </h2>
                                         </td>
                                         <td>{{$values->subject}}</td>
-                                        <td>{{$values->T_experience}}</td>
+                                        <td>{{$values->total_experience}}</td>
                                         <td>{{$values->salary}}</td>
-                                        <td>{{$values->contact_number}}</td>
+                                        <td>{{$values->contact_number.','.$values->emergency_contact_number}}</td>
                                         <td class="text-end">
                                             <div class="actions ">
-                                                <a href="/studentprofile/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                                                <a href="/teacherprofile/{{$values->id}}" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
                                                 </a>
                                             </div>

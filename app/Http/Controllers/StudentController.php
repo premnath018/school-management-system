@@ -74,7 +74,7 @@ class StudentController extends Controller
         $student->mother_income = $request->mother_income;
         $student->emis_number = $request->emis_number;
         $student->save();
-        return redirect()->route('home');
+        return redirect()->route('student.create');
     }
     public function studentview()
     {

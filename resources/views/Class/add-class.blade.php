@@ -27,7 +27,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="add-class" method="POST">
+                        <form action="/addclass" method="POST">
                             @csrf
                             <div class="row">
                                 <div class="col-12">

@@ -30,7 +30,7 @@
             <div class="col-sm-12">
                 <div class="card comman-shadow">
                     <div class="card-body">
-                        <form action="/addstudent" method="post">
+                        <form action="/addteacher" method="post">
                             <!-- Need to add file input for Documents of Resume , Work Experience , Degree Papers -->
                             @csrf
                             <div class="row">
@@ -47,13 +47,13 @@
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Teacher ID<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="teacherID" type="text" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="Enter Teacher ID" />
+                                        <input class="form-control" name="teacher_id" type="text" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="Enter Teacher ID" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Date of Birth <span class="login-danger">*</span></label>
-                                        <input class="form-control" name="date_of_birth" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
+                                        <input class="form-control" name="dob" type="date" min="2006-01-01" max="2023-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
                                     </div>
                                 </div>
                                 <div>
@@ -75,8 +75,8 @@
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
-                                        <label>Date of Birth<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="dob" type="date" min="2006-01-01" max="2025-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
+                                        <label>Date of Joining<span class="login-danger">*</span></label>
+                                        <input class="form-control" name="date_of_joining" type="date" min="2006-01-01" max="2025-12-31" step="1" value="{{ now()->format('Y-m-d') }}" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
@@ -100,19 +100,19 @@
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Emergency Contact Number<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="e_contact_number" type="number" placeholder="Enter Contact Number">
+                                        <input class="form-control" name="emergency_contact_number" type="number" placeholder="Enter Contact Number">
                                     </div>
                                 </div>
                                 <div>
                                     <div class="form-group local-forms">
                                         <label>Previous Work Experience<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="PreviousExperience" type="text" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="Work Experience">
+                                        <input class="form-control" name="previous_work_experience" type="text" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="Work Experience">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
                                     <div class="form-group local-forms">
                                         <label>Total Experience<span class="login-danger">*</span></label>
-                                        <input class="form-control" name="T_experience" type="number" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="In years">
+                                        <input class="form-control" name="total_experience" type="number" min="2006-01-01" max="2023-12-31" step="1" value="" placeholder="In years">
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-4">
