@@ -22,7 +22,7 @@
             <div class="row align-items-center">
                 <div class="col-sm-12">
                     <div class="page-sub-header">
-                        <h3 class="page-title">Student</h3>
+                        <h3 class="page-title">Teacher</h3>
                         <ul class="breadcrumb">
                         </ul>
                     </div>
@@ -147,7 +147,7 @@
                                     <label>Gender <span class="login-danger">*</span></label>
                                     <select class="form-control select" name="gender">
                                         <option>Select Gender</option>
-                                        <option value="Female" {{  $data->gender === 'Male' ? 'selected' : ''}}>Female</option>
+                                        <option value="Female" {{  $data->gender === 'Female' ? 'selected' : ''}}>Female</option>
                                         <option value="Male" {{  $data->gender === 'Male' ? 'selected' : ''}}>Male</option>
                                         <option value="Others" {{ $data->gender === 'Others' ? 'selected' : ''}}>Others</option>
                                     </select>
@@ -200,14 +200,14 @@
                                     <label>Subjects <span class="login-danger">*</span></label>
                                     <select class="form-control select" name="subject">
                                         <option>Please Select Subject </option>
-                                        <option value="Tamil" {{  $data->gender === 'Tamil' ? 'selected' : ''}}>Tamil</option>
-                                        <option value="English" {{  $data->gender === 'English' ? 'selected' : ''}}>English</option>
-                                        <option value="Maths" {{  $data->gender === 'Maths' ? 'selected' : ''}}>Maths</option>
-                                        <option value="SocialScience" {{  $data->gender === 'SocialScience' ? 'selected' : ''}}>SocialScience</option>
-                                        <option value="Physics" {{  $data->gender === 'Physics' ? 'selected' : ''}}>Physics</option>
-                                        <option value="Chemistry" {{  $data->gender === 'Chemistry' ? 'selected' : ''}}>Chemistry</option>
-                                        <option value="Zoology" {{  $data->gender === 'Zoology' ? 'selected' : ''}}>Zoology</option>
-                                        <option value="Botany" {{  $data->gender === 'Botany' ? 'selected' : ''}}>Botany</option>
+                                        <option value="Tamil" {{  $data->subject === 'Tamil' ? 'selected' : ''}}>Tamil</option>
+                                        <option value="English" {{  $data->subject === 'English' ? 'selected' : ''}}>English</option>
+                                        <option value="Maths" {{  $data->subject === 'Maths' ? 'selected' : ''}}>Maths</option>
+                                        <option value="SocialScience" {{  $data->subject === 'SocialScience' ? 'selected' : ''}}>SocialScience</option>
+                                        <option value="Physics" {{  $data->subject === 'Physics' ? 'selected' : ''}}>Physics</option>
+                                        <option value="Chemistry" {{  $data->subject === 'Chemistry' ? 'selected' : ''}}>Chemistry</option>
+                                        <option value="Zoology" {{  $data->subject === 'Zoology' ? 'selected' : ''}}>Zoology</option>
+                                        <option value="Botany" {{  $data->subject === 'Botany' ? 'selected' : ''}}>Botany</option>
                                     </select>
                                 </div>
                             </div>

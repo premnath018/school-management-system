@@ -43,6 +43,7 @@
                                     <h3 class="page-title">Class Info</h3>
                                 </div>
                                 <div class="col-auto text-end float-end ms-auto download-grp">
+                                    <input type="button" onclick="AddTea()" id="AddTea" class="btn btn-primary" value="Assign Teacher" />
                                     <input type="button" onclick="AddStd()" id="AddStd" class="btn btn-primary" value="Add Student" />
                                     <input type="button" id="viewedit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Edit Info" />
                                 </div>
@@ -236,6 +237,87 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="hideEdit m-b-30" id="SearchTeacher">
+                    <div class="student-group-form">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search by ID ...">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search by Name ...">
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="search-student-btn">
+                                    <button type="btn" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+                            <div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <thead class="student-thread">
+                                                <tr role="row">
+
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 38.8625px;">Name</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 75.4px;">Teacher ID </th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Class: activate to sort column ascending" style="width: 37.2625px;">Email</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="DOB: activate to sort column ascending" style="width: 51.1125px;">Contact No</th>
+                                                    <th class="text-end sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Action: activate to sort column ascending" style="width: 72px;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- For Loop Start -->
+                                                @foreach($details as $details)
+                                                <tr role="row" class="odd">
+                                                    <td>{{$details->name}}</td>
+                                                    <td>
+                                                        <h2 class="table-avatar">
+                                                            <a href="student-details.html">{{$details->teacher_id}}</a>
+                                                        </h2>
+                                                    </td>
+                                                    <td>{{$details->email}}</td>
+                                                    <td>{{$details->contact_number}}</td>
+                                                    <td class="text-end">
+                                                        <form action="{{url('teacherclassadd', ['id_teacher' => $data->id . '-' . $details->id]) }}" method="post">
+                                                            @csrf
+                                                            <div class="actions ">
+                                                                <button type="submit" class="btn btn-primary">Assign</button>
+                                                            </div>
+                                                        </form>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                                <!-- For loop ends -->
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-7">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
+                                            <ul class="pagination">
+                                                <li class="paginate_button page-item previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                                <li class="paginate_button page-item active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                                <li class="paginate_button page-item next disabled" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="hideEdit card-body" id="editform">
                     <form action="{{url('updateclass',$data->id)}}" method="post">
                         @csrf
@@ -317,6 +399,14 @@
             document.getElementById("AddStd").value = 'Close Add Student'
         } else {
             document.getElementById("AddStd").value = 'Add Student'
+        }
+    });
+    document.getElementById("AddTea").addEventListener('click', function() {
+        document.getElementById('SearchTeacher').classList.toggle("hideEdit");
+        if (document.getElementById("AddTea").value == 'Assign Teacher') {
+            document.getElementById("AddTea").value = 'Close Assign Teacher'
+        } else {
+            document.getElementById("AddTea").value = 'Assign Teacher'
         }
     });
 </script>

@@ -13,6 +13,7 @@ return new class extends Migration
             $table->string('ClassID');
             $table->string('Class');
             $table->string('section');
+            $table->integer('teacher_id');
             $table->timestamps();
         });
     }

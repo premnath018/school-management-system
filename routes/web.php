@@ -82,4 +82,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/updateclass/{id}', [ClassesController::class,'updateclass']);
     
     Route::post('studentclassadd/{id_student}', [ClassesController::class,'studentclassadd']);
+
+    Route::post('teacherclassadd/{id_teacher}', [ClassesController::class,'teacherclassadd']);
 });

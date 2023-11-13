@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\StudentsBio;
 use App\Models\Classes;
+use App\Models\TeachersBio;
 use Illuminate\Http\Request;
 
 class ClassesController extends Controller
@@ -28,13 +29,15 @@ class ClassesController extends Controller
     public function editclass($id){
         $data = Classes::find($id);
         $values = StudentsBio::all();
-        return view('class.edit-class', compact('data','values'));
+        $details = TeachersBio::all();
+        return view('class.edit-class', compact('data','values','details'));
     }
 
     public function classstudents($id){
         $data = Classes::find($id);
         $values = StudentsBio::where('class_id', $id)->get();
-        return view('class.view-class-students', compact('data','values'));
+        $details = TeachersBio::where('id',$data->teacher_id)->first();
+        return view('class.view-class-students', compact('data','values','details'));
     }
 
     public function updateclass(Request $request, $id){
@@ -50,6 +53,14 @@ class ClassesController extends Controller
         list($id, $student) = explode('-', $id_student);
         $data = StudentsBio::find($student);
         $data->class_id = $id;
+        $data->save();
+        return redirect()->route('classlist');
+    }
+
+    public function teacherclassadd($id_teacher){
+        list($id, $teacher) = explode('-', $id_teacher);
+        $data = Classes::find($id);
+        $data->teacher_id = $teacher;
         $data->save();
         return redirect()->route('classlist');
     }

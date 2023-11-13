@@ -61,6 +61,10 @@
                                             <td>Section:</td>
                                             <td class="font-medium text-dark-medium">{{$data->section}}</td>
                                         </tr>
+                                        <tr>
+                                            <td>Class Teacher:</td>
+                                            <td class="font-medium text-dark-medium">{{$data->teacher_id ? $details->name : 'No Teacher has been assigned'}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

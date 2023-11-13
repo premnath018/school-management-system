@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('teachers_bios', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('teacher_id');
+            $table->string('teacher_id');
             $table->date('dob');
             $table->string('permanent_address');
             $table->enum('gender', ['Male', 'Female', 'Others']);
