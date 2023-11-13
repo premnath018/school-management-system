@@ -31,7 +31,7 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::middleware('auth')->group(function () {
 
     //Demo
-    Route::get('/test',function(){return view('layouts.demo');});
+    Route::get('/fees',function(){return view('fees.viewfee');});
 
     // Student
     Route::get('/', function () {return view('student.add-student');})->name('home');

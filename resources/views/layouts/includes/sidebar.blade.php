@@ -49,6 +49,15 @@
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
 				</li>
+				<li class="submenu">
+					<a href="#"><i class="fas fa-rupee-sign"></i><span> Fee</span> <span class="menu-arrow"></span></a>
+					<ul>
+						<li><a href="/fees">Fees Details</a></li>
+						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
+						<!-- <li><a href="/addexam">Exam Add</a></li> -->
+						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
+					</ul>
+				</li>
 				<!-- <li class="submenu">
 					<a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
 					<ul>
