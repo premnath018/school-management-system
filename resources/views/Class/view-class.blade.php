@@ -277,12 +277,6 @@
       </div>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <p>Copyright © 2022 Dreamguys.</p>
-  </footer>
-  <!-- /Footer -->
 </div>
 <!-- /Page Wrapper -->
 
