@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Exam;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ExamController extends Controller
 {
+    public function view(){
+        $values = Classes::all();
+        return view('exams.add-exam', compact('values'));
+    }
     
     public function store(Request $request)
     {

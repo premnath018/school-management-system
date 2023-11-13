@@ -36,7 +36,7 @@
 					<ul>
 						<li><a href="/classes">Classes List</a></li>
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
-						<li><a href="/add-classes">Class Add</a></li>
+						<li><a href="/addclasses">Class Add</a></li>
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
 				</li>
@@ -45,7 +45,7 @@
 					<ul>
 						<li><a href="/exams">Exam List</a></li>
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
-						<li><a href="/add-exam">Exam Add</a></li>
+						<li><a href="/addexam">Exam Add</a></li>
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
 				</li>
