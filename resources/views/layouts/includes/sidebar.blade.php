@@ -36,7 +36,7 @@
 					<ul>
 						<li><a href="/classes">Classes List</a></li>
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
-						<li><a href="/add-classes">Class Add</a></li>
+						<li><a href="/addclasses">Class Add</a></li>
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
 				</li>

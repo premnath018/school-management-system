@@ -54,7 +54,7 @@ class ClassesController extends Controller
         $data = StudentsBio::find($student);
         $data->class_id = $id;
         $data->save();
-        return redirect()->route('classlist');
+        return $this->editclass($id);
     }
 
     public function teacherclassadd($id_teacher){
