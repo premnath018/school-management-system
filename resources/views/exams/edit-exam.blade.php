@@ -141,114 +141,6 @@
                                     <input type="date" class="form-control" name="date_of_event" value="{{$data->date_of_event}}" />
                                 </div>
                             </div>
-                            <!--Template code  -->
-                            <!-- <div class="col-12 col-sm-4">  
-												<div class="form-group local-forms">
-													<label >First Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter First Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Last Name <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter First Name" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Class <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Select Class</option>
-														<option>Female</option>
-														<option>Male</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms calendar-icon">
-													<label >Date Of Birth  <span class="login-danger">*</span></label>
-													<input class="form-control datetimepicker" type="text"  placeholder="DD-MM-YYYY" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Roll </label>
-													<input class="form-control" type="text" placeholder="Enter Roll Number" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Blood Group <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Group </option>
-														<option>B+</option>
-														<option>A+</option>
-														<option>O+</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Religion <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Religion  </option>
-														<option>Hindu</option>
-														<option>Christian</option>
-														<option>Others</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >E-Mail <span class="login-danger">*</span></label>
-													<input class="form-control" type="text" placeholder="Enter Email Address" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Class <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Class  </option>
-														<option>12</option>
-														<option>11</option>
-														<option>10</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Section <span class="login-danger">*</span></label>
-													<select class="form-control select">
-														<option>Please Select Section   </option>
-														<option>B</option>
-														<option>A</option>
-														<option>C</option>
-													  </select>
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Admission ID </label>
-													<input class="form-control" type="text" placeholder="Enter Admission ID" >
-												</div>
-											</div>
-											<div class="col-12 col-sm-4">
-												<div class="form-group local-forms">
-													<label >Phone </label>
-													<input class="form-control" type="text" placeholder="Enter Phone Number" >
-												</div>
-											</div> 
-											<div class="col-12 col-sm-4">
-												<div class="form-group students-up-files">
-													<label>Upload Student Photo (150px X 150px)</label>
-													<div class="uplod">
-														<label class="file-upload image-upbtn mb-0">
-															Choose File <input type="file">
-														</label>
-													</div>
-												</div>
-											</div> -->
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -259,6 +151,70 @@
                 </div>
 
 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="card card-table comman-shadow">
+                    <div class="card-body">
+
+                        <!-- Page Header -->
+                        <div class="page-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="page-title">Students</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Page Header -->
+
+                        <div class="table-responsive">
+                            <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+                                <thead class="student-thread">
+                                    <tr>
+                                        <th>
+                                            <div class="form-check check-tables">
+                                                <input class="form-check-input" type="checkbox" value="something">
+                                            </div>
+                                        </th>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Batch</th>
+                                        <th>Class ID</th>
+                                        <th>Subject</th>
+                                        <th class="text-end">Enter Mark</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- For Loop Start -->
+                                    <tr>
+                                        <td>
+                                            <div class="form-check check-tables">
+                                                <input class="form-check-input" type="checkbox" value="something">
+                                            </div>
+                                        </td>
+                                        <td>ID</td>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <!-- <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a> -->
+                                                <a>Name</a>
+                                            </h2>
+                                        </td>
+                                        <td>Batch</td>
+                                        <td>ClassID</td>
+                                        <td>Subject</td>
+                                        <td class="text-end">
+                                            <div class="actions"><input style="width:70%;" class="form-control" name="student_mark" type="number" placeholder="Student Mark">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- For loop ends -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
