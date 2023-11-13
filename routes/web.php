@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/updateteacher/{id}',[TeacherController::class,'updateteacher']);
 
     // Exams
-    Route::get('/addexam', function () {return view('exams.add-exam');})->name('exams.create');
+    Route::get('/addexam', [ExamController::class, 'view'])->name('exams.create');
 
     Route::get('/exams', [ExamController::class, 'examview'])->name('examlist');
 
