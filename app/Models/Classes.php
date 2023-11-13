@@ -11,5 +11,5 @@ class Classes extends Model
 
     protected $table = 'classes';
 
-    protected $fillable = ['ClassID', 'Class', 'section', 'teacher_id'];
+    protected $fillable = ['ClassID', 'Class', 'section', 'teacher_id', 'fees'];
 }

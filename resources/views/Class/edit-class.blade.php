@@ -67,6 +67,10 @@
                                             <td>Section:</td>
                                             <td class="font-medium text-dark-medium">{{$data->section}}</td>
                                         </tr>
+                                        <tr>
+                                            <td>Fees:</td>
+                                            <td class="font-medium text-dark-medium">{{$data->fees}}</td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -86,13 +90,13 @@
                                         <h5 class="form-title student-info">Edit Class <span><a href="javascript:;"></a></span></h5>
                                     </div>
                                     <!-- Changes -->
-                                    <div class="col-12 col-sm-4">
+                                    <div class="col-12 col-sm-6">
                                         <div class="form-group local-forms">
                                             <label>Class Name<span class="login-danger">*</span></label>
                                             <input type="text" class="form-control" name="ClassID" value="{{$data->ClassID}}" />
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-4">
+                                    <div class="col-12 col-sm-6">
                                         <div class="form-group local-forms">
                                             <label>Class <span class="login-danger">*</span></label>
                                             <select class="form-control" name="Class">
@@ -112,7 +116,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-4">
+                                    <div class="col-12 col-sm-6">
                                         <div class="form-group local-forms">
                                             <label>Class Section
                                                 <span class="login-danger">*</span></label>
@@ -127,6 +131,12 @@
                                                 <option value="G" {{  $data->section === 'G' ? 'selected' : ''}}>G</option>
                                                 <option value="H" {{  $data->section === 'H' ? 'selected' : ''}}>H</option>
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6">
+                                        <div class="form-group local-forms">
+                                            <label>Fees<span class="login-danger">*</span></label>
+                                            <input type="integer" class="form-control" value="{{$data->fees}}" name="fees" />
                                         </div>
                                     </div>
                                     <div class="col-12">

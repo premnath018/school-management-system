@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('Class');
             $table->string('section');
             $table->integer('teacher_id');
+            $table->integer('fees');
             $table->timestamps();
         });
     }

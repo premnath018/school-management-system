@@ -45,6 +45,7 @@ class ClassesController extends Controller
         $data->ClassID = $request->input('ClassID');
         $data->Class = $request->input('Class');
         $data->section = $request->input('section');
+        $data->fees = $request->input('fees');
         $data->save();
         return redirect()->route('classlist');
     }

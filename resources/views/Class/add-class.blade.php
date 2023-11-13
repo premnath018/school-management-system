@@ -35,13 +35,13 @@
                                         <span>Add Class</span>
                                     </h5>
                                 </div>
-                                <div class="col-12 col-sm-4">
+                                <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
                                         <label>Class Name<span class="login-danger">*</span></label>
                                         <input type="text" class="form-control" name="ClassID" />
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4">
+                                <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
                                         <label>Class <span class="login-danger">*</span></label>
                                         <select class="form-control select" name="Class">
@@ -61,7 +61,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-4">
+                                <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
                                         <label>Class Section
                                             <span class="login-danger">*</span></label>
@@ -76,6 +76,12 @@
                                             <option>G</option>
                                             <option>H</option>
                                         </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-3">
+                                    <div class="form-group local-forms">
+                                        <label>Fees<span class="login-danger">*</span></label>
+                                        <input type="integer" class="form-control" name="fees" />
                                     </div>
                                 </div>
                                 <div class="col-12">

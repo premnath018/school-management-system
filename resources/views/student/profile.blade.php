@@ -64,6 +64,10 @@
                                             <td class="font-medium text-dark-medium">{{$data->class_id ? $values->Class.'-'.$values->section : 'Not added to class'}}</td>
                                         </tr>
                                         <tr>
+                                            <td>Fees:</td>
+                                            <td class="font-medium text-dark-medium">{{$values->fees}}</td>
+                                        </tr>
+                                        <tr>
                                             <td>Addmission Date:</td>
                                             <td class="font-medium text-dark-medium">{{$data->date_of_admission}}</td>
                                         </tr>
