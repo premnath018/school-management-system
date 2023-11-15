@@ -58,11 +58,11 @@
                             <a>{{$values->exam_code}}</a>
                           </h2>
                         </td>
-                        <td>{{$values->class}}</td>
-                        <td>{{$values->subject}}</td>
+                        <td>{{$values->class_name}}</td>
+                        <td>{{$values->subject_name}}</td>
                         <td>{{$values->start_time}}</td>
                         <td>{{$values->end_time}}</td>
-                        <td>{{$values->date_of_event}}</td>
+                        <td>{{$values->exam_date}}</td>
                         <td class="text-end">
                           <div class="actions">
                             <a href="/editexam/{{$values->id}}" class="btn btn-sm bg-danger-light">

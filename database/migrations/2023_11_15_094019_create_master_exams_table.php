@@ -10,9 +10,9 @@ class CreateMasterExamsTable extends Migration
     {
         Schema::create('master_exams', function (Blueprint $table) {
             $table->id();
-            $table->string('exam_code', 10); // Adjust the length based on your requirements
+            $table->string('exam_code', 10);
             $table->unsignedBigInteger('class_id');
-            $table->string('subject_code', 5); // Adjust the length based on your requirements
+            $table->string('subject_code', 5);
             $table->enum('type', ['cycle','term','final']);
             $table->unsignedInteger('maximum_mark');
             $table->dateTime('start_time');

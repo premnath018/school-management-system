@@ -13,7 +13,6 @@ class ExamController extends Controller
     public function view(){
         $classes = Classes::all();
         $subjects = Subject::all();
-    
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
     
@@ -54,6 +53,11 @@ class ExamController extends Controller
 
     public function examview(){
         $values = Exam::all();
+        foreach ($values as $value){
+            $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
+            $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
+
+        }
         return view('exams.view-exam', compact('values'));
     }
 
