@@ -65,7 +65,7 @@
                                         </tr>
                                         <tr>
                                             <td>Fees:</td>
-                                            <td class="font-medium text-dark-medium">{{$values->fees}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->fees ? $data->fees : '0'}}</td>
                                         </tr>
                                         <tr>
                                             <td>Addmission Date:</td>
@@ -205,7 +205,7 @@
                                     <label>Gender <span class="login-danger">*</span></label>
                                     <select class="form-control select" name="gender">
                                         <option>Select Gender</option>
-                                        <option value="Female" {{  $data->gender === 'Male' ? 'selected' : ''}}>Female</option>
+                                        <option value="Female" {{  $data->gender === 'Female' ? 'selected' : ''}}>Female</option>
                                         <option value="Male" {{  $data->gender === 'Male' ? 'selected' : ''}}>Male</option>
                                         <option value="Others" {{ $data->gender === 'Others' ? 'selected' : ''}}>Others</option>
                                     </select>

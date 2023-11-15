@@ -53,15 +53,15 @@
                                     <tbody>
                                         <tr>
                                             <td>Exam Name:</td>
-                                            <td class="font-medium text-dark-medium">{{$data->exam_name}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->exam_code}}</td>
                                         </tr>
                                         <tr>
                                             <td>Class:</td>
-                                            <td class="font-medium text-dark-medium">{{$data->class}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->class_name}}</td>
                                         </tr>
                                         <tr>
                                             <td>Subject:</td>
-                                            <td class="font-medium text-dark-medium">{{$data->subject}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->subject_name}}</td>
                                         </tr>
                                         <tr>
                                             <td>Start Time:</td>
@@ -73,7 +73,7 @@
                                         </tr>
                                         <tr>
                                             <td>Date:</td>
-                                            <td class="font-medium text-dark-medium">{{$data->date_of_event}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->exam_date}}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -88,41 +88,29 @@
                             <div class="col-12">
                                 <h5 class="form-title student-info">Edit Info<span><a href="javascript:;"><i class="feather-more-vertical"></i></a></span></h5>
                             </div>
-                            <!-- Changes -->
-                            <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Exam Name</label>
-                                    <input type="text" class="form-control" name="exam_name" value="{{$data->exam_name}}" />
-                                </div>
-                            </div>
+                            <!-- Changes -->                            
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Class</label>
-                                    <select class="form-control select" name="class">
+                                    <select class="form-control select" name="class_id">
                                         <option>Select Class</option>
-                                        <option {{$data->class === 'LKG' ? 'selected' : ''}}>LKG</option>
-                                        <option {{$data->class === 'UKG' ? 'selected' : ''}}>UKG</option>
-                                        <option {{$data->class === '1' ? 'selected' : ''}}>1</option>
-                                        <option {{$data->class === '2' ? 'selected' : ''}}>2</option>
-                                        <option {{$data->class === '3' ? 'selected' : ''}}>3</option>
-                                        <option {{$data->class === '4' ? 'selected' : ''}}>4</option>
-                                        <option {{$data->class === '5' ? 'selected' : ''}}>5</option>
-                                        <option {{$data->class === '6' ? 'selected' : ''}}>6</option>
-                                        <option {{$data->class === '7' ? 'selected' : ''}}>7</option>
-                                        <option {{$data->class === '8' ? 'selected' : ''}}>8</option>
-                                        <option {{$data->class === '9' ? 'selected' : ''}}>9</option>
-                                        <option {{$data->class === '10' ? 'selected' : ''}}>10</option>
-                                        <option {{$data->class === '11' ? 'selected' : ''}}>11</option>
-                                        <option {{$data->class === '12' ? 'selected' : ''}}>12</option>
+                                        @foreach($classes as $class)
+                                            <option value="{{ $class->id }}" {{$data->class_id === $class->id ? 'selected' : ''}}>{{$class->ClassID}}</option>         
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
-                                <div class="form-group">
-                                    <label>Subject</label>
-                                    <input type="text" class="form-control" name="subject" value="{{$data->subject}}" />
+                                    <div class="form-group">
+                                            <label>Subject</label>
+                                            <select class="form-control select" name="subject_code">
+                                                <option>Select Subject</option>
+                                                @foreach($subjects as $subject)
+                                                <option value="{{ $subject->subject_code }}" {{$data->subject_code === $subject->subject_code ? 'selected' : ''}}>{{$subject->subject_name}}</option>         
+                                                @endforeach  
+                                            </select>
+                                        </div>
                                 </div>
-                            </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Start Time</label>
@@ -138,7 +126,7 @@
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Event Date</label>
-                                    <input type="date" class="form-control" name="date_of_event" value="{{$data->date_of_event}}" />
+                                    <input type="date" class="form-control" name="exam_date" value="{{$data->exam_date}}" />
                                 </div>
                             </div>
                             <div class="col-12">

@@ -162,7 +162,7 @@
                             <div class="col-12 col-sm-4">
                                 <div class="form-group local-forms">
                                     <label>Age<span class="login-danger">*</span></label>
-                                    <input class="form-control" name="age" type="number" min="3" max="22" step="1" placeholder="Enter Age" value="{{$data->age}}" />
+                                    <input class="form-control" name="age" type="number" min="3" max="45" step="1" placeholder="Enter Age" value="{{$data->age}}" />
                                 </div>
                             </div>
                             <div class="col-12 col-sm-4">

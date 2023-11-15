@@ -60,6 +60,12 @@ class ClassesController extends Controller
         $data = StudentsBio::find($student);
         $data->class_id = $id;
         $data->save();
+        $class = Classes::find($id);
+        $students = StudentsBio::where('class_id', $id)->get();
+        foreach ($students as $student) {
+            $student->fees = $class->fees;
+            $student->save();
+        }
         return $this->editclass($id);
     }
 

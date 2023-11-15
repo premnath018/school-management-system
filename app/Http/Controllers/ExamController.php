@@ -56,24 +56,28 @@ class ExamController extends Controller
         foreach ($values as $value){
             $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
             $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
-
         }
         return view('exams.view-exam', compact('values'));
     }
 
     public function editexam($id){
         $data = Exam::find($id);
-        return view('exams.edit-exam', compact('data'));
+        $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
+        $data->subject_name = Subject::where('subject_code', $data->subject_code)->value('subject_name');
+        $classes = Classes::all();
+        $subjects = Subject::all();
+        return view('exams.edit-exam', compact('data','classes','subjects'));
     }
 
     public function updateexam(Request $request, $id){
         $data = Exam::find($id);
-        $data->exam_name = $request->input('exam_name');
-        $data->class = $request->input('class');
-        $data->subject = $request->input('subject');
+        $incrementNumber = Exam::count() + 1;
+        $data->exam_code = $request->input('subject_code') . $request->input('class_id') . $incrementNumber;
+        $data->class_id = $request->input('class_id');
+        $data->subject_code = $request->input('subject_code');
         $data->start_time = $request->input('start_time');
         $data->end_time = $request->input('end_time');
-        $data->date_of_event = $request->input('date_of_event');
+        $data->exam_date = $request->input('exam_date');
         $data->save();
         return redirect()->route('examlist');
     }

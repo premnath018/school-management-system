@@ -31,37 +31,36 @@
 							<table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
 								<thead class="student-thread">
 									<tr>
-										<th>ID</th>
 										<th>Name</th>
 										<th>Class</th>
 										<th>Total Amount</th>
 										<th>Paid Amount</th>
 										<th>Status</th>
-										<th class="text-end">Enter Amount</th>
+										<th>Enter Amount</th>
+										<th class="text-end">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									<!-- For Loop Start -->
 									@foreach($values as $values)
 									<tr>
-										<td>{{$values->id}}</td>
+										<td>{{$values->name}}</td>
 										<td>
 											<h2 class="table-avatar">
 												<!-- <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a> -->
-												<a href="#">{{$values->name}}</a>
+												<a href="#">{{$values->class_id}}</a>
 											</h2>
 										</td>
-										<td>{{$values->class_id}}</td>
 										<td>{{$values->fees}}</td>
-										<td>{{$values->paid_amount ? $values->paid_amount : "0"}}</td>
-										<td>{{$values->status}}</td>
-										<td class="text-end">
-											<div class="actions ">
-												<a href="/fees" class="btn btn-sm bg-danger-light">
-													<i class="feather-edit"></i>
-												</a>
-											</div>
-										</td>
+										<td>{{$values->paid_fees ? $values->paid_fees : "0"}}</td>
+										<td>{{$values->fee_status}}</td>
+										<form action="updatefee/{{$values->id}}" method="post">
+											@csrf
+											<td><input class="form-control" name="update_amount" type="number" placeholder="Enter Amount"></td>
+											<td class="text-end">
+												<button type="submit" class="btn btn-primary">Submit</button>
+											</td>
+										</form>
 									</tr>
 									@endforeach
 									<!-- For loop ends -->

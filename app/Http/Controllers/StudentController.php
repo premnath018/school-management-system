@@ -38,7 +38,7 @@ class StudentController extends Controller
             'father_income' => 'required',
             'mother_income' => 'required',
             'emis_number' => 'required',
-            'class_id' => 'nullable'
+            'class_id' => 'nullable',
         ]);
         if ($validator->fails()) {
             dd($validator->errors());
@@ -125,4 +125,13 @@ class StudentController extends Controller
         $values = StudentsBio::all();
         return view('fees.view-fee', compact('values'));
     }
-}
+
+    public function updatefee($id, Request $request){
+            $values = StudentsBio::find($id);
+            $paided = $values->paid_fees + $request->input('update_amount');
+            $values-> paid_fees= $paided;
+            $values->fee_status = $values->fees - $values->paid_fees == 0 ? "Paid":"Unpaid";
+            $values->save();
+            return redirect()->route('feedetails');
+        }
+    }
