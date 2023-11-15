@@ -33,7 +33,7 @@
 									<tr>
 										<th>ID</th>
 										<th>Name</th>
-										<th>Class ID</th>
+										<th>Class</th>
 										<th>Total Amount</th>
 										<th>Paid Amount</th>
 										<th>Status</th>
@@ -42,26 +42,28 @@
 								</thead>
 								<tbody>
 									<!-- For Loop Start -->
+									@foreach($values as $values)
 									<tr>
-										<td>ID</td>
+										<td>{{$values->id}}</td>
 										<td>
 											<h2 class="table-avatar">
 												<!-- <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a> -->
-												<a href="#">Name</a>
+												<a href="#">{{$values->name}}</a>
 											</h2>
 										</td>
-										<td>Class ID</td>
-										<td>Total amount</td>
-										<td>Paid Amount</td>
-										<td>Status</td>
+										<td>{{$values->class_id}}</td>
+										<td>{{$values->fees}}</td>
+										<td>{{$values->paid_amount ? $values->paid_amount : "0"}}</td>
+										<td>{{$values->status}}</td>
 										<td class="text-end">
 											<div class="actions ">
-												<a href="/studentprofile/id" class="btn btn-sm bg-danger-light">
+												<a href="/fees" class="btn btn-sm bg-danger-light">
 													<i class="feather-edit"></i>
 												</a>
 											</div>
 										</td>
 									</tr>
+									@endforeach
 									<!-- For loop ends -->
 								</tbody>
 							</table>

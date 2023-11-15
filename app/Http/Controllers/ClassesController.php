@@ -47,6 +47,11 @@ class ClassesController extends Controller
         $data->section = $request->input('section');
         $data->fees = $request->input('fees');
         $data->save();
+        $students = StudentsBio::where('class_id', $id)->get();
+        foreach ($students as $student) {
+            $student->fees = $request->input('fees');
+            $student->save();
+        }
         return redirect()->route('classlist');
     }
 

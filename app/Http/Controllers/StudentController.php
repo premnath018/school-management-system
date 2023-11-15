@@ -120,4 +120,9 @@ class StudentController extends Controller
             $data->save();
             return redirect()->route('studentlist');
     }
+
+    public function feeview(){
+        $values = StudentsBio::all();
+        return view('fees.view-fee', compact('values'));
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\FeeDetails as ModelsFeeDetails;
+use App\Models\StudentsBio;
 use Illuminate\Http\Request;
 
 class FeeDetails extends Controller
@@ -16,6 +17,12 @@ class FeeDetails extends Controller
         $feeDetail = ModelsFeeDetails::create($validatedData);
 
         return redirect('fee_details')->with('success', 'Fee detail Updated!');
+    }
+
+    
+    public function feeview(){
+        $values = StudentsBio::all();
+        return view('fees.view-fee', compact('values'));
     }
 
 }

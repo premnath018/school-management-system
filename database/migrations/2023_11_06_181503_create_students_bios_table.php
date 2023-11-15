@@ -40,6 +40,9 @@ return new class extends Migration
             $table->string('mother_income');
             $table->string('emis_number');
             $table->integer('class_id');
+            $table->integer('fees');
+            $table->integer('paid_fees');
+            $table->enum('fee_status', ['Paid', 'Unpaid']);
             $table->timestamps();
         });
     }

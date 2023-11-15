@@ -36,6 +36,7 @@ class StudentsBio extends Model
         'mother_income',
         'emis_number',
         'class_id',
+        'fees',
     ];
 
     protected $dates = [
