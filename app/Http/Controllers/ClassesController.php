@@ -15,8 +15,8 @@ class ClassesController extends Controller
             'ClassID' => 'required',
             'Class' => 'required',
             'section' => 'required',
+            'fees' => 'required',
         ]);
-
         Classes::create($data);
 
         return redirect()->route('class.create')->with('success', 'Class details added successfully.');

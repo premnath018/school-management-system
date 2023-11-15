@@ -36,25 +36,41 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                        <label>Exam Name</label>
-                                        <input type="text" class="form-control" name="exam_name" />
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="form-group">
                                         <label>Class</label>
-                                        <select class="form-control select" name="class">
+                                        <select class="form-control select" name="class_id">
                                             <option>Select Class</option>
-                                            @foreach($values as $values)
-                                            <option>{{$values->ClassID}}</option>         
-                                            @endforeach                                   
+                                            @foreach($classes as $class)
+                                            <option value="{{ $class->id }}">{{$class->ClassID}}</option>         
+                                            @endforeach  
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                        <label>Subject</label>
-                                        <input type="text" class="form-control" name="subject" />
+                                            <label>Subject</label>
+                                            <select class="form-control select" name="subject_code">
+                                                <option>Select Subject</option>
+                                                @foreach($subjects as $subject)
+                                                <option value="{{ $subject->subject_code }}">{{$subject->subject_name}}</option>         
+                                                @endforeach  
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Type</label>
+                                        <select class="form-control select" name="type">
+                                            <option>Select Type</option>
+                                            <option value="cycle">Cycle</option>
+                                            <option value="term">Term</option>
+                                            <option value="final">Final</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label>Maximum Mark</label>
+                                        <input type="number" class="form-control" name="maximum_mark" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
@@ -64,15 +80,15 @@
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <div class form-group>
+                                    <div class="form-group">
                                         <label>End Time</label>
                                         <input type="time" class="form-control" name="end_time" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                        <label>Event Date</label>
-                                        <input type="date" class="form-control" name="date_of_event" />
+                                        <label>Exam Date</label>
+                                        <input type="date" class="form-control" name="exam_date" />
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -81,6 +97,7 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
 
                         </form>
                     </div>

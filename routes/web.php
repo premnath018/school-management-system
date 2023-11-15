@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
     // Exams
     Route::get('/addexam', [ExamController::class, 'view'])->name('exams.create');
 
-    Route::get('/exams', [ExamController::class, 'examview'])->name('examlist');
+    Route::get('/exams', [ExamController::class, 'examview'])->name('exam.list');
 
     Route::get('/editexam/{id}', [ExamController::class,'editexam']);
 

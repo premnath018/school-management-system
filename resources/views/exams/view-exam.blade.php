@@ -55,7 +55,7 @@
                       <tr>
                         <td>
                           <h2>
-                            <a>{{$values->exam_name}}</a>
+                            <a>{{$values->exam_code}}</a>
                           </h2>
                         </td>
                         <td>{{$values->class}}</td>

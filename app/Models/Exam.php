@@ -9,12 +9,18 @@ class Exam extends Model
 {
     use HasFactory;
 
+    protected $table = 'master_exams';
+
     protected $fillable = [
-        'exam_name',
-        'class',
+        'exam_code',
+        'class_id',
+        'subject_code',
         'subject',
+        'type',
+        'maximum_mark',
         'start_time',
         'end_time',
-        'date_of_event',
+        'exam_date',
     ];
+
 }

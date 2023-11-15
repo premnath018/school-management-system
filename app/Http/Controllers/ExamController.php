@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classes;
+use App\Models\Subject;
 use App\Models\Exam;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -10,38 +11,46 @@ use Illuminate\Http\Request;
 class ExamController extends Controller
 {
     public function view(){
-        $values = Classes::all();
-        return view('exams.add-exam', compact('values'));
+        $classes = Classes::all();
+        $subjects = Subject::all();
+    
+        return view('exams.add-exam', compact('classes', 'subjects'));
     }
     
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'exam_name' => 'required',
-            'class' => 'required',
-            'subject' => 'required',
+            'class_id' => 'required',
+            'subject_code' => 'required',
+            'type' => 'required',
+            'maximum_mark' => 'required|integer',
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i',
-            'date_of_event' => 'required|date',
+            'exam_date' => 'required|date',
         ]);
-
+    
         // Convert time input to carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
-
+    
+        $incrementNumber = Exam::count() + 1;
 
         // Create a new Exam record with converted times
         Exam::create([
-            'exam_name' => $validatedData['exam_name'],
-            'class' => $validatedData['class'],
-            'subject' => $validatedData['subject'],
+            'class_id' => $validatedData['class_id'],
+            'subject_code' => $validatedData['subject_code'],
+            'type' => $validatedData['type'],
+            'maximum_mark' => $validatedData['maximum_mark'],
             'start_time' => $start_time->format('H:i'),
             'end_time' => $end_time->format('H:i'),
-            'date_of_event' => $validatedData['date_of_event'],
-        ]);
+            'exam_date' => $validatedData['exam_date'],
+            'exam_code' => $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber,
 
-        return redirect()->route('exams.create');
+        ]);
+    
+        return redirect()->route('exam.list');
     }
+    
 
     public function examview(){
         $values = Exam::all();
