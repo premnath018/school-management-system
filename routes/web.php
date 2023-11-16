@@ -88,4 +88,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/fees',[StudentController::class,'feeview'])->name('feedetails');
 
     Route::post('updatefee/{id}',[StudentController::class,'updatefee']);
+
+    // Attendance 
+    Route::get('/class-select',function(){return view('atd.date_class');});
+    
+    Route::get('/class-attendance',function(){return view('atd.attendance_entry');});
+
 });
