@@ -19,6 +19,7 @@
 						<li><a href="/teachers">Teachers List</a></li>
 						<!-- <li><a href="student-details.html">Student View</a></li> -->
 						<li><a href="/addteacher">Teacher Add</a></li>
+						<li><a href="/leaveapply">Leave Apply</a></li>
 						<!-- <li><a href="edit-student.html">Student Edit</a></li> -->
 					</ul>
 				</li>

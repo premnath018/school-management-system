@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/teachers',[TeacherController::class, 'teacherview'])->name('teacherlist');
 
     Route::get('/teacherprofile/{id}',[TeacherController::class,'editteacher'])->name('teacher.profile');
+
+    Route::get('/leaveapply',function(){return view('teachers.leave');});
     
     Route::post('/addteacher', [TeacherController::class, 'add'])->name('teacher.store');
 
