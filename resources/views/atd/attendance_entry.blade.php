@@ -101,7 +101,7 @@
                                                             <td>{{$data->id}}</td>
                                                             <td>
                                                                 <h2 class="table-avatar">
-                                                                    <a href="student-details.html">{{$data->name}}</a>
+                                                                    <a>{{$data->name}}</a>
                                                                 </h2>
                                                             </td>
                                                     	</tr>
