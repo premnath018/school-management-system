@@ -9,8 +9,16 @@
 @endpush
 
 @push('bodycontent')
-
-
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+    </div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {{ session('error') }}
+    </div>
+@endif
 <div class="page-wrapper" style="min-height: 739px;">
                 <div class="content container-fluid">
 				
@@ -73,45 +81,31 @@
 									<div class="table-responsive">
 										<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer"><div class="row"><div class="col-sm-12 col-md-6"></div><div class="col-sm-12 col-md-6"></div></div><div class="row"><div class="col-sm-12"><table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
 											<thead class="student-thread">
-												<tr role="row"><th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 22.5px;">
-														<div class="form-check check-tables">
-															<input class="form-check-input" type="checkbox" value="something">
-														</div>
-													</th><th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 46.2125px;">ID</th>
+												<tr role="row">
+													<th class="sorting_asc" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-sort="ascending" aria-label=": activate to sort column descending" style="width: 22.5px;">Select</th>
+													<th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 46.2125px;">ID</th>
                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 79.2px;">Name</th>
 											</thead>
 											    <tbody>
-                                                    <form action="" method="post">   
+													@foreach($data as $data)
+                                                    <form action="/markattendance" method="post">   
                                                         @csrf
                                                         <!--  Loop Start  -->
+    													<input type="hidden" name="date" value="{{ $values->date }}">
                                                         <tr role="row" class="odd">
                                                             <td class="sorting_1">
                                                                 <div class="form-check check-tables">
-                                                                    <input class="form-check-input" type="checkbox" value="something">
+                                                                    <input class="form-check-input" type="checkbox" name="selected_students[]" value="{{$data->id}}">
                                                                 </div>
                                                             </td>
-                                                            <td>PRE2209</td>
+                                                            <td>{{$data->id}}</td>
                                                             <td>
                                                                 <h2 class="table-avatar">
-                                                                    <a href="student-details.html">Aaliyah</a>
+                                                                    <a href="student-details.html">{{$data->name}}</a>
                                                                 </h2>
                                                             </td>
-                                                        </td>
-                                                    </tr>
-                                                    <tr role="row" class="odd">
-                                                            <td class="sorting_1">
-                                                                <div class="form-check check-tables">
-                                                                    <input class="form-check-input" type="checkbox" value="something">
-                                                                </div>
-                                                            </td>
-                                                            <td>PRE2209</td>
-                                                            <td>
-                                                                <h2 class="table-avatar">
-                                                                    <a href="student-details.html">Aaliyah</a>
-                                                                </h2>
-                                                            </td>
-                                                        </td>
-                                                    </tr>
+                                                    	</tr>
+													@endforeach
                                                     <!--  loop ends -->
                                                 </tbody>
                                             </table>
@@ -139,6 +133,9 @@
 
 @push('javascript')
 <script>
-
+    // Function to hide alerts after a specified time (e.g., 10 seconds)
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 10000);
 </script>
 @endpush

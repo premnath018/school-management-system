@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentController;
@@ -92,8 +93,10 @@ Route::middleware('auth')->group(function () {
     Route::post('updatefee/{id}',[StudentController::class,'updatefee']);
 
     // Attendance 
-    Route::get('/class-select',function(){return view('atd.date_class');});
+    Route::get('/selectclass',[AttendanceController::class,'selectclass']);
     
-    Route::get('/class-attendance',function(){return view('atd.attendance_entry');});
+    Route::get('/classattendance',[AttendanceController::class,'classattendance']);
+    
+    Route::post('/markattendance', [AttendanceController::class, 'markattendance']);
 
 });
