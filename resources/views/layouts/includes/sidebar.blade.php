@@ -14,12 +14,22 @@
 					</ul>
 				</li>
 				<li class="submenu">
+					<a href="#"><i class="feather-grid"></i> <span>Admin</span> <span class="menu-arrow"></span></a>
+					<ul>
+						<li><a href="/createcircular">Add Circular</a></li>
+						<li><a href="/leaveapproval">Leave Approval</a></li>
+						<li><a href="/addteacher">Teacher Add</a></li>
+						<li><a href="/addstudent">Student Add</a></li>
+						<li><a href="/addclasses">Class Add</a></li>
+					</ul>
+				</li>
+				<li class="submenu">
 					<a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> Teachers</span> <span class="menu-arrow"></span></a>
 					<ul>
+						<li><a href="/circulars">Circulars</a></li>
 						<li><a href="/teachers">Teachers List</a></li>
-						<!-- <li><a href="student-details.html">Student View</a></li> -->
-						<li><a href="/addteacher">Teacher Add</a></li>
 						<li><a href="/leaveapply">Leave Apply</a></li>
+						<!-- <li><a href="student-details.html">Student View</a></li> -->
 						<!-- <li><a href="edit-student.html">Student Edit</a></li> -->
 					</ul>
 				</li>
@@ -28,7 +38,6 @@
 					<ul>
 						<li><a href="/students">Students List</a></li>
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
-						<li><a href="/addstudent">Student Add</a></li>
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
 				</li>
@@ -37,7 +46,6 @@
 					<ul>
 						<li><a href="/classes">Classes List</a></li>
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
-						<li><a href="/addclasses">Class Add</a></li>
 						<li><a href="/selectclass">Class Attendance</a></li>
 					</ul>
 				</li>
