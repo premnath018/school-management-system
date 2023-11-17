@@ -9,17 +9,17 @@
 @endpush
 
 @push('bodycontent')
+<div class="page-wrapper" style="min-height: 739px;">
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-        {{ session('success') }}
+     <span>   {{ session('success') }} </span>
     </div>
 @endif
 @if(session('error'))
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        {{ session('error') }}
+     <span>   {{ session('error') }} </span>
     </div>
 @endif
-<div class="page-wrapper" style="min-height: 739px;">
                 <div class="content container-fluid">
 				
 					<!-- Page Header -->
@@ -87,9 +87,10 @@
                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 79.2px;">Name</th>
 											</thead>
 											    <tbody>
-													@foreach($data as $data)
                                                     <form action="/markattendance" method="post">   
                                                         @csrf
+														@foreach($data as $data)
+
                                                         <!--  Loop Start  -->
     													<input type="hidden" name="date" value="{{ $values->date }}">
                                                         <tr role="row" class="odd">
