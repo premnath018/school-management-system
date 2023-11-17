@@ -161,16 +161,7 @@
                             <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                                 <thead class="student-thread">
                                     <tr>
-                                        <th>
-                                            <div class="form-check check-tables">
-                                                <input class="form-check-input" type="checkbox" value="something">
-                                            </div>
-                                        </th>
-                                        <th>ID</th>
                                         <th>Name</th>
-                                        <th>Batch</th>
-                                        <th>Class ID</th>
-                                        <th>Subject</th>
                                         <th class="text-end">Enter Mark</th>
                                     </tr>
                                 </thead>
@@ -178,20 +169,10 @@
                                     <!-- For Loop Start -->
                                     <tr>
                                         <td>
-                                            <div class="form-check check-tables">
-                                                <input class="form-check-input" type="checkbox" value="something">
-                                            </div>
-                                        </td>
-                                        <td>ID</td>
-                                        <td>
                                             <h2 class="table-avatar">
-                                                <!-- <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a> -->
                                                 <a>Name</a>
                                             </h2>
                                         </td>
-                                        <td>Batch</td>
-                                        <td>ClassID</td>
-                                        <td>Subject</td>
                                         <td class="text-end">
                                             <div class="actions"><input style="width:70%;" class="form-control" name="student_mark" type="number" placeholder="Student Mark">
                                             </div>

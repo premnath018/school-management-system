@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/editexam/{id}', [ExamController::class,'editexam']);
 
+    Route::get('/marklist',function(){return view('exams.markview');});
+
     Route::post('/addexam', [ExamController::class, 'store'])->name('exam.store');
 
     Route::post('/updateexam/{id}', [ExamController::class,'updateexam']);
