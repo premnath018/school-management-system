@@ -50,16 +50,16 @@
                                 <table class="table text-nowrap">
                                     <tbody>
                                         <tr>
-                                            <td>Class ID:</td>
-                                            <td class="font-medium text-dark-medium">Class ID</td>
+                                            <td>Exam Code:</td>
+                                            <td class="font-medium text-dark-medium">{{ $data->exam_code }}</td>
                                         </tr>
                                         <tr>
                                             <td>Class:</td>
-                                            <td class="font-medium text-dark-medium">Class</td>
+                                            <td class="font-medium text-dark-medium">{{ $data->class_name }}</td>
                                         </tr>
                                         <tr>
                                             <td>Subject:</td>
-                                            <td class="font-medium text-dark-medium">Subject</td>
+                                            <td class="font-medium text-dark-medium">{{ $data->subject_name }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -109,17 +109,19 @@
                                 </thead>
                                 <tbody>
                                     <!-- For Loop Start -->
+                                @foreach($values as $data)
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a>Name</a>
+                                                <a>{{ $data->student_name }}</a>
                                             </h2>
                                         </td>
                                         <td>
-                                            Mark
+                                            {{ $data->mark }}
                                         </td>
                                     </tr>
                                     <!-- For loop ends -->
+                                @endforeach 
                                 </tbody>
                             </table>
                         </div>
