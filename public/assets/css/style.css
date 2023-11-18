@@ -90,6 +90,9 @@ input:-webkit-autofill:focus {
     box-shadow: none;
     outline: 0 none;
 }
+.form-control::placeholder{
+    color:lightgrey;
+}
 .form-control.form-control-sm {
     height: calc(1.5em + 0.5rem + 2px);
 }

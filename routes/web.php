@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/studentprofile/{id}', [StudentController::class,'editstudent']);
 
+    Route::get('/early_call_entry',function(){return view('student.early_call');});
+
     Route::post('/addstudent', [StudentController::class, 'add'])->name('student.store');
  
     Route::post('/updatestudent/{id}', [StudentController::class,'updatestudent']);
@@ -79,6 +81,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/addexam', [ExamController::class, 'store'])->name('exam.store');
 
     Route::post('/updateexam/{id}', [ExamController::class,'updateexam']);
+
+    Route::post('/updateMarks/{id}', [ExamController::class,'updateMark']);
+
     
     //classes
     Route::get('/addclasses', function () {return view('Class.add-class');})->name('class.create');

@@ -70,7 +70,7 @@
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
                                         <label>Maximum Mark</label>
-                                        <input type="number" class="form-control" name="maximum_mark" />
+                                        <input type="number" class="form-control" name="maximum_mark" max="100"/>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
