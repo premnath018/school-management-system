@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Leave;
 use App\Models\TeachersBio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -80,5 +82,30 @@ class TeacherController extends Controller
         $data->salary = $request->salary;
         $data->save();
         return redirect()->route('teacherlist');
+    }
+
+    public function leaveapply($teacher_id) {
+        return view('teachers.leave',compact('teacher_id'));
+    }
+    public function leaveadd(Request $request)
+    {
+        $request->validate([
+            'leave_type' => 'required|in:Leave,Emergency Leave,Sick Leave',
+            'fromdate' => 'required|date',
+            'todate' => 'required|date',
+            'reason' => 'required|string|max:255',
+        ]);
+        $leave = Leave::create([
+            'teacher_id' => $request->input('teacher_id'),
+            'leave_type' => $request->input('leave_type'),
+            'fromdate' => $request->input('fromdate'),
+            'todate' => $request->input('todate'),
+            'reason' => $request->input('reason'),
+        ]);
+        return redirect()->back();
+    }
+    public function leaveview() {
+        $data = Leave::all();
+        return view('admin.leave_approve',compact('data'));
     }
 }

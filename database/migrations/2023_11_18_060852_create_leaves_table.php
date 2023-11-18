@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('circulars', function (Blueprint $table) {
+        Schema::create('leaves', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->timestamp('published_at');
+            $table->integer('name');
+            $table->enum('leave_type', ['Leave', 'Emergency Leave', 'Sick Leave']);
+            $table->date('fromdate');
+            $table->date('todate');
+            $table->string('reason');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('circulars');
+        Schema::dropIfExists('leaves');
     }
 };

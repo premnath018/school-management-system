@@ -10,6 +10,7 @@
                 <div class="content container-fluid">        
                     <div class="row">
                         <!-- Blog Post -->
+                        @foreach($values as $values)
                         <div class="col-md-6 col-xl-4 col-sm-12 d-flex">
                             <div class="blog grid-blog flex-fill">
                                 <div class="blog-content">
@@ -18,19 +19,20 @@
                                             <div class="post-author">
                                                 <a>
                                                     <span>
-                                                        <span class="post-title">Principal</span>
+                                                        <span class="post-title">Circular</span>
                                                         <span class="post-date"><i class="far fa-clock">&nbsp;&nbsp;
-                                                        </i>Date Of added</span>
+                                                        </i>{{$values->published_at}}</span>
                                                     </span>
                                                 </a>
                                             </div>
                                         </li>
                                     </ul>
-                                    <h3 class="blog-title"><a href="blog-details.html">Sports reduced risk of obesity, Lorem Ipsum is not  </a></h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur em adipiscing elit, sed do eiusmod tempor.</p>
+                                    <h3 class="blog-title"><a href="blog-details.html">{{$values->title}}</a></h3>
+                                    <p>{{$values->description}}</p>
                                 </div>
                             </div>										
                         </div>
+                        @endforeach
                         <!-- /Blog Post -->
                     </div>
                         <!-- Modal -->

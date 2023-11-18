@@ -16,6 +16,7 @@
 <!-- Datepicker Core JS -->
 <script src="{{asset('assets//plugins/moment/moment.min.js')}}"></script>
 <script src="{{asset('assets//js/bootstrap-datetimepicker.min.js')}}"></script>
+<!-- <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}"></script> -->
 
 <!-- Custom JS -->
 <script src="{{asset('assets//js/script.js')}}"></script>

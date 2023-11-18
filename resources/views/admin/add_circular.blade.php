@@ -22,7 +22,7 @@
                 </div>
                 <!-- /Page Header -->
                 <div class="card">
-                    <form action="add_circular" method="post">
+                    <form action="addcircular" method="post">
                         @csrf 
                         <div class="card-body">
                             <div class="bank-inner-details">

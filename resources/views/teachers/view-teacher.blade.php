@@ -112,7 +112,10 @@
                                         <td>{{$values->salary}}</td>
                                         <td>{{$values->contact_number}}</td>
                                         <td class="text-end">
-                                            <div class="actions ">
+                                            <div class="">
+                                                <a href="/leaveapply/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                                                    <i class="feather-edit"></i>
+                                                </a>
                                                 <a href="/teacherprofile/{{$values->id}}" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
                                                 </a>

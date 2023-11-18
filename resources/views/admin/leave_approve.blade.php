@@ -62,6 +62,7 @@
                                 <thead class="student-thread">
                                     <tr>
                                         <th>Name</th>
+                                        <th>Leave Type</th>
                                         <th>From Date</th>
                                         <th>To Date</th>
                                         <th>Reason</th>
@@ -70,20 +71,23 @@
                                 </thead>
                                 <tbody>
                                     <!-- For Loop Start -->
+                                    @foreach($data as $data)
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a>Name</a>
+                                                <a>{{$data->teacher_id}}</a>
                                             </h2>
                                         </td>
-                                        <td>From Date</td>
-                                        <td>To Date</td>
-                                        <td>Reason</td>
+                                        <td>{{$data->leave_type}}</td>
+                                        <td>{{$data->fromdate}}</td>
+                                        <td>{{$data->todate}}</td>
+                                        <td>{{$data->reason}}</td>
                                         <td class="text-end">
                                             <button type="button" class="btn btn-primary">Approve</button>
                                             <button type="button" class="btn btn-danger">Reject</button>
                                         </td>
                                     </tr>
+                                    @endforeach
                                     <!-- For loop ends -->
                                 </tbody>
                             </table>
