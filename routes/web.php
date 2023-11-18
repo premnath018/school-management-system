@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\circularController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentController;
@@ -31,7 +32,12 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
-    //Demo
+    //Admin
+    Route::get('/leaveapproval',function(){return view('admin.leave_approve');});
+
+    Route::get('/createcircular',function(){return view('admin.add_circular');});
+
+    Route::post('/add_circular',[circularController::class,'store']);
 
     // Student
     Route::get('/', function () {return view('student.add-student');})->name('home');
@@ -52,6 +58,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/teachers',[TeacherController::class, 'teacherview'])->name('teacherlist');
 
     Route::get('/teacherprofile/{id}',[TeacherController::class,'editteacher'])->name('teacher.profile');
+
+    Route::get('/leaveapply',function(){return view('teachers.leave');});
+
+    Route::get('/circulars',function(){return view('teachers.circular_view');})->name('teachers.circular');
     
     Route::post('/addteacher', [TeacherController::class, 'add'])->name('teacher.store');
 
