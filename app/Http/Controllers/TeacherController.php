@@ -85,7 +85,8 @@ class TeacherController extends Controller
     }
 
     public function leaveapply($teacher_id) {
-        return view('teachers.leave',compact('teacher_id'));
+        $data = Leave::where('teacher_id', $teacher_id)->get();
+        return view('teachers.leave',compact('teacher_id','data'));
     }
     public function leaveadd(Request $request)
     {
@@ -107,5 +108,28 @@ class TeacherController extends Controller
     public function leaveview() {
         $data = Leave::all();
         return view('admin.leave_approve',compact('data'));
+    }
+
+    public function approve($id)
+    {
+        $leave = Leave::find($id);
+        if (!$leave) {
+            return redirect()->back()->with('error', 'Leave record not found.');
+        }
+        $leave->status = 'Approved';
+        $leave->save();
+        return redirect()->back();
+    }
+
+    // Method to update the status as 'Rejected'
+    public function reject($id)
+    {
+        $leave = Leave::find($id);
+        if (!$leave) {
+            return redirect()->back()->with('error', 'Leave record not found.');
+        }
+        $leave->status = 'Rejected';
+        $leave->save();
+        return redirect()->back();
     }
 }

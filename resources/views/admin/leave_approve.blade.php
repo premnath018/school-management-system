@@ -66,7 +66,7 @@
                                         <th>From Date</th>
                                         <th>To Date</th>
                                         <th>Reason</th>
-                                        <th class="text-end">Action</th>
+                                        <th class="text-center" colspan="2">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -82,10 +82,26 @@
                                         <td>{{$data->fromdate}}</td>
                                         <td>{{$data->todate}}</td>
                                         <td>{{$data->reason}}</td>
-                                        <td class="text-end">
-                                            <button type="button" class="btn btn-primary">Approve</button>
-                                            <button type="button" class="btn btn-danger">Reject</button>
+                                        @if(is_null($data->status))   
+                                        <td class="text-center">
+                                        <form action="{{ route('update',['id' => $data->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary">Approve</button>
+                                        </form>
                                         </td>
+                                        <td>
+                                        <form action="{{ route('reject',['id' => $data->id]) }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                        </form>
+                                        </td>
+                                        @else
+                                        <td class="text-center">
+                                            <button type="submit" class="btn {{ $data->status === 'Approved' ? 'btn-primary' : 'btn-danger' }}" disabled>
+                                                {{ $data->status === 'Approved' ? 'Approved' : 'Rejected' }}
+                                            </button>
+                                        </td>
+                                        @endif
                                     </tr>
                                     @endforeach
                                     <!-- For loop ends -->
