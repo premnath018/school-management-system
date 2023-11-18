@@ -3,6 +3,7 @@
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\circularController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\EarlyCallController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
@@ -48,7 +49,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/studentprofile/{id}', [StudentController::class,'editstudent']);
 
-    Route::get('/early_call_entry',function(){return view('student.early_call');});
+    Route::get('/earlycallentry', [EarlyCallController::class,'Early_call']);
+
+    Route::post('/early_call',[EarlyCallController::class,'store']);
 
     Route::post('/addstudent', [StudentController::class, 'add'])->name('student.store');
  

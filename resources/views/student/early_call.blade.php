@@ -32,7 +32,8 @@
             </div>
         </div>
         <!-- /Page Header -->
-        <form action="classattendance" method="get" id="form">
+        <form action="early_call" method="post" id="form">
+            @csrf
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
@@ -47,10 +48,12 @@
                     <div class="col-12 col-sm-4">  
                         <div class="form-group local-forms">
                             <label>Class ID<span class="login-danger">*</span></label>
-                            <select class="form-control select select2-hidden-accessible" aria-hidden="true" name="selected_class">
+                            <select class="form-control select select2-hidden-accessible" aria-hidden="true" name="class_id">
                                 <option>Select Option</option>
                                     <!-- Loop Start -->
-                                    <option value="">Values</option>
+                                    @foreach($values as $values)
+                                    <option value="{{$values->id}}">{{$values->ClassID}}</option>
+                                    @endforeach
                                     <!-- Loop Ends  -->
                             </select>
                         </div>
@@ -108,19 +111,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- For Loop Start -->
+                                    @foreach($calls as $call)
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a>1</a>
+                                                <a>{{$call->name}}</a>
                                             </h2>
                                         </td>
-                                        <td>Emergency Leave</td>
-                                        <td>2023-11-18</td>
-                                        <td>2023-11-18</td>
-                                        <td>Fever</td>
+                                        <td>{{$call->class_id}}</td>
+                                        <td>{{$call->date}}</td>
+                                        <td>{{$call->time}}</td>
+                                        <td>{{$call->reason}}</td>
                                     </tr>
-                                    <!-- For loop ends -->
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
