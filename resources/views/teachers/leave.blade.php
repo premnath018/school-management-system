@@ -81,6 +81,7 @@
         </form>	
     </div>		
 </div>
+@if($data->count() > 0)
 <div class="page-wrapper" style="min-height: 739px;">
     <div class="content container-fluid">
         <div class="card-body">
@@ -141,6 +142,7 @@
         </div>
     </div>
 </div>
+@endif
 @endpush
 
 @push('javascript')
