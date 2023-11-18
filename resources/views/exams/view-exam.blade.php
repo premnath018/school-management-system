@@ -47,7 +47,7 @@
                         <th>Start Time</th>
                         <th>End Time</th>
                         <th>Date</th>
-                        <th class="text-end">Action</th>
+                        <th class="">Action</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -63,8 +63,11 @@
                         <td>{{$values->start_time}}</td>
                         <td>{{$values->end_time}}</td>
                         <td>{{$values->exam_date}}</td>
-                        <td class="text-end">
-                          <div class="actions">
+                        <td >
+                        <div>
+                        <a href="/marklist/{{$values->id}} " class="btn btn-sm bg-danger-light">
+                          <i class="fa fa-eye"></i>
+                        </a>
                             <a href="/editexam/{{$values->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>
                             </a>

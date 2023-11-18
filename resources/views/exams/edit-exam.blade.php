@@ -166,29 +166,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                <form action="{{url('updateMarks',$data->id)}}" method="post">
+                                    @csrf
                                     <!-- For Loop Start -->
+                                    @foreach($students as $student)
                                     <tr>
                                         <td>
                                             <h2 class="table-avatar">
-                                                <a>Name</a>
+                                                <a>{{ $student->name }}</a>
                                             </h2>
                                         </td>
                                         <td class="text-end">
-                                            <div class="actions"><input style="width:70%;" class="form-control" name="student_mark" type="number" placeholder="Student Mark">
+                                            <div class="actions"><input style="width:70%;" class="form-control" name="student_marks[{{ $student->id }}]" type="number" placeholder="Student Mark">
                                             </div>
                                         </td>
                                     </tr>
+                                    @endforeach
+                                
                                     <!-- For loop ends -->
-                                </tbody>
+                                    </tbody>
                             </table>
+                            <br>
+                            <div class="student-submit text-end">
+                                    <button type="submit" class="btn btn-primary">Enter Marks</button>
+                                </div>
                         </div>
+                        </form> 
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+    
 
 
 <!-- /Page Wrapper -->
