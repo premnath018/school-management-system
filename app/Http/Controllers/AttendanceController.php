@@ -36,6 +36,8 @@ class AttendanceController extends Controller
                     'date' => $attendanceDate,
                 ]);
             } catch (QueryException $e) {
+                // Handle the exception (duplicate entry)
+                // For example, you can log an error or show a message to the user
                 $errorMessage = 'Attendance already recorded for this student on this date.';
             }
         }
