@@ -37,6 +37,7 @@
 					<a href="#"><i class="fas fa-graduation-cap"></i> <span> Students</span> <span class="menu-arrow"></span></a>
 					<ul>
 						<li><a href="/students">Students List</a></li>
+						<li><a href="/early_call_entry">Early Calling Entry</a></li>
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>

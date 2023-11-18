@@ -48,6 +48,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/studentprofile/{id}', [StudentController::class,'editstudent']);
 
+    Route::get('/early_call_entry',function(){return view('student.early_call');});
+
     Route::post('/addstudent', [StudentController::class, 'add'])->name('student.store');
  
     Route::post('/updatestudent/{id}', [StudentController::class,'updatestudent']);
