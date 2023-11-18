@@ -8,6 +8,9 @@
     #dateInp{
         background-color: white;
     }
+    #form{
+        margin-bottom: 20px;
+    }
 </style>
 @endpush
 
@@ -29,7 +32,7 @@
             </div>
         </div>
         <!-- /Page Header -->
-        <form action="classattendance" method="get">
+        <form action="classattendance" method="get" id="form">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
@@ -60,14 +63,14 @@
                     </div>
                     <div class="col-12 col-sm-4">
                         <div class="form-group local-forms">
-                            <label>To Date<span class="login-danger">*</span></label>
-                            <input id="dateInp" class="form-control" name="todate" type="time" value=""/>
+                            <label>Time<span class="login-danger">*</span></label>
+                            <input id="dateInp" class="form-control" name="time" type="time" value=""/>
                         </div>
                     </div>
                     <div class="col-12 col-sm-4">
                         <div class="form-group local-forms">
                             <label>Reason<span class="login-danger">*</span></label>
-                            <input type="text" class="form-control">
+                            <input type="text" class="form-control" name="reason">
                         </div>
                     </div>
                     <div class="col-12 ">
@@ -77,7 +80,55 @@
                     </div>
                 </div>
             </div>
-        </form>			
+        </form>	
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="m-b-30" id="SearchStudent">
+                    <div class="card-body">
+                        <!-- Page Header -->
+                        <div class="page-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="page-title">List</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Page Header -->
+
+                        <div class="table-responsive">
+                            <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+                                <thead class="student-thread">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Class ID</th>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- For Loop Start -->
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a>1</a>
+                                            </h2>
+                                        </td>
+                                        <td>Emergency Leave</td>
+                                        <td>2023-11-18</td>
+                                        <td>2023-11-18</td>
+                                        <td>Fever</td>
+                                    </tr>
+                                    <!-- For loop ends -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </div>
 @endpush
 
