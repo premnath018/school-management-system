@@ -91,6 +91,15 @@
                                         <input type="date" class="form-control" name="exam_date" />
                                     </div>
                                 </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group row">
+                                        <div class="col-md-10">
+                                            <label class="col-form-label col-md-2">File Input</label>
+                                            <input class="form-control" type="file" name="">
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 <div class="col-12">
                                     <button type="submit" class="btn btn-primary">
                                         Add Exam
