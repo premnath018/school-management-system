@@ -17,6 +17,8 @@
 					<a href="#"><i class="feather-grid"></i> <span>Admin</span> <span class="menu-arrow"></span></a>
 					<ul>
 						<li><a href="/createcircular">Add Circular</a></li>
+						<li><a href="/addholiday">Add Holiday</a></li>
+						<li><a href="/holidays">Holiday List</a></li>
 						<li><a href="/leaveapproval">Leave Approval</a></li>
 						<li><a href="/addteacher">Teacher Add</a></li>
 						<li><a href="/addstudent">Student Add</a></li>

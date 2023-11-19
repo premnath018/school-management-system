@@ -51,7 +51,8 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Today Date<span class="login-danger">*</span></label>
-                                <input id="dateInp" class="form-control" name="date" type="date" value="{{ now()->format('Y-m-d') }}" disabled/>
+                                <input id="dateInp" class="form-control" type="date" value="{{ now()->format('Y-m-d') }}" disabled/>
+                                <input type="hidden" name="date" value="{{ now()->format('Y-m-d') }}" />
                             </div>
                         </div>
                         <div class="col-12">

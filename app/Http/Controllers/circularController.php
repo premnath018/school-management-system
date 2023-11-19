@@ -19,7 +19,7 @@ class circularController extends Controller
     }
 
     public function circularview(){
-        $values = Circular::all();
+        $values = Circular::orderBy('published_at', 'desc')->get();
         return view('teachers.circular_view',compact('values'));
     }
 }

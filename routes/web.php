@@ -121,5 +121,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/classattendance',[AttendanceController::class,'classattendance']);
     
     Route::post('/markattendance', [AttendanceController::class, 'markattendance']);
+    
+    Route::get('/addholiday', function () {return view('admin.add-holiday');})->name('holiday.create');
+
+    Route::post('/addholiday', [AttendanceController::class, 'addholiday'])->name('holiday.store');
+    
+    Route::get('/holidays', [AttendanceController::class, 'viewholiday'])->name('holidaylist');
 
 });

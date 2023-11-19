@@ -5,12 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Attendance extends Model
+class Holiday extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'student_id',
-        'date',
-    ];
-    public $unique = ['student_id', 'date']; 
+    protected $fillable = ['holiday_name', 'leave_type', 'fromdate', 'todate', 'number_of_days'];
 }
