@@ -78,8 +78,71 @@
                     </div>
                 </div>					
             </div>
-        </form>			
+        </form>	
+    </div>		
 </div>
+@if($data->count() > 0)
+<div class="page-wrapper" style="min-height: 739px;">
+    <div class="content container-fluid">
+        <div class="card-body">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h3 class="page-title">Leave Details</h3>
+                    </div>
+                </div>
+            </div>
+            <!-- /Page Header -->
+
+            <div class="table-responsive">
+                <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
+                    <thead class="student-thread">
+                        <tr>
+                            <th>Name</th>
+                            <th>Leave Type</th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                            <th>Reason</th>
+                            <th class="text-center">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- For Loop Start -->
+                        @foreach($data as $data)
+                        <tr>
+                            <td>
+                                <h2 class="table-avatar">
+                                    <a>{{$data->teacher_id}}</a>
+                                </h2>
+                            </td>
+                            <td>{{$data->leave_type}}</td>
+                            <td>{{$data->fromdate}}</td>
+                            <td>{{$data->todate}}</td>
+                            <td>{{$data->reason}}</td>
+                            @if(is_null($data->status))   
+                            <td class="text-center">
+                                <button type="button" class="btn btn-primary" disabled>
+                                    Not approved
+                                </button>
+                            </td>
+                            @else
+                                <td class="text-center">
+                                    <button type="button" class="btn {{ $data->status === 'Approved' ? 'btn-primary' : 'btn-danger' }}" disabled>
+                                        {{ $data->status === 'Approved' ? 'Approved' : 'Rejected' }}
+                                    </button>
+                                </td>
+                            @endif
+                        </tr>
+                        @endforeach
+                        <!-- For loop ends -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @endpush
 
 @push('javascript')

@@ -33,10 +33,10 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
-    //Admin
-    Route::get('/leaveapproval',[TeacherController::class, 'leaveview']);
-
+    //Circular
     Route::get('/createcircular',function(){return view('admin.add_circular');});
+    
+    Route::get('/circulars',[circularController::class, 'circularview'])->name('circularlist');
 
     Route::post('/addcircular',[circularController::class,'circularadd']);
 
@@ -63,16 +63,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/teachers',[TeacherController::class, 'teacherview'])->name('teacherlist');
 
     Route::get('/teacherprofile/{id}',[TeacherController::class,'editteacher'])->name('teacher.profile');
-
-    Route::get('/leaveapply/{teacher_id}',[TeacherController::class,'leaveapply'])->name('leave.create');
-
-    Route::get('/circulars',[circularController::class, 'circularview'])->name('circularlist');
     
     Route::post('/addteacher', [TeacherController::class, 'add'])->name('teacher.store');
 
     Route::post('/updateteacher/{id}',[TeacherController::class,'updateteacher']);
 
+    //Leave
+    Route::get('/leaveapply/{teacher_id}',[TeacherController::class,'leaveapply'])->name('leave.create');
+    
+    Route::get('/leaveapproval',[TeacherController::class, 'leaveview']);
+
     Route::post('addleave', [TeacherController::class, 'leaveadd'])->name('leave.store');
+    
+    Route::post('approve/{id}', [TeacherController::class, 'approve'])->name('update');
+    
+    Route::post('reject/{id}', [TeacherController::class, 'reject'])->name('reject');
 
     // Exams
     Route::get('/addexam', [ExamController::class, 'view'])->name('exams.create');

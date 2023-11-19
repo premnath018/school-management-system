@@ -114,7 +114,7 @@
                                         <td class="text-end">
                                             <div class="">
                                                 <a href="/leaveapply/{{$values->id}}" class="btn btn-sm bg-danger-light">
-                                                    <i class="feather-edit"></i>
+                                                    <i class="fa fa-eye"></i>
                                                 </a>
                                                 <a href="/teacherprofile/{{$values->id}}" class="btn btn-sm bg-danger-light">
                                                     <i class="feather-edit"></i>
