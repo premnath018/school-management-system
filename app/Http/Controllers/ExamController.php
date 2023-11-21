@@ -17,7 +17,7 @@ class ExamController extends Controller
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
     
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $validatedData = $request->validate([
             'class_id' => 'required',
@@ -90,11 +90,8 @@ class ExamController extends Controller
                 ['mark' => $mark]
             );
         }
-
         return $this->viewMarks($examId);
     }
-
-
 
     public function updateexam(Request $request, $id){
         $data = Exam::find($id);

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class EarlyCallController extends Controller
 {
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $data = $request->validate([
             'name' => 'required',
@@ -22,7 +22,7 @@ class EarlyCallController extends Controller
         return redirect('/earlycallentry')->with('success', 'Entry created successfully!');
     }
 
-    public function Early_call(){
+    public function view(){
         $values = Classes::all();
         $calls = early_call::all();
         return view('student.early_call',compact('values','calls'));

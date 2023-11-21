@@ -32,7 +32,7 @@
             </div>
         </div>
         <!-- /Page Header -->
-        <form action="early_call" method="post" id="form">
+        <form action="earlycallentry" method="post" id="form">
             @csrf
             <div class="card-body">
                 <div class="row">

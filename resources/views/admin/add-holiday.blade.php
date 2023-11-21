@@ -27,7 +27,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="/addholiday" method="post">
+                        <form action="addholiday" method="post">
                             @csrf
                             <div class="row">
                                 <div class="col-12">

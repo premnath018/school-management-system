@@ -30,7 +30,7 @@
 			<div class="col-sm-12">
 				<div class="card comman-shadow">
 					<div class="card-body">
-						<form action="/addstudent" method="post">
+						<form action="addstudent" method="post">
 							@csrf
 							<div class="row">
 								<div class="col-12">

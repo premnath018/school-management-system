@@ -87,7 +87,7 @@
                                                     <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 79.2px;">Name</th>
 											</thead>
 											    <tbody>
-                                                    <form action="/markattendance" method="post">   
+                                                    <form action="markattendance" method="post">   
                                                         @csrf
 														@foreach($data as $data)
 
