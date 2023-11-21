@@ -61,6 +61,8 @@
                                         <label>Type</label>
                                         <select class="form-control select" name="type">
                                             <option>Select Type</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
                                             <option value="cycle">Cycle</option>
                                             <option value="term">Term</option>
                                             <option value="final">Final</option>
