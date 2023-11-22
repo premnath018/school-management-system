@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\Classes;
+use App\Models\Holiday;
 use App\Models\StudentsBio;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class AttendanceController extends Controller
 {
@@ -28,19 +28,32 @@ class AttendanceController extends Controller
         $selectedStudentIds = $request->input('selected_students');
         $attendanceDate = $request->input('date');
         $errorMessage = '';
-
-        foreach ($selectedStudentIds as $studentId) {
+        $errorStudents = [];
+        $classId = StudentsBio::where('id', $selectedStudentIds[0])->value('class_id');
+        $presentStudents = StudentsBio::where('class_id', $classId)
+        ->whereNotIn('id', $selectedStudentIds)
+        ->pluck('id')
+        ->toArray();        
             try {
-                Attendance::create([
-                    'student_id' => $studentId,
-                    'date' => $attendanceDate,
-                ]);
-            } catch (QueryException $e) {
-                // Handle the exception (duplicate entry)
-                // For example, you can log an error or show a message to the user
-                $errorMessage = 'Attendance already recorded for this student on this date.';
-            }
-        }
+                foreach ($selectedStudentIds as $studentId) {
+                    try{
+                        Attendance::create([
+                            'student_id' => $studentId,
+                            'date' => $attendanceDate,
+                        ]);
+                    }
+                    catch (QueryException $e) {
+                        $studentName = StudentsBio::where('id', $studentId)->value('name');
+                        $errorStudents[] = $studentName;
+                        }
+                    }
+                    StudentsBio::whereIn('id', $presentStudents)
+                    ->increment('present_days');
+                    if (!empty($errorStudents)) {
+                        $errorMessage = 'Attendance already recorded for students: ' . implode(', ', $errorStudents);
+                    }
+            } 
+            catch (QueryException $e) {}
         if ($errorMessage !== '') {
             session()->flash('error', $errorMessage);
             return redirect()->back();
@@ -50,5 +63,23 @@ class AttendanceController extends Controller
         }
     }
 
+    public function addholiday(Request $request){
+        $data = $request->validate([
+            'holiday_name' => 'required',
+            'fromdate' => 'required',
+            'todate' => 'required',
+            'number_of_days' => 'required',
+        ]);
+        Holiday::create($data);
+        return redirect()->back();
+    }
 
+    public function viewholiday(){
+        $values = Holiday::all();
+        $data = null;
+        if ($values->isNotEmpty()) {
+            $data = 260-$values->sum('number_of_days');
+        }
+        return view('admin.view-holiday', compact('values','data'));
+    }
 }

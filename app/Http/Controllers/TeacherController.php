@@ -11,7 +11,7 @@ class TeacherController extends Controller
 {
     public function add(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $data = $request->validate([
             'name' => 'required',
             'teacher_id' => 'required',
             'dob' => 'required|date',
@@ -27,30 +27,8 @@ class TeacherController extends Controller
             'subject' => 'required|in:Tamil,English,Maths,Social Science,Physics,Chemistry,Zoology,Biology',
             'salary' => 'required|integer',
         ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $teacher = new TeachersBio();
-        $teacher->name = $request->name;
-        $teacher->teacher_id = $request->teacher_id;
-        $teacher->dob = $request->dob;
-        $teacher->permanent_address = $request->permanent_address;
-        $teacher->gender = $request->gender;
-        $teacher->date_of_joining = $request->date_of_joining;
-        $teacher->age = $request->age;
-        $teacher->contact_number = $request->contact_number;
-        $teacher->email = $request->email;
-        $teacher->emergency_contact_number = $request->emergency_contact_number;
-        $teacher->previous_work_experience = $request->previous_work_experience;
-        $teacher->total_experience = $request->total_experience;
-        $teacher->subject = $request->subject;
-        $teacher->salary = $request->salary;
-        $teacher->save();
-        return redirect()->route('teacher.create');
+        TeachersBio::create($data);
+        return redirect()->back();
     }
 
     public function teacherview()
@@ -96,7 +74,7 @@ class TeacherController extends Controller
             'todate' => 'required|date',
             'reason' => 'required|string|max:255',
         ]);
-        $leave = Leave::create([
+        Leave::create([
             'teacher_id' => $request->input('teacher_id'),
             'leave_type' => $request->input('leave_type'),
             'fromdate' => $request->input('fromdate'),

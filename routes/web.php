@@ -34,94 +34,103 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 Route::middleware('auth')->group(function () {
 
     //Circular
-    Route::get('/createcircular',function(){return view('admin.add_circular');});
+    Route::get('/addcircular',function(){return view('admin.add_circular');});
     
     Route::get('/circulars',[circularController::class, 'circularview'])->name('circularlist');
 
     Route::post('/addcircular',[circularController::class,'circularadd']);
 
     // Student
-    Route::get('/', function () {return view('student.add-student');})->name('home');
+    Route::get('/',[StudentController::class, 'studentview']);
     
-    Route::get('/addstudent', function () {return view('student.add-student');})->name('student.create');
+    Route::get('/addstudent',function () {return view('student.add-student');});
 
-    Route::get('/students', [StudentController::class, 'studentview'])->name('studentlist');
+    Route::get('/students',[StudentController::class, 'studentview'])->name('studentlist');
 
-    Route::get('/studentprofile/{id}', [StudentController::class,'editstudent']);
+    Route::get('/studentprofile/{id}',[StudentController::class, 'editstudent']);
 
-    Route::get('/earlycallentry', [EarlyCallController::class,'Early_call']);
+    Route::get('/earlycallentry',[EarlyCallController::class,'view']);
 
-    Route::post('/early_call',[EarlyCallController::class,'store']);
+    Route::post('/earlycallentry',[EarlyCallController::class,'add']);
 
-    Route::post('/addstudent', [StudentController::class, 'add'])->name('student.store');
+    Route::post('/addstudent',[StudentController::class, 'add']);
  
-    Route::post('/updatestudent/{id}', [StudentController::class,'updatestudent']);
+    Route::post('/updatestudent/{id}',[StudentController::class,'updatestudent']);
 
     // Teacher
-    Route::get('/addteacher',function(){return view('teachers.add-teacher');})->name('teacher.create');
+    Route::get('/addteacher',function(){return view('teachers.add-teacher');});
 
     Route::get('/teachers',[TeacherController::class, 'teacherview'])->name('teacherlist');
 
-    Route::get('/teacherprofile/{id}',[TeacherController::class,'editteacher'])->name('teacher.profile');
+    Route::get('/teacherprofile/{id}',[TeacherController::class,'editteacher']);
     
-    Route::post('/addteacher', [TeacherController::class, 'add'])->name('teacher.store');
+    Route::post('/addteacher',[TeacherController::class, 'add']);
 
     Route::post('/updateteacher/{id}',[TeacherController::class,'updateteacher']);
 
     //Leave
-    Route::get('/leaveapply/{teacher_id}',[TeacherController::class,'leaveapply'])->name('leave.create');
+    Route::get('/leaveapply/{teacher_id}',[TeacherController::class,'leaveapply']);
     
     Route::get('/leaveapproval',[TeacherController::class, 'leaveview']);
 
-    Route::post('addleave', [TeacherController::class, 'leaveadd'])->name('leave.store');
+    Route::post('addleave',[TeacherController::class, 'leaveadd'])->name('leave.store');
     
-    Route::post('approve/{id}', [TeacherController::class, 'approve'])->name('update');
+    Route::post('approve/{id}',[TeacherController::class, 'approve'])->name('update');
     
-    Route::post('reject/{id}', [TeacherController::class, 'reject'])->name('reject');
+    Route::post('reject/{id}',[TeacherController::class, 'reject'])->name('reject');
 
     // Exams
-    Route::get('/addexam', [ExamController::class, 'view'])->name('exams.create');
+    Route::get('/addexam',[ExamController::class, 'view']);
 
-    Route::get('/exams', [ExamController::class, 'examview'])->name('examlist');
+    Route::get('/exams',[ExamController::class, 'examview'])->name('examlist');
 
-    Route::get('/editexam/{id}', [ExamController::class,'editexam']);
+    Route::get('/editexam/{id}',[ExamController::class,'editexam']);
     
-    Route::get('/marks/{id}', [ExamController::class,'marks']);
+    Route::get('/marklist/{id}',[ExamController::class,'viewMarks']);
 
-    Route::post('/addexam', [ExamController::class, 'store'])->name('exam.store');
+    Route::post('/addexam',[ExamController::class, 'add'])->name('exam.store');
 
-    Route::post('/updateexam/{id}', [ExamController::class,'updateexam']);
+    Route::post('/updateexam/{id}',[ExamController::class,'updateexam']);
 
-    Route::post('/updateMarks/{id}', [ExamController::class,'updateMark']);
+    Route::post('/updateMarks/{id}',[ExamController::class,'updateMark']);
+
+    Route::get ('/marklist/{id}', [ExamController::class,'viewMarks']);
 
     
     //classes
-    Route::get('/addclasses', function () {return view('Class.add-class');})->name('class.create');
+    Route::get('/addclasses',function () {return view('Class.add-class');});
 
-    Route::get('/classes', [ClassesController::class, 'classview'])->name('classlist');
+    Route::get('/classes',[ClassesController::class, 'classview'])->name('classlist');
 
-    Route::get('/editclass/{id}', [ClassesController::class,'editclass']);
+    Route::get('/editclass/{id}',[ClassesController::class,'editclass']);
 
-    Route::get('/classstudents/{id}', [ClassesController::class,'classstudents']);
+    Route::get('/classstudents/{id}',[ClassesController::class,'classstudents']);
 
-    Route::post('/addclass', [ClassesController::class, 'store'])->name('class.store');
+    Route::post('/addclass',[ClassesController::class, 'store']);
  
-    Route::post('/updateclass/{id}', [ClassesController::class,'updateclass']);
+    Route::post('/updateclass/{id}',[ClassesController::class,'updateclass']);
     
-    Route::post('studentclassadd/{id_student}', [ClassesController::class,'studentclassadd']);
+    Route::post('studentclassadd/{id_student}',[ClassesController::class,'studentclassadd']);
 
-    Route::post('teacherclassadd/{id_teacher}', [ClassesController::class,'teacherclassadd']);
+    Route::post('teacherclassadd/{id_teacher}',[ClassesController::class,'teacherclassadd']);
 
     //Fees
-    Route::get('/fees',[StudentController::class,'feeview'])->name('feedetails');
+    Route::get('/fees',[StudentController::class,'feeview']);
 
     Route::post('updatefee/{id}',[StudentController::class,'updatefee']);
 
-    // Attendance 
+    //Attendance 
     Route::get('/selectclass',[AttendanceController::class,'selectclass']);
     
     Route::get('/classattendance',[AttendanceController::class,'classattendance']);
     
-    Route::post('/markattendance', [AttendanceController::class, 'markattendance']);
+    Route::post('/markattendance',[AttendanceController::class, 'markattendance']);
 
+    //Holiday
+    Route::get('/addholiday',function () {return view('admin.add-holiday');});
+
+    Route::get('/holidays',[AttendanceController::class, 'viewholiday'])->name('holidaylist');
+    
+    Route::post('/addholiday',[AttendanceController::class, 'addholiday']);
+    
 });

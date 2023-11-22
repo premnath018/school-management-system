@@ -26,7 +26,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('exam.store') }}" method="post">
+                        <form action="{{ route('exam.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
@@ -61,6 +61,8 @@
                                         <label>Type</label>
                                         <select class="form-control select" name="type">
                                             <option>Select Type</option>
+                                            <option value="weekly">Weekly</option>
+                                            <option value="monthly">Monthly</option>
                                             <option value="cycle">Cycle</option>
                                             <option value="term">Term</option>
                                             <option value="final">Final</option>
@@ -95,7 +97,7 @@
                                     <div class="form-group row">
                                         <div class="col-md-10">
                                             <label class="col-form-label col-md-2">File Input</label>
-                                            <input class="form-control" type="file" name="">
+                                            <input class="form-control" type="file" name="pdffile">
                                         </div>
                                     </div>
                                 </div>

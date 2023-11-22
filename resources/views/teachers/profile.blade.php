@@ -110,7 +110,7 @@
                     </div>
                 </div>
                 <div class="hideEdit card-body" id="editform">
-                    <form action="/updateteacher/{{$data->id}}" method="post">
+                    <form action="updateteacher/{{$data->id}}" method="post">
                         <!-- Need to add file input for Documents of Resume , Work Experience , Degree Papers -->
                         @csrf
                         <div class="row">

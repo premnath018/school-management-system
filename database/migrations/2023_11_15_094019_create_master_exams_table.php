@@ -15,8 +15,8 @@ class CreateMasterExamsTable extends Migration
             $table->string('subject_code', 5);
             $table->enum('type', ['cycle', 'term', 'final']);
             $table->unsignedInteger('maximum_mark');
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
+            $table->Time('start_time');
+            $table->Time('end_time');
             $table->date('exam_date');
             $table->string('question_paper_url')->nullable(); // New column for the PDF URL
             $table->timestamps();

@@ -43,6 +43,7 @@ return new class extends Migration
             $table->integer('fees');
             $table->integer('paid_fees');
             $table->enum('fee_status', ['Paid', 'Unpaid']);
+            $table->integer('present_days');
             $table->timestamps();
         });
     }

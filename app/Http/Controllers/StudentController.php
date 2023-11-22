@@ -11,7 +11,7 @@ class StudentController extends Controller
 {
     public function add(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+        $data = $request->validate([
             'batch' => 'required',
             'date_of_admission' => 'required|date',
             'admission_number' => 'required',
@@ -40,42 +40,8 @@ class StudentController extends Controller
             'emis_number' => 'required',
             'class_id' => 'nullable',
         ]);
-        if ($validator->fails()) {
-            dd($validator->errors());
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
-
-        $student = new StudentsBio();
-        $student->batch = $request->batch;
-        $student->date_of_admission = $request->date_of_admission;
-        $student->admission_number = $request->admission_number;
-        $student->name = $request->name;
-        $student->gender = $request->gender;
-        $student->dob = $request->dob;
-        $student->age = $request->age;
-        $student->religion = $request->religion;
-        $student->community = $request->community;
-        $student->caste = $request->caste;
-        $student->nationality = $request->nationality;
-        $student->mother_tongue = $request->mother_tongue;
-        $student->blood_group = $request->blood_group;
-        $student->enrollment_number = $request->enrollment_number;
-        $student->contact_number = $request->contact_number;
-        $student->father_name = $request->father_name;
-        $student->mother_name = $request->mother_name;
-        $student->email = $request->email;
-        $student->permanent_address = $request->permanent_address;
-        $student->present_address = $request->present_address;
-        $student->father_occupation = $request->father_occupation;
-        $student->mother_occupation = $request->mother_occupation;
-        $student->place_of_work = $request->place_of_work;
-        $student->father_income = $request->father_income;
-        $student->mother_income = $request->mother_income;
-        $student->emis_number = $request->emis_number;
-        $student->save();
-        return redirect()->route('student.create');
+        StudentsBio::create($data);
+        return redirect()->back();
     }
     public function studentview()
     {
@@ -85,8 +51,8 @@ class StudentController extends Controller
 
     public function editstudent($id){
         $data = StudentsBio::find($id);
-        $values = Classes::where('id', $data->class_id)->first();  
-        return view('student.profile', compact('data','values'));
+        $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
+        return view('student.profile', compact('data'));
     }
 
     public function updatestudent($id, Request $request){
@@ -132,6 +98,6 @@ class StudentController extends Controller
             $values-> paid_fees= $paided;
             $values->fee_status = $values->fees - $values->paid_fees == 0 ? "Paid":"Unpaid";
             $values->save();
-            return redirect()->route('feedetails');
+            return redirect()->back();
         }
     }
