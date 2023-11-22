@@ -7,6 +7,11 @@
 
 @push('bodycontent')
 <div class="page-wrapper" style="min-height: 742px;">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif               
                 <div class="content container-fluid">        
                     <div class="row">
                         <!-- Blog Post -->
