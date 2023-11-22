@@ -51,6 +51,6 @@ class LoginController extends Controller
 
         $user->save();
 
-        return  view('auth.login');
+        return  redirect()->route('login')->with('success','Registered Succesfully');
     }
 }

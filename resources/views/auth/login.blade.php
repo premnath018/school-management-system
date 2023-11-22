@@ -33,6 +33,16 @@
 	
 		<!-- Main Wrapper -->
         <div class="main-wrapper login-body">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+     <span>   {{ session('error') }} </span>
+    </div>
+@endif
             <div class="login-wrapper">
             	<div class="container">
                 	<div class="loginbox">
@@ -84,6 +94,10 @@
 		<script src="assets/js/script.js"></script>
 		
     </body>
-
+<script>
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+</script>
 <!-- Mirrored from preschool.dreamstechnologies.com/template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 05 Nov 2023 08:47:50 GMT -->
 </html>
