@@ -28,7 +28,7 @@ class TeacherController extends Controller
             'salary' => 'required|integer',
         ]);
         TeachersBio::create($data);
-        return redirect()->back();
+        return redirect()->back()->with('success','Teacher Created Succesfully');
     }
 
     public function teacherview()
@@ -59,7 +59,7 @@ class TeacherController extends Controller
         $data->subject = $request->subject;
         $data->salary = $request->salary;
         $data->save();
-        return redirect()->route('teacherlist');
+        return redirect()->route('teacherlist')->with('success','Teacher Updated Succesfully');
     }
 
     public function leaveapply($teacher_id) {
@@ -81,7 +81,7 @@ class TeacherController extends Controller
             'todate' => $request->input('todate'),
             'reason' => $request->input('reason'),
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('success','Leave Created Succesfully');
     }
     public function leaveview() {
         $data = Leave::all();
@@ -99,7 +99,6 @@ class TeacherController extends Controller
         return redirect()->back();
     }
 
-    // Method to update the status as 'Rejected'
     public function reject($id)
     {
         $leave = Leave::find($id);
