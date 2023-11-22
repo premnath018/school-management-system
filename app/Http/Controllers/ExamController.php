@@ -78,7 +78,7 @@ class ExamController extends Controller
             'question_paper_url' => $pdfFileName,
         ]);
     
-        return redirect()->route('examlist');
+        return redirect()->route('examlist')->with('success', 'Exam Created Successfully');
     }
     
 
@@ -119,7 +119,7 @@ class ExamController extends Controller
                 ['mark' => $mark]
             );
         }
-        return $this->viewMarks($examId);
+        return $this->viewMarks($examId)->with('success','Marks Updated Successfully');
     }
 
     public function updateexam(Request $request, $id){
@@ -132,7 +132,7 @@ class ExamController extends Controller
         $data->end_time = $request->input('end_time');
         $data->exam_date = $request->input('exam_date');
         $data->save();
-        return redirect()->route('examlist');
+        return redirect()->route('examlist')->with('success','Exam Updated Successfully');
     }
 
 }

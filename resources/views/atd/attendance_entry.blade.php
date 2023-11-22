@@ -134,9 +134,8 @@
 
 @push('javascript')
 <script>
-    // Function to hide alerts after a specified time (e.g., 10 seconds)
     setTimeout(function() {
         $(".alert").alert('close');
-    }, 10000);
+    }, 3000);
 </script>
 @endpush
