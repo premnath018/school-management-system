@@ -51,6 +51,6 @@ class LoginController extends Controller
 
         $user->save();
 
-        return  redirect()->route('login')->with('success','Registered Succesfully');
+        return  redirect()->route('login')->with('success','Registered Successfully');
     }
 }

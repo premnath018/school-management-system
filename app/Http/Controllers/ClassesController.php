@@ -19,7 +19,7 @@ class ClassesController extends Controller
         ]);
         Classes::create($data);
 
-        return redirect()->back()->with('success', 'Class details added successfully.');
+        return redirect()->back()->with('success', 'Class Created Successfully.');
     }
     public function classview(){
         $values = Classes::all();
@@ -52,7 +52,7 @@ class ClassesController extends Controller
             $student->fees = $request->input('fees');
             $student->save();
         }
-        return redirect()->route('classlist');
+        return redirect()->route('classlist')->with('success','Class Updated Successfully');
     }
 
     public function studentclassadd($id_student){
@@ -66,7 +66,7 @@ class ClassesController extends Controller
             $student->fees = $class->fees;
             $student->save();
         }
-        return $this->editclass($id);
+        return $this->classstudents($id)->with('success','Students Added to Class Successfully');
     }
 
     public function teacherclassadd($id_teacher){
@@ -74,6 +74,6 @@ class ClassesController extends Controller
         $data = Classes::find($id);
         $data->teacher_id = $teacher;
         $data->save();
-        return $this->classstudents($id)    ;
+        return $this->classstudents($id)->with('success','Teacher Added to Class Successfully');
     }
 }

@@ -28,7 +28,7 @@ class TeacherController extends Controller
             'salary' => 'required|integer',
         ]);
         TeachersBio::create($data);
-        return redirect()->back()->with('success','Teacher Created Succesfully');
+        return redirect()->back()->with('success','Teacher Created Successfully');
     }
 
     public function teacherview()
@@ -59,7 +59,7 @@ class TeacherController extends Controller
         $data->subject = $request->subject;
         $data->salary = $request->salary;
         $data->save();
-        return redirect()->route('teacherlist')->with('success','Teacher Updated Succesfully');
+        return redirect()->route('teacherlist')->with('success','Teacher Updated Successfully');
     }
 
     public function leaveapply($teacher_id) {
@@ -81,7 +81,7 @@ class TeacherController extends Controller
             'todate' => $request->input('todate'),
             'reason' => $request->input('reason'),
         ]);
-        return redirect()->back()->with('success','Leave Created Succesfully');
+        return redirect()->back()->with('success','Leave Created Successfully');
     }
     public function leaveview() {
         $data = Leave::all();
