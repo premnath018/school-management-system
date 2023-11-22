@@ -14,11 +14,6 @@
      <span>   {{ session('success') }} </span>
     </div>
 @endif
-@if(session('error'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-     <span>   {{ session('error') }} </span>
-    </div>
-@endif
 	<div class="content container-fluid">
 		<!-- Page Header -->
 		<div class="page-header">

@@ -41,7 +41,7 @@ class StudentController extends Controller
             'class_id' => 'nullable',
         ]);
         StudentsBio::create($data);
-        return redirect()->back();
+        return redirect()->back()->with('success','Student Created Succesfully');
     }
     public function studentview()
     {
@@ -84,7 +84,7 @@ class StudentController extends Controller
             $data->mother_income = $request->input('mother_income');
             $data->emis_number = $request->input('emis_number');
             $data->save();
-            return redirect()->route('studentlist');
+            return redirect()->route('studentlist')->with('success','Student Updated Succesfully');
     }
 
     public function feeview(){
