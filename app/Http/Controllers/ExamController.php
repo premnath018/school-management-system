@@ -78,7 +78,7 @@ class ExamController extends Controller
             'question_paper_url' => $pdfFileName,
         ]);
     
-        return redirect()->route('examlist')->with('success', 'Exam Created Successfully');
+        return redirect()->back()->with('success', 'Exam Created Successfully');
     }
     
 
