@@ -71,7 +71,7 @@ class AttendanceController extends Controller
             'number_of_days' => 'required',
         ]);
         Holiday::create($data);
-        return redirect()->back();
+        return redirect()->back()->with('success','Holiday Created Successfully');
     }
 
     public function viewholiday(){

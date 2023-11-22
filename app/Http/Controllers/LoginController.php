@@ -22,7 +22,7 @@ class LoginController extends Controller
             // Store the users sessions data
             session(['name' => $user->name]);
             session(['email' => $user->email]);
-            return redirect()->route('home');
+            return redirect()->route('home')->with('success', 'Logged In Successfully');
         }
 
         return redirect()->back()->with('error', 'Invalid Credentials.');
@@ -51,6 +51,6 @@ class LoginController extends Controller
 
         $user->save();
 
-        return  view('auth.login');
+        return  redirect()->route('login')->with('success','Registered Successfully');
     }
 }

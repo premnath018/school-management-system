@@ -8,6 +8,11 @@
 @push('bodycontent')
 <!-- Page Wrapper -->
 <div class="page-wrapper">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif
     <div class="content container-fluid">
         <!-- Page Header -->
         <div class="page-header">
@@ -79,6 +84,8 @@
 
 @push('javascript')
 <script>
-
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush

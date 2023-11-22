@@ -15,7 +15,7 @@ class circularController extends Controller
             'published_at' => 'required'
         ]);
         Circular::create($data);
-        return redirect()->route('circularlist');
+        return redirect()->route('circularlist')->with('success','Circular Created Succesfully');
     }
 
     public function circularview(){
