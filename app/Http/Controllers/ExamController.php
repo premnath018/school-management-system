@@ -9,14 +9,16 @@ use App\Models\Mark;
 use App\Models\StudentsBio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+
 class ExamController extends Controller
 {
-    public function view(){
+    public function view()
+    {
         $classes = Classes::all();
         $subjects = Subject::all();
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
-    
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -28,11 +30,11 @@ class ExamController extends Controller
             'end_time' => 'required|date_format:H:i',
             'exam_date' => 'required|date',
         ]);
-    
+
         // Convert time input to carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
-    
+
         $incrementNumber = Exam::count() + 1;
 
         // Create a new Exam record with converted times
@@ -47,46 +49,57 @@ class ExamController extends Controller
             'exam_code' => $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber,
 
         ]);
-    
+
         return redirect()->route('exam.list');
     }
-    
 
-    public function examview(){
+
+    public function examview()
+    {
         $values = Exam::all();
-        foreach ($values as $value){
+        foreach ($values as $value) {
             $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
             $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
         }
         return view('exams.view-exam', compact('values'));
     }
 
-    public function editexam($id){
+    public function editexam($id)
+    {
         $data = Exam::find($id);
         $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
         $data->subject_name = Subject::where('subject_code', $data->subject_code)->value('subject_name');
         $classes = Classes::all();
         $subjects = Subject::all();
         $students = StudentsBio::where('class_id', $data->class_id)->get(['id', 'name']);
-        return view('exams.edit-exam', compact('data','classes','subjects','students'));
+        return view('exams.edit-exam', compact('data', 'classes', 'subjects', 'students'));
     }
 
-    public function viewMarks($examId){
+    // public function marks($id){
+    //     $data = Exam::find($id);
+    //     $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
+    //     $data->subject_name = Subject::where('subject_code', $data->subject_code)->value('subject_name');
+    //     $students = StudentsBio::where('class_id', $data->class_id)->get(['id', 'name']);
+    //     return view('exams.marks-exam', compact('data','students'));
+    // }
+
+    public function viewMarks($examId)
+    {
         $data = Exam::find($examId);
         $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
         $data->subject_name = Subject::where('subject_code', $data->subject_code)->value('subject_name');
         $values = Mark::where('exam_id', $examId)->get();
-        foreach ($values as $value){
+        foreach ($values as $value) {
             $value->student_name = StudentsBio::where('id', $value->student_id)->value('name');
         }
-        return view('exams.markview', compact('values','data'));
+        return view('exams.markview', compact('values', 'data'));
     }
 
-    public function updateMark(Request $request,$examId)
+    public function updateMark(Request $request, $examId)
     {
         foreach ($request->input('student_marks') as $studentId => $mark) {
             Mark::updateOrCreate(
-                ['student_id' => $studentId,'exam_id' => $examId],
+                ['student_id' => $studentId, 'exam_id' => $examId],
                 ['mark' => $mark]
             );
         }
@@ -96,7 +109,8 @@ class ExamController extends Controller
 
 
 
-    public function updateexam(Request $request, $id){
+    public function updateexam(Request $request, $id)
+    {
         $data = Exam::find($id);
         $incrementNumber = Exam::count() + 1;
         $data->exam_code = $request->input('subject_code') . $request->input('class_id') . $incrementNumber;

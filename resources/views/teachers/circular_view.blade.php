@@ -27,7 +27,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <h3 class="blog-title"><a href="blog-details.html">{{$values->title}}</a></h3>
+                                    <h3 class="blog-title"><a>{{$values->title}}</a></h3>
                                     <p>{{$values->description}}</p>
                                 </div>
                             </div>										
