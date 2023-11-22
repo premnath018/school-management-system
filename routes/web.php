@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/addcircular', [circularController::class, 'circularadd']);
 
     // Student
-    Route::get('/', [StudentController::class, 'studentview']);
+    Route::get('/', [StudentController::class, 'studentview'])->name('home');
 
     Route::get('/addstudent', function () {
         return view('student.add-student');
