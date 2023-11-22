@@ -92,6 +92,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/updateMarks/{id}', [ExamController::class,'updateMark']);
 
+    Route::get ('/marklist/{id}', [ExamController::class,'viewMarks']);
+
     
     //classes
     Route::get('/addclasses', function () {return view('Class.add-class');})->name('class.create');

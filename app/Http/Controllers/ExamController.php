@@ -9,6 +9,8 @@ use App\Models\Mark;
 use App\Models\StudentsBio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class ExamController extends Controller
 {
     public function view(){
@@ -17,8 +19,7 @@ class ExamController extends Controller
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
     
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $validatedData = $request->validate([
             'class_id' => 'required',
             'subject_code' => 'required',
@@ -27,15 +28,44 @@ class ExamController extends Controller
             'start_time' => 'required|date_format:H:i',
             'end_time' => 'required|date_format:H:i',
             'exam_date' => 'required|date',
+            'pdffile' => 'required', // Adjust the max file size as needed
         ]);
     
-        // Convert time input to carbon format
+        // Convert time input to Carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
     
         $incrementNumber = Exam::count() + 1;
+    
 
-        // Create a new Exam record with converted times
+
+        // $image1 = $request->file('image1');
+        // $image1Name = time().'_1.'.$image1->extension();  
+        // $image1->storeAs('public/products', $image1Name);
+
+        // $image2 = $request->file('image2');
+        // $image2Name = time().'_2.'.$image2->extension();
+        // $image2->storeAs('public/products', $image2Name);
+
+        // $image3 = $request->file('image3');    
+        // $image3Name = time().'_3.'.$image3->extension();
+        // $image3->storeAs('public/products', $image3Name);
+
+        // // Save image names to product AFTER storing images
+        // $product->image1 = $image1Name; 
+        // $product->image2 = $image2Name;
+        // $product->image3 = $image3Name;
+
+
+
+     //   dd($request->all());
+        // Store the PDF file in the 'ExamQP' folder
+        $pdfFile = $request->file('pdffile');
+       // dd($pdfFile);
+        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber.$pdfFile->extension();
+        $pdfFile->storeAs('public/ExamQP',$pdfFileName);
+    
+        // Create a new Exam record with converted times and file path
         Exam::create([
             'class_id' => $validatedData['class_id'],
             'subject_code' => $validatedData['subject_code'],
@@ -45,10 +75,10 @@ class ExamController extends Controller
             'end_time' => $end_time->format('H:i'),
             'exam_date' => $validatedData['exam_date'],
             'exam_code' => $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber,
-
+            'question_paper_url' => $pdfFileName,
         ]);
     
-        return redirect()->route('exam.list');
+        return redirect()->route('examlist');
     }
     
 
@@ -82,8 +112,7 @@ class ExamController extends Controller
         return view('exams.markview', compact('values','data'));
     }
 
-    public function updateMark(Request $request,$examId)
-    {
+    public function updateMark(Request $request,$examId){
         foreach ($request->input('student_marks') as $studentId => $mark) {
             Mark::updateOrCreate(
                 ['student_id' => $studentId,'exam_id' => $examId],
@@ -108,4 +137,5 @@ class ExamController extends Controller
         $data->save();
         return redirect()->route('examlist');
     }
+
 }

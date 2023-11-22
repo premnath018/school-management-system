@@ -21,6 +21,7 @@ class Exam extends Model
         'start_time',
         'end_time',
         'exam_date',
+        'question_paper_url'
     ];
 
 }
