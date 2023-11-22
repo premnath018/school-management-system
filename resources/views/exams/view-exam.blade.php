@@ -65,13 +65,14 @@
                         <td>{{$values->exam_date}}</td>
                         <td >
                         <div>
-                        <a href="/marklist/{{$values->id}}" class="btn btn-sm bg-danger-light">
-                          <i class="fa fa-eye"></i>
-                        </a>
+                            <a href="/marklist/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                              <i class="fa fa-eye"></i>
+                            </a>
                             <a href="/editexam/{{$values->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>
                             </a>
-                          </div>
+                            <a href="" class="btn btn-outline-primary me-2">Update</a>
+                        </div>
                         </td>
                       </tr>
                       @endforeach 

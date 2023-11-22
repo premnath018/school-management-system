@@ -19,7 +19,7 @@ class ExamController extends Controller
         $subjects = Subject::all();
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
-    
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -32,13 +32,13 @@ class ExamController extends Controller
             'exam_date' => 'required|date',
             'pdffile' => 'required', // Adjust the max file size as needed
         ]);
-    
+
         // Convert time input to carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
 
         $incrementNumber = Exam::count() + 1;
-    
+
 
 
         // $image1 = $request->file('image1');
@@ -60,13 +60,13 @@ class ExamController extends Controller
 
 
 
-     //   dd($request->all());
+        //   dd($request->all());
         // Store the PDF file in the 'ExamQP' folder
         $pdfFile = $request->file('pdffile');
-       // dd($pdfFile);
-        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber.$pdfFile->extension();
-        $pdfFile->storeAs('public/ExamQP',$pdfFileName);
-    
+        // dd($pdfFile);
+        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber . $pdfFile->extension();
+        $pdfFile->storeAs('public/ExamQP', $pdfFileName);
+
         // Create a new Exam record with converted times and file path
         Exam::create([
             'class_id' => $validatedData['class_id'],
@@ -79,7 +79,7 @@ class ExamController extends Controller
             'exam_code' => $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber,
             'question_paper_url' => $pdfFileName,
         ]);
-    
+
         return redirect()->route('exam.list');
     }
 
@@ -125,7 +125,7 @@ class ExamController extends Controller
         return view('exams.markview', compact('values', 'data'));
     }
 
-    public function updateMark(Request $request,$examId)
+    public function updateMark(Request $request, $examId)
     {
         foreach ($request->input('student_marks') as $studentId => $mark) {
             Mark::updateOrCreate(
@@ -136,6 +136,14 @@ class ExamController extends Controller
         return $this->viewMarks($examId);
     }
 
+    public function updateMarkView($examId)
+    {
+        $data = Exam::find($examId);
+        $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
+        $data->subject_name = Subject::where('subject_code', $data->subject_code)->value('subject_name');
+        $values = StudentsBio::where('class_id', $data->class_id)->get();
+        return view('exams.updatemark', compact('values', 'data'));
+    }
     public function updateexam(Request $request, $id)
     {
         $data = Exam::find($id);
@@ -149,5 +157,4 @@ class ExamController extends Controller
         $data->save();
         return redirect()->route('examlist');
     }
-
 }
