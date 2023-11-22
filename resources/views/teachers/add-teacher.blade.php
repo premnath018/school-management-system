@@ -30,7 +30,7 @@
             <div class="col-sm-12">
                 <div class="card comman-shadow">
                     <div class="card-body">
-                        <form action="/addteacher" method="post">
+                        <form action="addteacher" method="post">
                             <!-- Need to add file input for Documents of Resume , Work Experience , Degree Papers -->
                             @csrf
                             <div class="row">

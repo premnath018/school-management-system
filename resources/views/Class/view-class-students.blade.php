@@ -63,7 +63,7 @@
                                         </tr>
                                         <tr>
                                             <td>Class Teacher:</td>
-                                            <td class="font-medium text-dark-medium">{{$data->teacher_id ? $details->name : 'No Teacher has been assigned'}}</td>
+                                            <td class="font-medium text-dark-medium">{{$data->teacher_id ? $data->name : 'No Teacher has been assigned'}}</td>
                                         </tr>
                                         <tr>
                                             <td>Fees:</td>

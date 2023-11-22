@@ -8,15 +8,15 @@
 				<li class="submenu">
 					<a href="#"><i class="feather-grid"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
 					<ul>
-						<li><a href="index.html">Admin Dashboard</a></li>
-						<li><a href="teacher-dashboard.html">Teacher Dashboard</a></li>
-						<li><a href="student-dashboard.html">Student Dashboard</a></li>
+						<li><a href="#">Admin Dashboard</a></li>
+						<li><a href="#">Teacher Dashboard</a></li>
+						<li><a href="#">Student Dashboard</a></li>
 					</ul>
 				</li>
 				<li class="submenu">
 					<a href="#"><i class="feather-grid"></i> <span>Admin</span> <span class="menu-arrow"></span></a>
 					<ul>
-						<li><a href="/createcircular">Add Circular</a></li>
+						<li><a href="/addcircular">Add Circular</a></li>
 						<li><a href="/addholiday">Add Holiday</a></li>
 						<li><a href="/holidays">Holiday List</a></li>
 						<li><a href="/leaveapproval">Leave Approval</a></li>
@@ -69,15 +69,15 @@
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
 				</li>
-				<li class="submenu">
+				<!-- <li class="submenu">
 					<a href="#"><i class="fe fe-check-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-check-circle" aria-label="fe fe-check-circle"></i><span>Attendance</span> <span class="menu-arrow"></span></a>
 					<ul>
-						<li><a href="/selectclass">Mark Attendance</a></li>
+						<li><a href="/selectclass">Mark Attendance</a></li> -->
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
 						<!-- <li><a href="/addexam">Exam Add</a></li> -->
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
-					</ul>
-				</li>
+					<!-- </ul>
+				</li> -->
 				<!-- <li class="submenu">
 					<a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
 					<ul>
