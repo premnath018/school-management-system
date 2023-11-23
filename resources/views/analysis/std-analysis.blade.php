@@ -229,6 +229,21 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Gradient Bar Chart</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <canvas id="chartBar3" class="h-300" width="382" height="187" style="display: block; box-sizing: border-box; height: 149.6px; width: 305.6px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <!-- /Page Wrapper -->
@@ -238,9 +253,4 @@
 @push('javascript')
 <script>
 </script>
-<script src="assets/plugins/chartjs/chart.min.js"></script>
-<script src="assets/plugins/chartjs/chart-data.js"></script>
-
-<script src="assets/js/script.js"></script>
-
 @endpush
