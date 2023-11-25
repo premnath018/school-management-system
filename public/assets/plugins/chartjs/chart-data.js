@@ -6,7 +6,7 @@ $(function() {
 		data: {
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
 			datasets: [{
-				label: 'Sales',
+				label: 'Marks',
 				data: [24, 10, 32, 24, 26, 20],
 				backgroundColor: '#664dc9'
 			}]
