@@ -227,6 +227,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Bar Chart</div>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <canvas id="chartBar2" class="h-300" width="434" height="187" style="display: block; box-sizing: border-box; height: 149.6px; width: 347.2px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+
         </div>
 
     </div>

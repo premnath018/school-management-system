@@ -13,6 +13,7 @@
     <div class="alert alert-success alert-dismissible fade show" role="alert">
      <span>   {{ session('success') }} </span>
     </div>
+	
 @endif
 	<div class="content container-fluid">
 
@@ -140,6 +141,8 @@
 <!-- /Page Wrapper -->
 
 @endpush
+
+
 
 @push('javascript')
 <script>

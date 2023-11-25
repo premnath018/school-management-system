@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Classes;
 use App\Models\StudentsBio;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {

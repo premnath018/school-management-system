@@ -22,25 +22,19 @@ use App\Http\Controllers\TeacherController;
 */
 
 
-Route::get('/register', function () {
-    return view('auth.signup');
-});
+Route::get('/register', function () {return view('auth.signup');});
 
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::post('/register', [LoginController::class, 'register']);
 
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
+Route::get('/login', function () {return view('auth.login');})->name('login');
 
 
 Route::middleware('auth')->group(function () {
 
     //Circular
-    Route::get('/addcircular', function () {
-        return view('admin.add_circular');
-    });
+    Route::get('/addcircular', function () {return view('admin.add_circular');});
 
     Route::get('/circulars', [circularController::class, 'circularview'])->name('circularlist');
 
@@ -49,9 +43,7 @@ Route::middleware('auth')->group(function () {
     // Student
     Route::get('/', [StudentController::class, 'studentview'])->name('home');
 
-    Route::get('/addstudent', function () {
-        return view('student.add-student');
-    });
+    Route::get('/addstudent', function () {return view('student.add-student');});
 
     Route::get('/students', [StudentController::class, 'studentview'])->name('studentlist');
 
@@ -66,9 +58,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/updatestudent/{id}', [StudentController::class, 'updatestudent']);
 
     // Teacher
-    Route::get('/addteacher', function () {
-        return view('teachers.add-teacher');
-    });
+    Route::get('/addteacher', function () {return view('teachers.add-teacher');});
 
     Route::get('/teachers', [TeacherController::class, 'teacherview'])->name('teacherlist');
 
@@ -100,7 +90,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/updateMarks/{id}', [ExamController::class, 'updateMarkView']);
 
-
     Route::post('/addexam', [ExamController::class, 'add'])->name('exam.store');
 
     Route::post('/updateexam/{id}', [ExamController::class, 'updateexam']);
@@ -108,9 +97,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/updateMarks/{id}',[ExamController::class,'updateMark']);
     
     //classes
-    Route::get('/addclasses', function () {
-        return view('Class.add-class');
-    });
+    Route::get('/addclasses', function () {return view('Class.add-class');});
 
     Route::get('/classes', [ClassesController::class, 'classview'])->name('classlist');
 
@@ -146,7 +133,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/addholiday', [AttendanceController::class, 'addholiday']);
 
     // Analysis
-
     Route::get('/analysis',function(){return view('analysis.analysis');});
 
 });
