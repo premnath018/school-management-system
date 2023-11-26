@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title','Welcome')
+@section('title','Grade Sheet')
 @push('internalCss')
 <style>
 </style>
@@ -13,10 +13,10 @@
         <div class="page-header">
             <div class="row align-items-center">
                 <div class="col">
-                    <h3 class="page-title">Add Subject</h3>
+                    <h3 class="page-title">Mark</h3>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="subjects.html">Subject</a>
+                            <a href="subjects.html">GradeSheet</a>
                         </li>
                     </ul>
                 </div>
@@ -32,20 +32,27 @@
                             <div class="row">
                                 <div class="col-12">
                                     <h5 class="form-title">
-                                        <span>Add Class</span>
+                                        <span>Grade Sheet</span>
                                     </h5>
                                 </div>
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
-                                        <label>Class Name<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" name="ClassID" />
+                                        <label>Type of Test<span class="login-danger">*</span></label>
+                                        <select class="form-control select" name="testtype">
+                                            <option>Select Test</option>
+                                            <option>Weekly Test</option>
+                                            <option>Monthly Test</option>
+                                            <option>Quaterly Exam</option>
+                                            <option>Half Early Exam</option>
+                                            <option>Annual Exam</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
-                                        <label>Class <span class="login-danger">*</span></label>
+                                        <label>Class<span class="login-danger">*</span></label>
                                         <select class="form-control select" name="Class">
-                                            <option>Select Section</option>
+                                            <option>Select Class</option>
                                             <option>I</option>
                                             <option>II</option>
                                             <option>III</option>
@@ -63,25 +70,45 @@
                                 </div>
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
-                                        <label>Class Section
-                                            <span class="login-danger">*</span></label>
-                                        <select class="form-control select" name="section">
+                                        <label>Section<span class="login-danger">*</span></label>
+                                        <select class="form-control select" name="sections">
                                             <option>Select Section</option>
                                             <option>A</option>
-                                            <option>B</option>
-                                            <option>C</option>
-                                            <option>D</option>
-                                            <option>E</option>
-                                            <option>F</option>
-                                            <option>G</option>
-                                            <option>H</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-3">
                                     <div class="form-group local-forms">
-                                        <label>Fees<span class="login-danger">*</span></label>
-                                        <input type="integer" class="form-control" name="fees" />
+                                        <label>No Of Exams<span class="login-danger">*</span></label>
+                                        <input type="number" class="form-control" name="noExams" max=12;/>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-3">
+                                    <div class="form-group local-forms">
+                                        <label>Choose Exam<span class="login-danger">*</span></label>
+                                        <select class="form-control select" name="">
+                                            <option>Select Section</option>
+                                            <option>A</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group local-forms">
+                                        <label>Select Student <span class="login-danger">*</span></label>
+                                        <select class="form-control select" name="">
+                                            <option>Select Section</option>
+                                            <option>A</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-3">
+                                    <div class="form-group local-forms">
+                                        <label>RankList<span class="login-danger">*</span></label>
+                                        <select class="form-control select" name="">
+                                            <option>Select Option</option>
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-12">
