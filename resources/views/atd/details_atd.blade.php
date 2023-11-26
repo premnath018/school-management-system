@@ -52,21 +52,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="table-danger">
-                                        <td>John</td>
-                                        <td>001</td>
-                                        <td>Abs</td>
+                                    @foreach ($data as $data)
+                                    <tr class="{{$data['class']}}">
+                                        <td>{{$data['name']}}</td>
+                                        <td>{{$data['id']}}</td>
+                                        <td>{{$data['status']}}</td>
                                     </tr>
-                                    <tr class="table-success">
-                                        <td>Mary</td>
-                                        <td>002</td>
-                                        <td>Present</td>
-                                    </tr>
-                                    <tr class="table-success">
-                                        <td>July</td>
-                                        <td>003</td>
-                                        <td>Present</td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

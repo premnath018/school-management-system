@@ -64,7 +64,7 @@
                 </div>					
         </form>		
 
-        <form action="classattendance" method="get">
+        <form action="viewattendance" method="get">
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
@@ -86,7 +86,7 @@
                         <div class="col-12 col-sm-4">
                             <div class="form-group local-forms">
                                 <label>Date<span class="login-danger">*</span></label>
-                                <input id="dateInp" class="form-control" type="date" max="{{ now()->format('Y-m-d') }}" />
+                                <input id="dateInp" class="form-control" type="date" name='date' max="{{ now()->format('Y-m-d') }}" />
                             </div>
                         </div>
                         <div class="col-12">

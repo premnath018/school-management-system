@@ -8,6 +8,7 @@ use App\Models\Holiday;
 use App\Models\StudentsBio;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
@@ -63,6 +64,29 @@ class AttendanceController extends Controller
         }
     }
 
+    public function viewattendance(Request $request){
+        $classId = $request->input('selected_class');
+        $date = $request->input('date');
+         $students = StudentsBio::where('class_id', $classId)->get();
+         $absentees = DB::table('attendances')
+                         ->whereIn('student_id', $students->pluck('id')->toArray())
+                         ->where('date', $date)
+                         ->get();
+         $absenteesByStudentId = $absentees->pluck('student_id')->toArray();
+         $data = [];
+         foreach ($students as $student) {
+            $status = in_array($student->id, $absenteesByStudentId) ? 'Abs' : 'Present';
+            $class = in_array($student->id, $absenteesByStudentId) ? 'table-danger' : 'table-success';
+
+            $data[] = [
+                'name' => $student->name,
+                'id' => $student->id,
+                'status' => $status,
+                'class' => $class,
+            ];
+        } 
+        return view('atd.details_atd',['data' => $data]);
+    }
     public function addholiday(Request $request){
         $data = $request->validate([
             'holiday_name' => 'required',
