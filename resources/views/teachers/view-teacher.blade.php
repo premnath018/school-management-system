@@ -2,6 +2,13 @@
 @section('title','Teachers')
 @push('internalCss')
 <style>
+    .hideEdit {
+        display: none;
+    }
+
+    .single-info-details {
+        padding: 0 30px;
+    }
 </style>
 @endpush
 
@@ -69,9 +76,7 @@
                                     <h3 class="page-title">Students</h3>
                                 </div>
                                 <div class="col-auto text-end float-end ms-auto download-grp">
-                                    <a href="students.html" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
-                                    <a href="students-grid.html" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
-                                    <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
+                                    <input type="button" id="viewedit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Add Teacher Account" />
                                     <a href="/addteacher" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                                 </div>
                             </div>
@@ -134,6 +139,40 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content card-body">
+                            <form action="" method="post">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-12">
+                                        <h5 class="form-title student-info">Add Account<span><a href="javascript:;"></a></span></h5>
+                                    </div>
+                                    <!-- Changes -->
+                                    
+                                    <div class="form-group local-forms">
+                                        <label>Teacher ID<span class="login-danger">*</span></label>
+                                        <input type="text" class="form-control" name="ClassID" value="Enter Teacher ID" />
+                                    </div>
+
+                                    <div class="form-group">
+										<label>Password <span class="login-danger">*</span></label>
+										<input class="form-control pass-input" type="password">
+									</div>
+                                    <div class="col-12">
+                                        <div class="student-submit">
+                                            <button type="submit" class="btn btn-primary m-r-10">Create Account</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -146,5 +185,23 @@
     setTimeout(function() {
         $(".alert").alert('close');
     }, 3000);
+
+    document.getElementById("AddStd").addEventListener('click', function() {
+        document.getElementById('SearchStudent').classList.toggle("hideEdit");
+        if (document.getElementById("AddStd").value == 'Add Student') {
+            document.getElementById("AddStd").value = 'Close Add Student'
+        } else {
+            document.getElementById("AddStd").value = 'Add Student'
+        }
+    });
+    document.getElementById("AddTea").addEventListener('click', function() {
+        document.getElementById('SearchTeacher').classList.toggle("hideEdit");
+        if (document.getElementById("AddTea").value == 'Assign Teacher') {
+            document.getElementById("AddTea").value = 'Close Assign Teacher'
+        } else {
+            document.getElementById("AddTea").value = 'Assign Teacher'
+        }
+    });
+
 </script>
 @endpush
