@@ -161,6 +161,21 @@
                                             <td>EMIS Number:</td>
                                             <td class="font-medium text-dark-medium">{{$data->emis_number}}</td>
                                         </tr>
+                                        <tr>
+                                        <td><label style="padding: 1rem 0;">Add Extra Fees :</label></td>
+                                            <td class="font-medium text-dark-medium">
+                                                <form action="" method="post"></form>
+                                                    <div class="d-flex flex-row">
+                                                        <div class="col-10 col-sm-6 m-2">
+                                                            <input class="form-control" style="border-radius: 20px;" name="father_income" type="number" placeholder="Enter Extra Fee">
+                                                        </div>
+                                                        <div class="col-10 col-sm-3 m-2 p-1">
+                                                            <input class="btn btn-primary " style="border-radius: 18px;" type="submit" value="Enter">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>

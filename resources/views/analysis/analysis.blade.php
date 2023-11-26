@@ -55,6 +55,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-7 col-md-7 d-flex justify-content-start align-items-center">
+                                              <br>
+                                        </div>
                                     </div>
                                 </div>
                             </div>                              
@@ -69,12 +72,12 @@
                             <div class="card-body">
                                 <div class="db-widgets d-flex justify-content-between align-items-center">
                                     <div class="db-info">
-                                        <h6>All Courses</h6>
+                                        <h6>Batch</h6>
                                         <h3>04/06</h3>
                                     </div>  
-                                    <div class="db-icon">
+                                    <!-- <div class="db-icon">
                                         <img  src="assets/img/icons/teacher-icon-01.svg"  alt="Dashboard Icon">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -83,12 +86,12 @@
                             <div class="card-body">
                                 <div class="db-widgets d-flex justify-content-between align-items-center">
                                     <div class="db-info">
-                                        <h6>Recent Test</h6>
+                                        <h6>Enrollment number</h6>
                                         <h3>460/500</h3>
                                     </div>  
-                                    <div class="db-icon">
+                                    <!-- <div class="db-icon">
                                         <img  src="assets/img/icons/student-icon-01.svg"  alt="Dashboard Icon">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -99,12 +102,12 @@
                             <div class="card-body">
                                 <div class="db-widgets d-flex justify-content-between align-items-center">
                                     <div class="db-info">
-                                        <h6>All Projects</h6>
+                                        <h6>Contact Number</h6>
                                         <h3>40/60</h3>
                                     </div>  
-                                    <div class="db-icon">
+                                    <!-- <div class="db-icon">
                                         <img  src="assets/img/icons/teacher-icon-02.svg"  alt="Dashboard Icon">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -113,12 +116,12 @@
                             <div class="card-body">
                                 <div class="db-widgets d-flex justify-content-between align-items-center">
                                     <div class="db-info">
-                                        <h6>Attendence</h6>
-                                        <h3>15/20</h3>
+                                        <h6>EMIS Number</h6>
+                                        <h4>123456789123</h4>
                                     </div>  
-                                    <div class="db-icon">
+                                    <!-- <div class="db-icon">
                                         <img  src="assets/img/icons/student-icon-02.svg"  alt="Dashboard Icon">
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -136,21 +139,21 @@
 
                         <!-- <div class="dash-circle"> -->
                             <div class="row">
-                                <div class="col-lg-5 col-md-5 dash-widget1">
+                                <div class="col-lg-6 col-md-6 dash-widget1">
                                     <div class="circle-bar circle-bar2">
                                         <div class="circle-graph2" data-percent="80">
                                             <b>80%</b>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3">
+                                <div class="col-lg-6 col-md-6">
                                     <div class="dash-details">
                                         <div class="lesson-activity">
                                             <div class="lesson-imgs">
                                                 <img  src="assets/img/icons/lesson-icon-01.svg"  alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Class</h5>
+                                                <h5>Total Days</h5>
                                                 <h4>Electrical Engg</h4>
                                             </div>
                                         </div>
@@ -159,7 +162,7 @@
                                                 <img  src="assets/img/icons/lesson-icon-02.svg"  alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Lessons</h5>
+                                                <h5>Days Present</h5>
                                                 <h4>5 Lessons</h4>
                                             </div>
                                         </div>
@@ -168,7 +171,7 @@
                                                 <img  src="assets/img/icons/lesson-icon-03.svg"  alt="">
                                             </div>
                                             <div class="views-lesson">
-                                                <h5>Time</h5>
+                                                <h5>Days Absent</h5>
                                                 <h4>Lessons</h4>
                                             </div>
                                         </div>
@@ -176,33 +179,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-4">
                                     <div class="dash-details">
-                                        <div class="lesson-activity">
-                                            <div class="lesson-imgs">
-                                                <img  src="assets/img/icons/lesson-icon-04.svg"  alt="">
-                                            </div>
-                                            <div class="views-lesson">
-                                                <h5>Asignment</h5>
-                                                <h4>5 Asignment</h4>
-                                            </div>
-                                        </div>
-                                        <div class="lesson-activity">
-                                            <div class="lesson-imgs">
-                                                <img  src="assets/img/icons/lesson-icon-05.svg"  alt="">
-                                            </div>
-                                            <div class="views-lesson">
-                                                <h5>Staff</h5>
-                                                <h4>John Doe</h4>
-                                            </div>
-                                        </div>
-                                        <div class="lesson-activity">
-                                            <div class="lesson-imgs">
-                                                <img  src="assets/img/icons/lesson-icon-06.svg"  alt="">
-                                            </div>
-                                            <div class="views-lesson">
-                                                <h5>Lesson Learned</h5>
-                                                <h4>10/50</h4>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -397,33 +374,46 @@
                                             <h5 class="form-title"><span>Mark Analysis</span></h5>
                                         </div>
                                         
-                                        <div class="col-12 col-sm-4">
+                                        <div class="col-12 col-sm-3">  
+                                            <div class="form-group local-forms">
+                                                <label>Subject <span class="login-danger">*</span></label>
+                                                <select class="form-control " data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                    <option data-select2-id="3">Select Test</option>
+                                                    <option>English</option>
+                                                    <option>Tamil</option>
+                                                    <option>Maths</option>
+                                                    <option>Science</option>
+                                                    <option>Social</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">  
+                                            <div class="form-group local-forms">
+                                                <label>Test Type <span class="login-danger">*</span></label>
+                                                <select class="form-control " data-select2-id="1" tabindex="-1" aria-hidden="true">
+                                                    <option data-select2-id="3">Select Test</option>
+                                                    <option>Weekly-Test</option>
+                                                    <option>Monthly-Test</option>
+                                                    <option>Mid-Term</option>
+                                                    <option>Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
                                                 <label>From date
                                                     <span class="login-danger">*</span></label>
                                                 <input class="form-control" type="date" min="1900" max="2099" step="1" value="2023-05">
                                             </div>
                                         </div>
-                                        <div class="col-12 col-sm-4">
+                                        <div class="col-12 col-sm-3">
                                             <div class="form-group local-forms">
                                                 <label>To date
                                                     <span class="login-danger">*</span></label>
                                                 <input class="form-control" type="date" min="1900" max="2099" step="1" value="2023-05">
                                             </div>
                                         </div>
-                                            <div class="col-12 col-sm-4">  
-                                                <div class="form-group local-forms">
-                                                    <label>Test Type <span class="login-danger">*</span></label>
-                                                    <select class="form-control " data-select2-id="1" tabindex="-1" aria-hidden="true">
-                                                        <option data-select2-id="3">Select Test</option>
-                                                        <option>Weekly-Test</option>
-                                                        <option>Monthly-Test</option>
-                                                        <option>Mid-Term</option>
-                                                        <option>Others</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        <div class="col-12">
+                                        <div class="col-12 col-sm-12 d-flex justify-content-end align-items-center">
                                             <div class="student-submit">
                                                 <button type="submit" class="btn btn-primary">
                                                     Submit
@@ -442,10 +432,8 @@
 									<div class="card-title">Bar Chart</div>
 								</div>
 								<div class="card-body">
-									<div>
-										<canvas id="chartBar1" class="h-300" width="382" height="187" style="display: block; box-sizing: border-box; height: 149.6px; width: 305.6px;"></canvas>
-									</div>
-								</div>
+                                    <div id="s1-col"></div>
+                                </div>
 							</div>
 						</div>
                                 
@@ -494,7 +482,7 @@
         <!-- Custom JS -->
         <script src="assets/js/script.js"></script>
 
-        <!--  -->
+        <!-- Chart JS  -->
         <script src="assets/plugins/chartjs/chart.min.js"></script>
         <script src="assets/plugins/chartjs/chart-data.js"></script>
 
