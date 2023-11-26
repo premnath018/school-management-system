@@ -8,9 +8,7 @@
 @push('bodycontent')
 <!-- Page Wrapper -->
 <div class="page-wrapper">
-            
             <div class="content container-fluid">
-
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
