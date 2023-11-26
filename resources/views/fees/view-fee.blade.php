@@ -51,8 +51,8 @@
 												<a href="#">{{$values->class_id}}</a>
 											</h2>
 										</td>
-										<td>{{$values->fees}}</td>
-										<td>{{$values->paid_fees ? $values->paid_fees : "0"}}</td>
+										<td>{{$values->fees+$values->extra_fees}}</td>
+										<td>{{$values->paid_fees+$values->extra_paid_fees}}</td>
 										<td>{{$values->fee_status}}</td>
 										<form action="updatefee/{{$values->id}}" method="post">
 											@csrf

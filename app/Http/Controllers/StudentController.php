@@ -93,10 +93,28 @@ class StudentController extends Controller
 
     public function updatefee($id, Request $request){
             $values = StudentsBio::find($id);
-            $paided = $values->paid_fees + $request->input('update_amount');
-            $values-> paid_fees= $paided;
-            $values->fee_status = $values->fees - $values->paid_fees == 0 ? "Paid":"Unpaid";
+            $updateAmount = $request->input('update_amount');
+            $remainingExtraFees = max(0, $values->extra_fees - $values->extra_paid_fees); // Calculate remaining extra fees to be paid
+            if ($updateAmount <= $remainingExtraFees) {
+                // If the update amount is less than or equal to remaining extra fees, update extra_paid_fees
+                $values->extra_paid_fees += $updateAmount;
+            } else {
+                // Update extra_paid_fees to maximum extra_fees and adjust paid_fees with remaining amount
+                $values->extra_paid_fees = $values->extra_fees;
+                $remainingAmount = $updateAmount - $remainingExtraFees;
+                $values->paid_fees += $remainingAmount;
+            }
+            $values->fee_status = ($values->fees - $values->paid_fees) == 0 && ($values->extra_fees - $values->extra_paid_fees) == 0 ? "Paid":"Unpaid";
             $values->save();
             return redirect()->back();
-        }
     }
+    
+    public function extra_fees($id, Request $request){
+            $values = StudentsBio::find($id);
+            $values-> extra_fees = $values-> extra_fees + $request->input('extra_fees');
+            $values->fee_status = ($values->fees - $values->paid_fees) == 0 && ($values->extra_fees - $values->extra_paid_fees) == 0 ? "Paid":"Unpaid";
+            $values->save();
+            return redirect()->back();
+    }
+
+}

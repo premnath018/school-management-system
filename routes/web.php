@@ -117,6 +117,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/fees', [StudentController::class, 'feeview']);
 
     Route::post('updatefee/{id}', [StudentController::class, 'updatefee']);
+    
+    Route::post('extra_fees/{id}', [StudentController::class, 'extra_fees']);
 
     //Attendance 
     Route::get('/selectclass', [AttendanceController::class, 'selectclass']);
