@@ -247,61 +247,119 @@ chart.render();
 
 // Simple Column
 if($('#s-col').length > 0 ){
-var sCol = {
-    chart: {
-        height: 350,
-        type: 'bar',
-        toolbar: {
-          show: false,
-        }
-    },
-    plotOptions: {
-        bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            endingShape: 'rounded'  
+    var sCol = {
+        chart: {
+            height: 250,
+            type: 'bar',
+            toolbar: {
+              show: false,
+            }
         },
-    },
-    // colors: ['#888ea8', '#4361ee'],
-    dataLabels: {
-        enabled: false
-    },
-    stroke: {
-        show: true,
-        width: 2,
-        colors: ['transparent']
-    },
-    series: [{
-        name: 'Net Profit',
-        data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
-    }, {
-        name: 'Revenue',
-        data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
-    }],
-    xaxis: {
-        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-    },
-    yaxis: {
-        title: {
-            text: '$ (thousands)'
-        }
-    },
-    fill: {
-        opacity: 1
-
-    },
-    tooltip: {
-        y: {
-            formatter: function (val) {
-                return "$ " + val + " thousands"
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '55%',
+                endingShape: 'rounded'  
+            },
+        },
+        // colors: ['#888ea8', '#4361ee'],
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        series: [{
+            name: 'Paid',
+            data: [44, 55, 57]
+        }, {
+            name: 'Total',
+            data: [76, 85, 101]
+        }],
+        xaxis: {
+            categories: ['Total Fees', 'Additional', 'Van'],
+        },
+        yaxis: {
+            title: {
+                text: '$ (thousands)'
+            }
+        },
+        fill: {
+            opacity: 1
+    
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return "$ " + val + " thousands"
+                }
             }
         }
     }
-}
 
 var chart = new ApexCharts(
     document.querySelector("#s-col"),
     sCol
+);
+
+chart.render();
+}
+
+// Simple Column
+if($('#s1-col').length > 0 ){
+    var s1Col = {
+        chart: {
+            height: 300,
+            type: 'bar',
+            toolbar: {
+              show: false,
+            }
+        },
+        plotOptions: {
+            bar: {
+                horizontal: false,
+                columnWidth: '40%'  
+            },
+        },
+        // colors: ['#888ea8', '#4361ee'],
+        dataLabels: {
+            enabled: false
+        },
+        stroke: {
+            show: true,
+            width: 2,
+            colors: ['transparent']
+        },
+        series: [{
+            name: 'Mark ',
+            data: [44, 55, 57, 79, 83]
+        }],
+        xaxis: {
+            categories: ['English', 'Tamil', 'Maths', 'Science', 'Social'],
+        },
+        yaxis: {
+            title: {
+                text: 'Marks (in 20s)'
+            }
+        },
+        fill: {
+            opacity: 4
+    
+        },
+        tooltip: {
+            y: {
+                formatter: function (val) {
+                    return val + " Marks"
+                }
+            }
+        }
+    }
+
+var chart = new ApexCharts(
+    document.querySelector("#s1-col"),
+    s1Col
 );
 
 chart.render();
