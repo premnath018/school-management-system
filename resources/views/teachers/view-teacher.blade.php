@@ -144,7 +144,7 @@
                 <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content card-body">
-                            <form action="" method="post">
+                            <form action="register" method="post">
                                 @csrf
                                 <div class="row">
                                     <div class="col-12">
@@ -154,12 +154,12 @@
                                     
                                     <div class="form-group local-forms">
                                         <label>Teacher ID<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" name="ClassID" value="Enter Teacher ID" />
+                                        <input type="text" class="form-control" name="email" value="Enter Teacher ID" />
                                     </div>
 
                                     <div class="form-group">
 										<label>Password <span class="login-danger">*</span></label>
-										<input class="form-control pass-input" type="password">
+										<input class="form-control pass-input" name='password' type="password">
 									</div>
                                     <div class="col-12">
                                         <div class="student-submit">

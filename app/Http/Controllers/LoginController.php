@@ -31,10 +31,9 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:users',
+            'email' => 'required|unique:users',
             'password' =>  [
                 'required',
-                'confirmed',
                 'min:8',
                 //    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
             ],
@@ -51,6 +50,6 @@ class LoginController extends Controller
 
         $user->save();
 
-        return  redirect()->route('login')->with('success','Registered Successfully');
+        return  redirect()->back()->with('success','Created Successfully');
     }
 }
