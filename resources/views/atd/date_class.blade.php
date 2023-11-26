@@ -30,7 +30,7 @@
         </div>
         <!-- /Page Header -->
         <form action="classattendance" method="get">
-            <div class="card-body">
+            <div class="card-body mb-4">
                 <div class="row">
                     <div class="col-12">
                         <h5 class="form-title student-info">Select</h5>
@@ -62,8 +62,43 @@
                         </div>
                     </div>
                 </div>					
+        </form>		
+
+        <form action="classattendance" method="get">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="form-title student-info">View Attendance Details</h5>
+                    </div>
+                    <div class="col-12 col-sm-4">  
+                        <div class="form-group local-forms">
+                            <label>Class Code <span class="login-danger">*</span></label>
+                            <select class="form-control select select2-hidden-accessible" aria-hidden="true" name="selected_class">
+                                <option>Please Select Class</option>
+                                <!-- Loop Start -->
+                                @foreach($values as $class)
+                                    <option value="{{ $class->id }}">{{$class->ClassID}}</option>         
+                                @endforeach
+                                <!-- Loop ends -->
+                            </select>
+                        </div>
+                    </div>
+                        <div class="col-12 col-sm-4">
+                            <div class="form-group local-forms">
+                                <label>Date<span class="login-danger">*</span></label>
+                                <input id="dateInp" class="form-control" type="date" max="{{ now()->format('Y-m-d') }}" />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="student-submit">
+                                <button type="submit" class="btn btn-primary">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>					
             </div>
-        </form>			
+        </form>	
+    </div>		
 </div>
 @endpush
 

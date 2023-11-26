@@ -125,6 +125,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/classattendance', [AttendanceController::class, 'classattendance']);
 
+    Route::get('/details_atd',function(){return view('atd.details_atd');});
+
     Route::post('/markattendance', [AttendanceController::class, 'markattendance']);
 
     //Holiday
