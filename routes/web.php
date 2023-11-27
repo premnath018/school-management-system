@@ -139,4 +139,7 @@ Route::middleware('auth')->group(function () {
     // Analysis
     Route::get('/analysis',function(){return view('analysis.analysis');});
 
+    // Grades
+    Route::get('/Gsheets',function(){return view('Gsheets.inp');});
+
 });

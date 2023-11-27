@@ -154,7 +154,7 @@
                                     
                                     <div class="form-group local-forms">
                                         <label>Teacher ID<span class="login-danger">*</span></label>
-                                        <input type="text" class="form-control" name="email" value="Enter Teacher ID" />
+                                        <input type="text" class="form-control" name="email" placeholder="Enter Teacher ID" />
                                     </div>
 
                                     <div class="form-group">
