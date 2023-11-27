@@ -121,11 +121,11 @@ Route::middleware('auth')->group(function () {
     Route::post('extra_fees/{id}', [StudentController::class, 'extra_fees']);
 
     //Attendance 
-    Route::get('/selectclass', [AttendanceController::class, 'selectclass']);
+    Route::get('/selectclass', [AttendanceController::class, 'selectclass'])->name('selectclass');
 
-    Route::get('/classattendance', [AttendanceController::class, 'classattendance']);
+    Route::post('/classattendance', [AttendanceController::class, 'classattendance']);
 
-    Route::get('/viewattendance', [AttendanceController::class, 'viewattendance']);
+    Route::post('/viewattendance', [AttendanceController::class, 'viewattendance']);
     
     Route::post('/markattendance', [AttendanceController::class, 'markattendance']);
 

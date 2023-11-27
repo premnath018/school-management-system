@@ -13,6 +13,16 @@
 
 @push('bodycontent')
 <div class="page-wrapper" style="min-height: 739px;">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif
+@if(session('error'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+     <span>   {{ session('error') }} </span>
+    </div>
+@endif
     <div class="content container-fluid">
     
         <!-- Page Header -->
@@ -29,7 +39,8 @@
             </div>
         </div>
         <!-- /Page Header -->
-        <form action="classattendance" method="get">
+        <form action="classattendance" method="post">
+            @csrf
             <div class="card-body mb-4">
                 <div class="row">
                     <div class="col-12">
@@ -64,7 +75,8 @@
                 </div>					
         </form>		
 
-        <form action="viewattendance" method="get">
+        <form action="viewattendance" method="post">
+            @csrf
             <div class="card-body">
                 <div class="row">
                     <div class="col-12">
@@ -104,6 +116,8 @@
 
 @push('javascript')
 <script>
-
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush
