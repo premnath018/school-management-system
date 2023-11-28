@@ -35,7 +35,9 @@ class ClassesController extends Controller
 
     public function classstudents($id){
         $data = Classes::find($id);
-        $values = StudentsBio::where('class_id', $id)->get();
+        $values = StudentsBio::where('class_id', $id)
+        ->orderByRaw("CASE WHEN gender = 'Male' THEN 0 ELSE 1 END, name ASC")
+        ->get();
         $data->name = TeachersBio::where('id', $data->teacher_id)->value('name');
         return view('class.view-class-students', compact('data','values'));
     }
