@@ -41,32 +41,12 @@ class ExamController extends Controller
 
 
 
-        // $image1 = $request->file('image1');
-        // $image1Name = time().'_1.'.$image1->extension();  
-        // $image1->storeAs('public/products', $image1Name);
-
-        // $image2 = $request->file('image2');
-        // $image2Name = time().'_2.'.$image2->extension();
-        // $image2->storeAs('public/products', $image2Name);
-
-        // $image3 = $request->file('image3');    
-        // $image3Name = time().'_3.'.$image3->extension();
-        // $image3->storeAs('public/products', $image3Name);
-
-        // // Save image names to product AFTER storing images
-        // $product->image1 = $image1Name; 
-        // $product->image2 = $image2Name;
-        // $product->image3 = $image3Name;
-
-
-
-        //   dd($request->all());
         // Store the PDF file in the 'ExamQP' folder
         $pdfFile = $request->file('pdffile');
-        // dd($pdfFile);
-        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber . $pdfFile->extension();
-        $pdfFile->storeAs('public/ExamQP', $pdfFileName);
-
+       // dd($pdfFile);
+        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber.'.'.$pdfFile->extension();
+        $pdfFile->storeAs('public/ExamQP',$pdfFileName);
+    
         // Create a new Exam record with converted times and file path
         Exam::create([
             'class_id' => $validatedData['class_id'],
