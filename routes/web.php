@@ -51,7 +51,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/earlycallentry', [EarlyCallController::class, 'view']);
 
-    Route::post('/studentsearch', [StudentController::class, 'studentsearch'])->name('studentsearch');
+    Route::post('/studentsearch', [StudentController::class, 'studentsearch']);
 
     Route::post('/earlycallentry', [EarlyCallController::class, 'add']);
 
@@ -65,6 +65,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/teachers', [TeacherController::class, 'teacherview'])->name('teacherlist');
 
     Route::get('/teacherprofile/{id}', [TeacherController::class, 'editteacher']);
+    
+    Route::post('/teachersearch', [TeacherController::class, 'teachersearch']);
 
     Route::post('/addteacher', [TeacherController::class, 'add']);
 

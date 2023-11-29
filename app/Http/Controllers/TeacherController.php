@@ -37,6 +37,27 @@ class TeacherController extends Controller
         return view('teachers.view-teacher', compact('values'));
     }
 
+    public function teachersearch(Request $request){
+        $query = TeachersBio::query();
+        // Check if ID parameter is present in the request
+        if ($request->filled('id')) {
+            $query->where('teacher_id', $request->input('id'));
+        }
+    
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+    
+        if ($request->filled('phone')) {
+            $query->where('subject', 'like', '%' . $request->input('phone') . '%');
+        }
+
+        $values = $query->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('teacherlist')->with('message', 'No results found.');
+        }
+        return view('teachers.view-teacher', compact('values'));
+    }
     public function editteacher($id) {
         $data = TeachersBio::find($id);
         return view('teachers.profile',compact('data'));

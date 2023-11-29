@@ -68,7 +68,6 @@ class StudentController extends Controller
             return redirect()->route('studentlist')->with('message', 'No results found.');
         }
         return view('student.view-student', compact('values'));
-
     }
 
     public function editstudent($id){

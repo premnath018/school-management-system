@@ -37,8 +37,8 @@
 		<!-- /Page Header -->
 
 		<div class="student-group-form">
-			<form action="{{ route('studentsearch') }}" method="post">
-				@csrf
+			<form action="studentsearch" method="post">
+			@csrf
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<div class="form-group">
