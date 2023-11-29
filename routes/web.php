@@ -75,7 +75,9 @@ Route::middleware('auth')->group(function () {
     //Leave
     Route::get('/leaveapply/{teacher_id}', [TeacherController::class, 'leaveapply']);
 
-    Route::get('/leaveapproval', [TeacherController::class, 'leaveview']);
+    Route::get('/leaveapproval', [TeacherController::class, 'leaveview'])->name('leavelist');
+
+    Route::post('/leavesearch', [TeacherController::class, 'leavesearch']);
 
     Route::post('addleave', [TeacherController::class, 'leaveadd'])->name('leave.store');
 

@@ -49,7 +49,7 @@ class TeacherController extends Controller
         }
     
         if ($request->filled('phone')) {
-            $query->where('subject', 'like', '%' . $request->input('phone') . '%');
+            $query->where('subject', 'like', '%' . $request->input('subject') . '%');
         }
 
         $values = $query->get();
@@ -109,6 +109,28 @@ class TeacherController extends Controller
         return view('admin.leave_approve',compact('data'));
     }
 
+    public function leavesearch(Request $request){
+        $query = Leave::query();
+        // Check if ID parameter is present in the request
+        if ($request->filled('id')) {
+            $query->where('teacher_id', $request->input('id'));
+        }
+    
+        if ($request->filled('date')) {
+            $query->where(function ($query) use ($request) {
+            $inputDate = $request->input('date');
+    
+            $query->where('fromdate', $inputDate)
+                  ->orWhere('todate', $inputDate);
+        });
+        }
+
+        $data = $query->get();
+        if ($data->isEmpty()) {
+            return redirect()->route('leavelist')->with('message', 'No results found.');
+        }
+        return view('admin.leave_approve', compact('data'));
+    }
     public function approve($id)
     {
         $leave = Leave::find($id);

@@ -59,7 +59,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<input type="text" name='phone' class="form-control" placeholder="Search by Subject ...">
+						<input type="text" name='subject' class="form-control" placeholder="Search by Subject ...">
 					</div>
 				</div>
 				<div class="col-lg-2">
