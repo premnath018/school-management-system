@@ -146,4 +146,7 @@ Route::middleware('auth')->group(function () {
     // Grades
     Route::get('/Gsheets',function(){return view('Gsheets.inp');});
 
+    // Dashboard
+    Route::get('/adminDashboard',function(){return view('admin.dashb');});
+
 });
