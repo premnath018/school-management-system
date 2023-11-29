@@ -9,6 +9,10 @@
     .single-info-details {
         padding: 0 30px; 
     }
+
+    #Del-Btn{
+        border:none;
+    }
 </style>
 @endpush
 
@@ -220,6 +224,7 @@
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="button" id="Del-Btn" class="btn btn-primary bg-danger">Delete Teacher</button>
                                 </div>
                             </div>
                         </div>
