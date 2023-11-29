@@ -97,6 +97,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/updateMarks/{id}', [ExamController::class, 'updateMarkView']);
 
     Route::post('/addexam', [ExamController::class, 'add'])->name('exam.store');
+    
+    Route::post('/examsearch', [ExamController::class, 'examsearch']);
 
     Route::post('/updateexam/{id}', [ExamController::class, 'updateexam']);
 

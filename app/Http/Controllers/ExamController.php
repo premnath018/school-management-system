@@ -94,6 +94,28 @@ class ExamController extends Controller
         return view('exams.view-exam', compact('values'));
     }
 
+    public function examsearch(Request $request)
+    {
+        $className = $request->input('class');
+        $subjectName = $request->input('subject');
+        $exams = Exam::query();
+        if ($request->filled('class')) {
+            $exams->where('class_id', $className);
+        }
+    
+        if ($request->filled('subject')) {
+            $exams->where('subject_code', $subjectName);
+        }
+        if ($request->filled('exam_code')) {
+            $exams->where('exam_code', 'like', '%' . $request->input('exam_code') . '%');
+        }
+        $values = $exams->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('examlist')->with('message', 'No results found.');
+        }
+        return view('exams.view-exam', compact('values'));
+    }    
+
     public function editexam($id)
     {
         $data = Exam::find($id);
