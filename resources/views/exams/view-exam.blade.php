@@ -9,6 +9,11 @@
 
     <!-- Page Wrapper -->
     <div class="page-wrapper">
+    @if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif
       <div class="content container-fluid">
         <!-- Page Header -->
         <div class="page-header">
@@ -32,7 +37,7 @@
                     </div>
                     <div class="col-auto text-end float-end ms-auto download-grp">
                       <a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
-                      <a href="addexam" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+                      <a href="/addexam" class="btn btn-primary"><i class="fas fa-plus"></i></a>
                     </div>
                   </div>
                 </div>
@@ -65,13 +70,14 @@
                         <td>{{$values->exam_date}}</td>
                         <td >
                         <div>
-                        <a href="/marklist/{{$values->id}}" class="btn btn-sm bg-danger-light">
-                          <i class="fa fa-eye"></i>
-                        </a>
+                            <a href="/marklist/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                              <i class="fa fa-eye"></i>
+                            </a>
                             <a href="/editexam/{{$values->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>
                             </a>
-                          </div>
+                            <a href="" class="btn btn-outline-primary me-2">Update</a>
+                        </div>
                         </td>
                       </tr>
                       @endforeach 
@@ -87,6 +93,8 @@
 
 @push('javascript')
 <script>
-
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush

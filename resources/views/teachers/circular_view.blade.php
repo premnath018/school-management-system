@@ -7,6 +7,11 @@
 
 @push('bodycontent')
 <div class="page-wrapper" style="min-height: 742px;">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif               
                 <div class="content container-fluid">        
                     <div class="row">
                         <!-- Blog Post -->
@@ -27,7 +32,7 @@
                                             </div>
                                         </li>
                                     </ul>
-                                    <h3 class="blog-title"><a href="blog-details.html">{{$values->title}}</a></h3>
+                                    <h3 class="blog-title"><a>{{$values->title}}</a></h3>
                                     <p>{{$values->description}}</p>
                                 </div>
                             </div>										
@@ -62,6 +67,8 @@
 
 @push('javascript')
 <script>
-
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush

@@ -141,62 +141,6 @@
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-
-                <div class="card card-table comman-shadow">
-                    <div class="card-body">
-
-                        <!-- Page Header -->
-                        <div class="page-header">
-                            <div class="row align-items-center">
-                                <div class="col">
-                                    <h3 class="page-title">Students</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /Page Header -->
-
-                        <div class="table-responsive">
-                            <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
-                                <thead class="student-thread">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th class="text-end">Enter Mark</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <form action="{{url('updateMarks',$data->id)}}" method="post">
-                                    @csrf
-                                    <!-- For Loop Start -->
-                                    @foreach($students as $student)
-                                    <tr>
-                                        <td>
-                                            <h2 class="table-avatar">
-                                                <a>{{ $student->name }}</a>
-                                            </h2>
-                                        </td>
-                                        <td class="text-end">
-                                            <div class="actions"><input style="width:70%;" class="form-control" name="student_marks[{{ $student->id }}]" type="number" placeholder="Student Mark">
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                
-                                    <!-- For loop ends -->
-                                    </tbody>
-                            </table>
-                            <br>
-                            <div class="student-submit text-end">
-                                    <button type="submit" class="btn btn-primary">Enter Marks</button>
-                                </div>
-                        </div>
-                        </form> 
-
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
     

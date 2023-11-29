@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Classes;
 use App\Models\StudentsBio;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class StudentController extends Controller
 {
@@ -41,7 +40,7 @@ class StudentController extends Controller
             'class_id' => 'nullable',
         ]);
         StudentsBio::create($data);
-        return redirect()->back();
+        return redirect()->back()->with('success','Student Created Successfully');
     }
     public function studentview()
     {
@@ -84,7 +83,7 @@ class StudentController extends Controller
             $data->mother_income = $request->input('mother_income');
             $data->emis_number = $request->input('emis_number');
             $data->save();
-            return redirect()->route('studentlist');
+            return redirect()->route('studentlist')->with('success','Student Updated Successfully');
     }
 
     public function feeview(){
@@ -94,10 +93,28 @@ class StudentController extends Controller
 
     public function updatefee($id, Request $request){
             $values = StudentsBio::find($id);
-            $paided = $values->paid_fees + $request->input('update_amount');
-            $values-> paid_fees= $paided;
-            $values->fee_status = $values->fees - $values->paid_fees == 0 ? "Paid":"Unpaid";
+            $updateAmount = $request->input('update_amount');
+            $remainingExtraFees = max(0, $values->extra_fees - $values->extra_paid_fees); // Calculate remaining extra fees to be paid
+            if ($updateAmount <= $remainingExtraFees) {
+                // If the update amount is less than or equal to remaining extra fees, update extra_paid_fees
+                $values->extra_paid_fees += $updateAmount;
+            } else {
+                // Update extra_paid_fees to maximum extra_fees and adjust paid_fees with remaining amount
+                $values->extra_paid_fees = $values->extra_fees;
+                $remainingAmount = $updateAmount - $remainingExtraFees;
+                $values->paid_fees += $remainingAmount;
+            }
+            $values->fee_status = ($values->fees - $values->paid_fees) == 0 && ($values->extra_fees - $values->extra_paid_fees) == 0 ? "Paid":"Unpaid";
             $values->save();
             return redirect()->back();
-        }
     }
+    
+    public function extra_fees($id, Request $request){
+            $values = StudentsBio::find($id);
+            $values-> extra_fees = $values-> extra_fees + $request->input('extra_fees');
+            $values->fee_status = ($values->fees - $values->paid_fees) == 0 && ($values->extra_fees - $values->extra_paid_fees) == 0 ? "Paid":"Unpaid";
+            $values->save();
+            return redirect()->back();
+    }
+
+}

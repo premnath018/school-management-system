@@ -42,6 +42,8 @@ return new class extends Migration
             $table->integer('class_id');
             $table->integer('fees');
             $table->integer('paid_fees');
+            $table->integer('extra_fees');
+            $table->integer('extra_paid_fees');
             $table->enum('fee_status', ['Paid', 'Unpaid']);
             $table->integer('present_days');
             $table->timestamps();

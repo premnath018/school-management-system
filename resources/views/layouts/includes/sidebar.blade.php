@@ -68,8 +68,8 @@
 						<!-- <li><a href="/addexam">Exam Add</a></li> -->
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					</ul>
-				</li>
-				<!-- <li class="submenu">
+				<!-- </li>
+				<li class="submenu">
 					<a href="#"><i class="fe fe-check-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-check-circle" aria-label="fe fe-check-circle"></i><span>Attendance</span> <span class="menu-arrow"></span></a>
 					<ul>
 						<li><a href="/selectclass">Mark Attendance</a></li> -->
@@ -78,6 +78,15 @@
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					<!-- </ul>
 				</li> -->
+				<li class="submenu">
+					<a href="#"><i class="fe fe-check-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-check-circle" aria-label="fe fe-check-circle"></i><span>Analysis</span> <span class="menu-arrow"></span></a>
+					<ul>
+						<li><a href="/analysis">Analysis</a></li>
+						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
+						<!-- <li><a href="/addexam">Exam Add</a></li> -->
+						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
+					</ul>
+				</li>
 				<!-- <li class="submenu">
 					<a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
 					<ul>

@@ -10,18 +10,7 @@
 
 @push('bodycontent')
 <div class="page-wrapper" style="min-height: 739px;">
-@if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-     <span>   {{ session('success') }} </span>
-    </div>
-@endif
-@if(session('error'))
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-     <span>   {{ session('error') }} </span>
-    </div>
-@endif
                 <div class="content container-fluid">
-				
 					<!-- Page Header -->
 					<div class="page-header">
 						<div class="row">
@@ -89,6 +78,7 @@
 											    <tbody>
                                                     <form action="markattendance" method="post">   
                                                         @csrf
+                                						<input type="hidden" name="class" value="{{$values->class}}">
 														@foreach($data as $data)
 
                                                         <!--  Loop Start  -->
@@ -134,9 +124,6 @@
 
 @push('javascript')
 <script>
-    // Function to hide alerts after a specified time (e.g., 10 seconds)
-    setTimeout(function() {
-        $(".alert").alert('close');
-    }, 10000);
+
 </script>
 @endpush

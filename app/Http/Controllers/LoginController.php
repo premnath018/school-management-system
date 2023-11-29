@@ -22,7 +22,7 @@ class LoginController extends Controller
             // Store the users sessions data
             session(['name' => $user->name]);
             session(['email' => $user->email]);
-            return redirect()->route('home');
+            return redirect()->route('home')->with('success', 'Logged In Successfully');
         }
 
         return redirect()->back()->with('error', 'Invalid Credentials.');
@@ -31,10 +31,9 @@ class LoginController extends Controller
     public function register(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email|unique:users',
+            'email' => 'required|unique:users',
             'password' =>  [
                 'required',
-                'confirmed',
                 'min:8',
                 //    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
             ],
@@ -51,6 +50,6 @@ class LoginController extends Controller
 
         $user->save();
 
-        return  view('auth.login');
+        return  redirect()->back()->with('success','Created Successfully');
     }
 }

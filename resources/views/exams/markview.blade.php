@@ -16,6 +16,11 @@
 
 <!-- Page Wrapper -->
 <div class="page-wrapper">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+@endif
     <div class="content container-fluid">
 
         <!-- Page Header -->
@@ -41,9 +46,9 @@
                                 <div class="col">
                                     <h3 class="page-title">Mark List</h3>                                
                                 </div>
-                                <div class="col-auto text-end float-end ms-auto download-grp">
+                                <!-- <div class="col-auto text-end float-end ms-auto download-grp">
                                     <input type="button" onclick="AddTea()" id="AddTea" class="btn btn-primary" value="View Question Paper" />
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -90,8 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card-body">
-
+                    <div class="card-body mb-4">
                         <!-- Page Header -->
                         <div class="page-header">
                             <div class="row align-items-center">
@@ -101,7 +105,6 @@
                             </div>
                         </div>
                         <!-- /Page Header -->
-
                         <div class="table-responsive">
                             <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                                 <thead class="student-thread">
@@ -129,6 +132,23 @@
                             </table>
                         </div>
                     </div>
+                    
+                    <div class="card-body">
+                        <!-- Page Header -->
+                        <div class="page-header">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="page-title">Question Paper</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /Page Header -->
+                        <div class="row justify-content-center">
+                            <iframe src="{{ asset('assets//pdf/mass.pdf#toolbar=0') }}" width="50%" height="600"> <!-- Demo PDF Added retreive the Original PDF and place it there -->
+                                    This browser does not support PDFs. Please download the PDF to view it: <a href="{{ asset('assets//pdf/mass.pdf') }}">Download PDF</a>
+                            </iframe>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,6 +161,8 @@
 
 @push('javascript')
 <script>
-
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush

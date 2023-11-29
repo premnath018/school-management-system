@@ -8,6 +8,7 @@ use App\Models\Holiday;
 use App\Models\StudentsBio;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AttendanceController extends Controller
 {
@@ -21,6 +22,7 @@ class AttendanceController extends Controller
         $values = Classes::find($id);
         $data = StudentsBio::where('class_id', $id)->get();
         $values->date = $request->input('date');
+        $values->class = $id;
         return view('atd.attendance_entry', compact('values','data'));
     }
     public function markattendance(Request $request)
@@ -29,40 +31,68 @@ class AttendanceController extends Controller
         $attendanceDate = $request->input('date');
         $errorMessage = '';
         $errorStudents = [];
-        $classId = StudentsBio::where('id', $selectedStudentIds[0])->value('class_id');
-        $presentStudents = StudentsBio::where('class_id', $classId)
-        ->whereNotIn('id', $selectedStudentIds)
-        ->pluck('id')
-        ->toArray();        
+        $classId = StudentsBio::where('class_id', $request->input('class'))->first()->value('class_id');
+        $allStudentsInClass = StudentsBio::where('class_id', $classId)->pluck('id')->toArray();
+
+        if (!empty($selectedStudentIds)) {
             try {
                 foreach ($selectedStudentIds as $studentId) {
-                    try{
+                    try {
                         Attendance::create([
                             'student_id' => $studentId,
                             'date' => $attendanceDate,
                         ]);
-                    }
-                    catch (QueryException $e) {
+                    } catch (QueryException $e) {
                         $studentName = StudentsBio::where('id', $studentId)->value('name');
                         $errorStudents[] = $studentName;
-                        }
                     }
-                    StudentsBio::whereIn('id', $presentStudents)
-                    ->increment('present_days');
-                    if (!empty($errorStudents)) {
-                        $errorMessage = 'Attendance already recorded for students: ' . implode(', ', $errorStudents);
-                    }
-            } 
-            catch (QueryException $e) {}
+                }
+
+                $presentStudents = array_diff($allStudentsInClass, $selectedStudentIds);
+                StudentsBio::whereIn('id', $presentStudents)->increment('present_days');
+
+                if (!empty($errorStudents)) {
+                    $errorMessage = 'Attendance already recorded for students: ' . implode(', ', $errorStudents);
+                }
+            } catch (QueryException $e) {
+            }
+        } else {
+            StudentsBio::whereIn('id', $allStudentsInClass)->increment('present_days');
+        }
+
         if ($errorMessage !== '') {
             session()->flash('error', $errorMessage);
-            return redirect()->back();
         } else {
-            session()->flash('success', 'Selected students inserted successfully!');
-            return redirect()->back();
+            session()->flash('success', 'Attendance Recorded Successfully');
         }
+
+        return redirect()->route('selectclass');
+
     }
 
+    public function viewattendance(Request $request){
+        $classId = $request->input('selected_class');
+        $date = $request->input('date');
+         $students = StudentsBio::where('class_id', $classId)->get();
+         $absentees = DB::table('attendances')
+                         ->whereIn('student_id', $students->pluck('id')->toArray())
+                         ->where('date', $date)
+                         ->get();
+         $absenteesByStudentId = $absentees->pluck('student_id')->toArray();
+         $data = [];
+         foreach ($students as $student) {
+            $status = in_array($student->id, $absenteesByStudentId) ? 'Abs' : 'Present';
+            $class = in_array($student->id, $absenteesByStudentId) ? 'table-danger' : 'table-success';
+
+            $data[] = [
+                'name' => $student->name,
+                'id' => $student->id,
+                'status' => $status,
+                'class' => $class,
+            ];
+        } 
+        return view('atd.details_atd',['data' => $data]);
+    }
     public function addholiday(Request $request){
         $data = $request->validate([
             'holiday_name' => 'required',
@@ -71,7 +101,7 @@ class AttendanceController extends Controller
             'number_of_days' => 'required',
         ]);
         Holiday::create($data);
-        return redirect()->back();
+        return redirect()->back()->with('success','Holiday Created Successfully');
     }
 
     public function viewholiday(){

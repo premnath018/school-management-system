@@ -9,6 +9,12 @@
 
 <!-- Page Wrapper -->
 <div class="page-wrapper">
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <span>   {{ session('success') }} </span>
+    </div>
+	
+@endif
 	<div class="content container-fluid">
 
 		<!-- Page Header -->
@@ -67,7 +73,7 @@
 									<a href="students.html" class="btn btn-outline-gray me-2 active"><i class="feather-list"></i></a>
 									<a href="students-grid.html" class="btn btn-outline-gray me-2"><i class="feather-grid"></i></a>
 									<a href="#" class="btn btn-outline-primary me-2"><i class="fas fa-download"></i> Download</a>
-									<a href="add-student.html" class="btn btn-primary"><i class="fas fa-plus"></i></a>
+									<a href="/addstudent" class="btn btn-primary"><i class="fas fa-plus"></i></a>
 								</div>
 							</div>
 						</div>
@@ -136,8 +142,12 @@
 
 @endpush
 
+
+
 @push('javascript')
 <script>
-
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush

@@ -37,6 +37,8 @@ class StudentsBio extends Model
         'emis_number',
         'class_id',
         'fees',
+        'extra_fees',
+        'extra_paid_fees',
     ];
 
     protected $dates = [
