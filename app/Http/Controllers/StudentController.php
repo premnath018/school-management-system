@@ -48,6 +48,29 @@ class StudentController extends Controller
         return view('student.view-student', compact('values'));
     }
 
+    public function studentsearch(Request $request){
+        $query = StudentsBio::query();
+        // Check if ID parameter is present in the request
+        if ($request->filled('id')) {
+            $query->where('id', $request->input('id'));
+        }
+    
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+    
+        if ($request->filled('phone')) {
+            $query->where('enrollment_number', 'like', '%' . $request->input('phone') . '%');
+        }
+
+        $values = $query->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('studentlist')->with('message', 'No results found.');
+        }
+        return view('student.view-student', compact('values'));
+
+    }
+
     public function editstudent($id){
         $data = StudentsBio::find($id);
         $data->class_name = Classes::where('id', $data->class_id)->value('ClassID');
