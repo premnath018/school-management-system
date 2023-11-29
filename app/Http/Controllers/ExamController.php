@@ -33,18 +33,31 @@ class ExamController extends Controller
             'pdffile' => 'required', // Adjust the max file size as needed
         ]);
 
+        $typeMap = [
+            'weekly' => 'WT',
+            'monthly' => 'MT',
+            'cycle' => 'CT',
+            'term' => 'TT',
+            'final' => 'AT',
+        ];
+
         // Convert time input to carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
+       // dd($validatedData['class_id']);
+        $classInfo = Classes::where('id', $validatedData['class_id'])->first();
+        $classAndSection = $classInfo->Class . $classInfo->section;
 
-        $incrementNumber = Exam::count() + 1;
+        $TestCount = Exam::where('class_id', $validatedData['class_id'])
+        ->where('type', $validatedData['type'])
+        ->count();
 
-
+        $TestType = $typeMap[$validatedData['type']] ?? '';
 
         // Store the PDF file in the 'ExamQP' folder
         $pdfFile = $request->file('pdffile');
-       // dd($pdfFile);
-        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber.'.'.$pdfFile->extension();
+        $pdfFileName = $TestType.$TestCount.$validatedData['subject_code'] . '-' . $classAndSection.'.'.$pdfFile->extension();
+         dd($pdfFileName);
         $pdfFile->storeAs('public/ExamQP',$pdfFileName);
     
         // Create a new Exam record with converted times and file path
@@ -56,7 +69,7 @@ class ExamController extends Controller
             'start_time' => $start_time->format('H:i'),
             'end_time' => $end_time->format('H:i'),
             'exam_date' => $validatedData['exam_date'],
-            'exam_code' => $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber,
+            'exam_code' => $TestType.$TestCount.$validatedData['subject_code'] .  $$classAndSection,
             'question_paper_url' => $pdfFileName,
         ]);
     

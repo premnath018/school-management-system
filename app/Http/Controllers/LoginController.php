@@ -52,4 +52,9 @@ class LoginController extends Controller
 
         return  redirect()->back()->with('success','Created Successfully');
     }
+
+    public function logout(){
+        Auth::logout();
+        return redirect('/');
+    }
 }

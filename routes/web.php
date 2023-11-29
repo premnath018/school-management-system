@@ -33,6 +33,10 @@ Route::get('/login', function () {return view('auth.login');})->name('login');
 
 Route::middleware('auth')->group(function () {
 
+    // Logout
+
+    Route::get('/logout', [LoginController::class,'logout']);
+
     //Circular
     Route::get('/addcircular', function () {return view('admin.add_circular');});
 
