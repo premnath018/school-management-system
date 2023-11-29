@@ -44,7 +44,7 @@
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="form-group">
-                                    <input type="date" class="form-control" name='date' placeholder="Search by From Date ...">
+                                    <input type="date" class="form-control" name='date'>
                                 </div>
                             </div>
                             <div class="col-lg-2">

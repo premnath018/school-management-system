@@ -112,6 +112,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/classstudents/{id}', [ClassesController::class, 'classstudents']);
 
     Route::post('/addclass', [ClassesController::class, 'store']);
+    
+    Route::post('/classsearch', [ClassesController::class, 'classsearch']);
 
     Route::post('/updateclass/{id}', [ClassesController::class, 'updateclass']);
 

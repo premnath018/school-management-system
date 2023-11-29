@@ -48,7 +48,7 @@ class TeacherController extends Controller
             $query->where('name', 'like', '%' . $request->input('name') . '%');
         }
     
-        if ($request->filled('phone')) {
+        if ($request->filled('subject')) {
             $query->where('subject', 'like', '%' . $request->input('subject') . '%');
         }
 

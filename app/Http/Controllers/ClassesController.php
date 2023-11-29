@@ -26,6 +26,28 @@ class ClassesController extends Controller
         return view('class.view-class', compact('values'));
     }
 
+    public function Classsearch(Request $request){
+        $query = Classes::query();
+        // Check if ID parameter is present in the request
+        if ($request->filled('ClassID')) {
+            $query->where('ClassID', 'like', '%' . $request->input('ClassID') . '%');
+        }
+    
+        if ($request->filled('Class')) {
+            $query->where('Class', 'like', '%' . $request->input('Class') . '%');
+        }
+    
+        if ($request->filled('section')) {
+            $query->where('section', 'like', '%' . $request->input('section') . '%');
+        }
+
+        $values = $query->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('classlist')->with('message', 'No results found.');
+        }
+        return view('class.view-class', compact('values'));
+    }
+
     public function editclass($id){
         $data = Classes::find($id);
         $values = StudentsBio::all();

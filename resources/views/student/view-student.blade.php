@@ -52,7 +52,7 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<input type="text" name='phone' class="form-control" placeholder="Search by Enrollment number ...">
+						<input type="text" name='enrollment_number' class="form-control" placeholder="Search by Enrollment number ...">
 					</div>
 				</div>
 				<div class="col-lg-2">

@@ -59,8 +59,8 @@ class StudentController extends Controller
             $query->where('name', 'like', '%' . $request->input('name') . '%');
         }
     
-        if ($request->filled('phone')) {
-            $query->where('enrollment_number', 'like', '%' . $request->input('phone') . '%');
+        if ($request->filled('enrollment_number')) {
+            $query->where('enrollment_number', 'like', '%' . $request->input('enrollment_number') . '%');
         }
 
         $values = $query->get();
