@@ -20,7 +20,7 @@ class ExamController extends Controller
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $validatedData = $request->validate([
             'class_id' => 'required',
