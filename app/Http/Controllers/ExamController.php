@@ -44,7 +44,7 @@ class ExamController extends Controller
         // Store the PDF file in the 'ExamQP' folder
         $pdfFile = $request->file('pdffile');
        // dd($pdfFile);
-        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber.$pdfFile->extension();
+        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber.'.'.$pdfFile->extension();
         $pdfFile->storeAs('public/ExamQP',$pdfFileName);
     
         // Create a new Exam record with converted times and file path

@@ -144,8 +144,8 @@
                         </div>
                         <!-- /Page Header -->
                         <div class="row justify-content-center">
-                            <iframe src="{{ asset('assets//pdf/mass.pdf#toolbar=0') }}" width="50%" height="600"> <!-- Demo PDF Added retreive the Original PDF and place it there -->
-                                    This browser does not support PDFs. Please download the PDF to view it: <a href="{{ asset('assets//pdf/mass.pdf') }}">Download PDF</a>
+                            <iframe src="{{ asset('storage/ExamQP/'.$data->question_paper_url.'#toolbar=0') }}" width="50%" height="600"> <!-- Run this command in `php artisan storage:link`  -->
+                                    This browser does not support PDFs. Please download the PDF to view it: <a href="{{ asset('storage/ExamQP/'.$data->question_paper_url) }}">Download PDF</a>
                             </iframe>
                         </div>
                     </div>
