@@ -20,7 +20,7 @@ class ExamController extends Controller
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
 
-    public function store(Request $request)
+    public function add(Request $request)
     {
         $validatedData = $request->validate([
             'class_id' => 'required',
@@ -33,40 +33,33 @@ class ExamController extends Controller
             'pdffile' => 'required', // Adjust the max file size as needed
         ]);
 
+        $typeMap = [
+            'weekly' => 'WT',
+            'monthly' => 'MT',
+            'cycle' => 'CT',
+            'term' => 'TT',
+            'final' => 'AT',
+        ];
+
         // Convert time input to carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
+       // dd($validatedData['class_id']);
+        $classInfo = Classes::where('id', $validatedData['class_id'])->first();
+        $classAndSection = $classInfo->Class . $classInfo->section;
 
-        $incrementNumber = Exam::count() + 1;
+        $TestCount = Exam::where('class_id', $validatedData['class_id'])
+        ->where('type', $validatedData['type'])
+        ->count();
 
+        $TestType = $typeMap[$validatedData['type']] ?? '';
 
-
-        // $image1 = $request->file('image1');
-        // $image1Name = time().'_1.'.$image1->extension();  
-        // $image1->storeAs('public/products', $image1Name);
-
-        // $image2 = $request->file('image2');
-        // $image2Name = time().'_2.'.$image2->extension();
-        // $image2->storeAs('public/products', $image2Name);
-
-        // $image3 = $request->file('image3');    
-        // $image3Name = time().'_3.'.$image3->extension();
-        // $image3->storeAs('public/products', $image3Name);
-
-        // // Save image names to product AFTER storing images
-        // $product->image1 = $image1Name; 
-        // $product->image2 = $image2Name;
-        // $product->image3 = $image3Name;
-
-
-
-        //   dd($request->all());
         // Store the PDF file in the 'ExamQP' folder
         $pdfFile = $request->file('pdffile');
-        // dd($pdfFile);
-        $pdfFileName = $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber . $pdfFile->extension();
-        $pdfFile->storeAs('public/ExamQP', $pdfFileName);
-
+        $pdfFileName = $TestType.$TestCount.$validatedData['subject_code'] . '-' . $classAndSection.'.'.$pdfFile->extension();
+         dd($pdfFileName);
+        $pdfFile->storeAs('public/ExamQP',$pdfFileName);
+    
         // Create a new Exam record with converted times and file path
         Exam::create([
             'class_id' => $validatedData['class_id'],
@@ -76,7 +69,7 @@ class ExamController extends Controller
             'start_time' => $start_time->format('H:i'),
             'end_time' => $end_time->format('H:i'),
             'exam_date' => $validatedData['exam_date'],
-            'exam_code' => $validatedData['subject_code'] . $validatedData['class_id'] . $incrementNumber,
+            'exam_code' => $TestType.$TestCount.$validatedData['subject_code'] .  $$classAndSection,
             'question_paper_url' => $pdfFileName,
         ]);
     

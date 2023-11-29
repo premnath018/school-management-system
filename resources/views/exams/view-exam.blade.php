@@ -113,7 +113,7 @@
                             <a href="/editexam/{{$values->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>
                             </a>
-                            <a href="" class="btn btn-outline-primary me-2">Update</a>
+                            <a href="/updateMarks/{{ $values->id }}" class="btn btn-outline-primary me-2">Update</a>
                         </div>
                         </td>
                       </tr>

@@ -46,6 +46,9 @@
                                 <div class="col">
                                     <h3 class="page-title">Class Info</h3>
                                 </div>
+                                <div class="col-auto text-end float-end ms-auto download-grp">
+                                    <input type="button" id="viewedit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Assign RollNo" />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -153,6 +156,35 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- sample modal content -->
+
+                <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content card-body">
+                        <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped dataTable no-footer" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                                            <thead class="student-thread">
+                                                <tr role="row">
+
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="ID: activate to sort column ascending" style="width: 38.8625px;">Name</th>
+                                                    <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 75.4px;">Roll No</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- For Loop Start -->
+                                                <tr role="row" class="odd">
+                                                    <td>Name</td>
+                                                    <td>
+                                                        <input type="integer" class="form-control" placeholder="RollNo" name="fees">
+                                                    </td>
+                                                </tr>
+                                                <!-- For loop ends -->
+                                            </tbody>
+                                        </table>    
+                        </div>
+                    </div>
+                </div><!-- /.modal -->
+
             </div>
         </div>
     </div>
