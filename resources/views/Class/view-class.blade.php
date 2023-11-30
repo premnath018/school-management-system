@@ -44,14 +44,38 @@
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<div class="form-group">
-						<input type="text" name="Class" class="form-control" placeholder="Search by Class ...">
-					</div>
-				</div>
+          <div class="form-group local-forms">
+              <select class="form-control select" name="Class">
+                  <option>Search By Class</option>
+                  <option>I</option>
+                  <option>II</option>
+                  <option>III</option>
+                  <option>IV</option>
+                  <option>V</option>
+                  <option>VI</option>
+                  <option>VII</option>
+                  <option>VIII</option>
+                  <option>IX</option>
+                  <option>X</option>
+                  <option>XI</option>
+                  <option>XII</option>
+              </select>
+          </div>
+        </div>
 				<div class="col-lg-4 col-md-6">
-					<div class="form-group">
-						<input type="text" name='section' class="form-control" placeholder="Search by Class Section ...">
-					</div>
+          <div class="form-group local-forms">
+                <select class="form-control select" name="section">
+                    <option>Search By Section</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    <option>E</option>
+                    <option>F</option>
+                    <option>G</option>
+                    <option>H</option>
+                </select>
+          </div>
 				</div>
 				<div class="col-lg-2">
 					<div class="search-student-btn">

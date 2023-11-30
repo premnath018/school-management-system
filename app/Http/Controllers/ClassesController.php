@@ -22,25 +22,21 @@ class ClassesController extends Controller
         return redirect()->back()->with('success', 'Class Created Successfully.');
     }
     public function classview(){
-        $values = Classes::all();
+        $values = Classes::select('id','ClassID','Class','section')->get();
         return view('class.view-class', compact('values'));
     }
 
     public function Classsearch(Request $request){
         $query = Classes::query();
-        // Check if ID parameter is present in the request
         if ($request->filled('ClassID')) {
             $query->where('ClassID', 'like', '%' . $request->input('ClassID') . '%');
         }
-    
-        if ($request->filled('Class')) {
-            $query->where('Class', 'like', '%' . $request->input('Class') . '%');
+        if ($request->filled('Class') && $request->input('Class') !== 'Search By Class') {
+            $query->where('Class', $request->input('Class'));
         }
-    
-        if ($request->filled('section')) {
-            $query->where('section', 'like', '%' . $request->input('section') . '%');
+        if ($request->filled('section') && $request->input('section') !== 'Search By Section') {
+            $query->where('section', $request->input('section'));
         }
-
         $values = $query->get();
         if ($values->isEmpty()) {
             return redirect()->route('classlist')->with('message', 'No results found.');
@@ -50,8 +46,8 @@ class ClassesController extends Controller
 
     public function editclass($id){
         $data = Classes::find($id);
-        $values = StudentsBio::all();
-        $details = TeachersBio::all();
+        $values = StudentsBio::select('id','batch','name','enrollment_number')->get();
+        $details = TeachersBio::select('id','name','teacher_id','email','contact_number')->get();
         return view('class.edit-class', compact('data','values','details'));
     }
 

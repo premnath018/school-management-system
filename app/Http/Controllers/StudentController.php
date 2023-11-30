@@ -44,7 +44,7 @@ class StudentController extends Controller
     }
     public function studentview()
     {
-        $values = StudentsBio::all();
+        $values = StudentsBio::select('id','name','batch','dob','father_name','contact_number','enrollment_number')->get();
         return view('student.view-student', compact('values'));
     }
 
@@ -114,7 +114,7 @@ class StudentController extends Controller
     }
 
     public function feeview(){
-        $values = StudentsBio::all();
+        $values = StudentsBio::select('id','name','class_id','fees','extra_fees','paid_fees','extra_paid_fees','fee_status')->get();
         return view('fees.view-fee', compact('values'));
     }
 

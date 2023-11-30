@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\DB;
 class AttendanceController extends Controller
 {
     public function selectclass(){
-        $values = Classes::all();
+        $values = Classes::select('id','ClassID')->get();
         return view('atd.date_class', compact('values'));
     }
 
     public function classattendance(Request $request){
         $id = $request->input('selected_class');
         $values = Classes::find($id);
-        $data = StudentsBio::where('class_id', $id)->get();
+        $data = StudentsBio::select('name','id')->where('class_id', $id)->get();
         $values->date = $request->input('date');
         $values->class = $id;
         return view('atd.attendance_entry', compact('values','data'));

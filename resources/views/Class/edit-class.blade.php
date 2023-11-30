@@ -17,6 +17,11 @@
 
 <!-- Page Wrapper -->
 <div class="page-wrapper">
+@if(session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <span>   {{ session('success') }} </span>
+</div>
+@endif
     <div class="content container-fluid">
 
         <!-- Page Header -->

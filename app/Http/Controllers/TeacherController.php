@@ -34,7 +34,7 @@ class TeacherController extends Controller
 
     public function teacherview()
     {
-        $values = TeachersBio::all();
+        $values = TeachersBio::select('id','name','teacher_id','subject','total_experience','salary','contact_number')->get();
         return view('teachers.view-teacher', compact('values'));
     }
 
