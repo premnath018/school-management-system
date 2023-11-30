@@ -22,19 +22,19 @@
                                 <tbody>
                                     <tr>
                                         <td>Date:</td>
-                                        <td class="font-medium text-dark-medium">10 A</td>
+                                        <td class="font-medium text-dark-medium">{{$details['date']}}</td>
                                     </tr>
                                     <tr>
                                         <td>Total Student:</td>
-                                        <td class="font-medium text-dark-medium">X</td>
+                                        <td class="font-medium text-dark-medium">{{$details['total']}}</td>
                                     </tr>
                                     <tr>
                                         <td>Present:</td>
-                                        <td class="font-medium text-dark-medium">A</td>
+                                        <td class="font-medium text-dark-medium">{{$details['present']}}</td>
                                     </tr>
                                     <tr>
                                         <td>Absent:</td>
-                                        <td class="font-medium text-dark-medium">45000</td>
+                                        <td class="font-medium text-dark-medium">{{$details['absent']}}</td>
                                     </tr>
                                 </tbody>
                             </table>

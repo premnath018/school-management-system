@@ -6,6 +6,7 @@ use App\Models\Attendance;
 use App\Models\Classes;
 use App\Models\Holiday;
 use App\Models\StudentsBio;
+use Carbon\Carbon;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -79,19 +80,29 @@ class AttendanceController extends Controller
                          ->where('date', $date)
                          ->get();
          $absenteesByStudentId = $absentees->pluck('student_id')->toArray();
+         $total = $students->count();
+         $present = $students->count() - $absentees->count();
+         $absent = $absentees->count();
+         $Date = Carbon::createFromFormat('Y-m-d', $date)->format('d/m/Y');
+         $details = [
+            'date' => $Date,
+            'total' => $total,
+            'present' => $present,
+            'absent' => $absent
+         ];
          $data = [];
          foreach ($students as $student) {
-            $status = in_array($student->id, $absenteesByStudentId) ? 'Abs' : 'Present';
+            $status = in_array($student->id, $absenteesByStudentId) ? 'Absent' : 'Present';
             $class = in_array($student->id, $absenteesByStudentId) ? 'table-danger' : 'table-success';
 
             $data[] = [
                 'name' => $student->name,
                 'id' => $student->id,
                 'status' => $status,
-                'class' => $class,
+                'class' => $class
             ];
         } 
-        return view('atd.details_atd',['data' => $data]);
+        return view('atd.details_atd',['data' => $data, 'details' => $details]);
     }
     public function addholiday(Request $request){
         $data = $request->validate([
