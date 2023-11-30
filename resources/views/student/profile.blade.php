@@ -387,12 +387,28 @@
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <button type="button" id="Del-Btn" class="btn btn-primary bg-danger">Delete Student</button>
+                                    <input type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Delete Student" />
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
+
+                <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                    <div class="modal-dialog">
+                        <div class="modal-content card-body">
+                        <div class="modal-body p-4">
+                                <div class="text-center">
+                                    <i class="dripicons-information h1 text-info"></i>
+                                    <h4 class="mt-2">Heads up!</h4>
+                                    <p class="mt-3">Do you want to Delete the student?</p>
+                                    <button type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Student</button>
+                                    <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.modal -->
             </div>
         </div>
     </div>
