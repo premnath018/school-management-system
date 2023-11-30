@@ -44,7 +44,6 @@ class ExamController extends Controller
         // Convert time input to carbon format
         $start_time = Carbon::parse($validatedData['start_time']);
         $end_time = Carbon::parse($validatedData['end_time']);
-       // dd($validatedData['class_id']);
         $classInfo = Classes::where('id', $validatedData['class_id'])->first();
         $classAndSection = $classInfo->Class . $classInfo->section;
 
@@ -103,9 +102,9 @@ class ExamController extends Controller
             $exams->where('subject_code', $subjectName);
         }
         if ($request->filled('exam_code')) {
-            $exams->where('exam_code', 'like', '%' . $request->input('exam_code') . '%');
+
+            $exams->where('exam_code',);
         }
-        dd($exams);
         $values = $exams->get();
         if ($values->isEmpty()) {
             return redirect()->route('examlist')->with('message', 'No results found.');
@@ -122,6 +121,16 @@ class ExamController extends Controller
         $subjects = Subject::all();
         $students = StudentsBio::where('class_id', $data->class_id)->get(['id', 'name']);
         return view('exams.edit-exam', compact('data', 'classes', 'subjects', 'students'));
+    }
+
+    public function deleteexam($id){
+        $exam = Exam::findOrFail($id);
+        $marks = Mark::where('exam_id', $id)->get();
+        foreach ($marks as $mark) {
+            $mark->delete();
+        }
+        $exam->delete();
+        return redirect()->route('examlist')->with('message', 'Exam and its Marks Deleted Successfully');
     }
 
     // public function marks($id){

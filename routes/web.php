@@ -106,6 +106,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/updateexam/{id}', [ExamController::class, 'updateexam']);
 
+    Route::post('/deleteexam/{id}', [ExamController::class, 'deleteexam']);
+
     Route::post('/updateMarks/{id}',[ExamController::class,'updateMark']);
     
     //classes

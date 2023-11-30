@@ -169,7 +169,10 @@
                                     <i class="dripicons-information h1 text-info"></i>
                                     <h4 class="mt-2">Heads up!</h4>
                                     <p class="mt-3">Do you want to Delete the Exam?</p>
-                                    <button type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Exam</button>
+                                    <form action="{{url('deleteexam',$data->id)}}" method="post">
+                                    @csrf
+                                    <button type="subnit" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Exam</button>
+                                    </form>
                                     <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
                                 </div>
                             </div>

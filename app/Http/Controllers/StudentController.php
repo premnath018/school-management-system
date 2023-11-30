@@ -108,6 +108,11 @@ class StudentController extends Controller
             return redirect()->route('studentlist')->with('success','Student Updated Successfully');
     }
 
+    public function deletestudent($id){
+        StudentsBio::destroy($id);
+        return redirect()->route('studentlist')->with('message','Student Deleted Successfully');
+    }
+
     public function feeview(){
         $values = StudentsBio::all();
         return view('fees.view-fee', compact('values'));

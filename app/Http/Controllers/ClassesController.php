@@ -90,7 +90,7 @@ class ClassesController extends Controller
             $student->save();
         }
         $class->delete();
-        return redirect()->route('classlist')->with('message', 'Deleted Successfully');
+        return redirect()->route('classlist')->with('message', 'Class With its Students Deleted Successfully');
     }
 
     public function studentclassadd($id_student){

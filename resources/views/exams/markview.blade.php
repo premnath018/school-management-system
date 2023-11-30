@@ -75,14 +75,10 @@
                         </div>
                     </div>
                 </div>
+                @if($values->isNotEmpty())
                 <div class="m-b-30" id="SearchStudent">
                     <div class="student-group-form">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search by ID ...">
-                                </div>
-                            </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Search by Name ...">
@@ -132,7 +128,7 @@
                             </table>
                         </div>
                     </div>
-                    
+                    @endif
                     <div class="card-body">
                         <!-- Page Header -->
                         <div class="page-header">
