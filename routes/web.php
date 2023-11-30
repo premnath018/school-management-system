@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/updatestudent/{id}', [StudentController::class, 'updatestudent']);
 
+    Route::post('/deletestudent/{id}', [StudentController::class, 'deletestudent']);
+
     // Teacher
     Route::get('/addteacher', function () {return view('teachers.add-teacher');});
 

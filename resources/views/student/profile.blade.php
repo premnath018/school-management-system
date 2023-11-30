@@ -404,7 +404,7 @@
                                     <p class="mt-3">Do you want to Delete the student?</p
                                     ><form action="{{url('deletestudent',$data->id)}}" method="post">
                                     @csrf
-                                    <button type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Student</button>
+                                    <button type="submit" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Student</button>
                                     </form>
                                     <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
                                 </div>
