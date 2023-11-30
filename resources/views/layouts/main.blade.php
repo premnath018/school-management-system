@@ -36,6 +36,7 @@
 
     <!-- Page Stylings -->
     @stack('internalCss')
+    @livewireStyles
 </head>
 
 <body>
@@ -46,6 +47,7 @@
     </div>
     @include('layouts.includes.jquery')
     @stack('javascript')
+    @livewireScripts
 </body>
 
 </html>

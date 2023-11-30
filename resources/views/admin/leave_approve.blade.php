@@ -9,6 +9,12 @@
 
 <!-- Page Wrapper -->
 <div class="page-wrapper">
+    
+@if(session('message'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+	<span>   {{ session('message') }} </span>
+    </div>
+@endif
     <div class="content container-fluid">
         <!-- Page Header -->
         <div class="page-header">
@@ -28,15 +34,17 @@
             <div class="col-sm-12">
                 <div class="m-b-30" id="SearchStudent">
                     <div class="student-group-form">
+                        <form action="leavesearch" method="post">
+			            @csrf
                         <div class="row">
                             <div class="col-lg-3 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search by ID ...">
+                                    <input type="text" class="form-control" name='id' placeholder="Search by ID ...">
                                 </div>
                             </div>
                             <div class="col-lg-3 col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search by Name ...">
+                                    <input type="date" class="form-control" name='date'>
                                 </div>
                             </div>
                             <div class="col-lg-2">
@@ -45,6 +53,7 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
                     </div>
                     <div class="card-body">
                         <!-- Page Header -->
@@ -61,7 +70,7 @@
                             <table class="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                                 <thead class="student-thread">
                                     <tr>
-                                        <th>Name</th>
+                                        <th>Teacher ID</th>
                                         <th>Leave Type</th>
                                         <th>From Date</th>
                                         <th>To Date</th>
@@ -84,15 +93,13 @@
                                         <td>{{$data->reason}}</td>
                                         @if(is_null($data->status))   
                                         <td class="text-center">
-                                        <form action="{{ route('update',['id' => $data->id]) }}" method="post">
+                                        <form action="{{ route('update',['id' => $data->id]) }}" method="post" class="mb-1">
                                             @csrf
                                             <button type="submit" class="btn btn-primary">Approve</button>
                                         </form>
-                                        </td>
-                                        <td>
                                         <form action="{{ route('reject',['id' => $data->id]) }}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                            <button type="submit" class="btn btn-danger" style="padding-left: 19px; padding-right:19px;">Reject</button>
                                         </form>
                                         </td>
                                         @else

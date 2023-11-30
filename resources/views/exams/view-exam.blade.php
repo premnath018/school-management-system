@@ -8,22 +8,69 @@
 @push('bodycontent')
 
     <!-- Page Wrapper -->
-    <div class="page-wrapper">
-    @if(session('success'))
-    <div class="alert alert-success alert-dismissible fade show" role="alert">
-     <span>   {{ session('success') }} </span>
+<div class="page-wrapper">
+@if(session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <span>   {{ session('success') }} </span>
+</div>
+@endif
+@if(session('message'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+	<span>   {{ session('message') }} </span>
     </div>
 @endif
       <div class="content container-fluid">
-        <!-- Page Header -->
-        <div class="page-header">
-          <div class="row align-items-center">
-            <div class="col">
-              <h3 class="page-title">Exam</h3>
-            </div>
+      <div class="page-header">
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="page-sub-header">
+						<h3 class="page-title">Exam</h3>
+						<ul class="breadcrumb">
+							<li class="breadcrumb-item active">All Exams</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /Page Header -->
+
+		<div class="student-group-form">
+			<form action="examsearch" method="post">
+			@csrf
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<input type="text" name="exam_code" class="form-control" placeholder="Search by Exam Name ...">
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+          <div class="form-group">
+              <select class="form-control select" name="class_id">
+                  <option>Select Class</option>
+                  @foreach($classes as $class)
+                  <option value="{{ $class->id }}">{{$class->ClassID}}</option>         
+                  @endforeach  
+              </select>
           </div>
-        </div>
-        <!-- /Page Header -->
+				</div>
+				<div class="col-lg-4 col-md-6">
+          <div class="form-group">
+            <select class="form-control select" name="subject_code">
+                <option>Select Subject</option>
+                @foreach($subjects as $subject)
+                <option value="{{ $subject->subject_code }}">{{$subject->subject_name}}</option>         
+                @endforeach  
+            </select>
+          </div>
+				</div>
+				<div class="col-lg-2">
+					<div class="search-student-btn">
+						<button type="btn" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
 
         <div class="row">
           <div class="col-sm-12">

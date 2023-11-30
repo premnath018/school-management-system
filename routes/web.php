@@ -55,6 +55,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/earlycallentry', [EarlyCallController::class, 'view']);
 
+    Route::post('/studentsearch', [StudentController::class, 'studentsearch']);
+
     Route::post('/earlycallentry', [EarlyCallController::class, 'add']);
 
     Route::post('/addstudent', [StudentController::class, 'add']);
@@ -67,6 +69,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/teachers', [TeacherController::class, 'teacherview'])->name('teacherlist');
 
     Route::get('/teacherprofile/{id}', [TeacherController::class, 'editteacher']);
+    
+    Route::post('/teachersearch', [TeacherController::class, 'teachersearch']);
 
     Route::post('/addteacher', [TeacherController::class, 'add']);
 
@@ -75,7 +79,9 @@ Route::middleware('auth')->group(function () {
     //Leave
     Route::get('/leaveapply/{teacher_id}', [TeacherController::class, 'leaveapply']);
 
-    Route::get('/leaveapproval', [TeacherController::class, 'leaveview']);
+    Route::get('/leaveapproval', [TeacherController::class, 'leaveview'])->name('leavelist');
+
+    Route::post('/leavesearch', [TeacherController::class, 'leavesearch']);
 
     Route::post('addleave', [TeacherController::class, 'leaveadd'])->name('leave.store');
 
@@ -95,6 +101,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/updateMarks/{id}', [ExamController::class, 'updateMarkView']);
 
     Route::post('/addexam', [ExamController::class, 'add'])->name('exam.store');
+    
+    Route::post('/examsearch', [ExamController::class, 'examsearch']);
 
     Route::post('/updateexam/{id}', [ExamController::class, 'updateexam']);
 
@@ -110,6 +118,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/classstudents/{id}', [ClassesController::class, 'classstudents']);
 
     Route::post('/addclass', [ClassesController::class, 'store']);
+    
+    Route::post('/classsearch', [ClassesController::class, 'classsearch']);
 
     Route::post('/updateclass/{id}', [ClassesController::class, 'updateclass']);
 

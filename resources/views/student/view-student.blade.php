@@ -13,7 +13,11 @@
     <div class="alert alert-success alert-dismissible fade show" role="alert">
      <span>   {{ session('success') }} </span>
     </div>
-	
+@endif
+@if(session('message'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+	<span>   {{ session('message') }} </span>
+    </div>
 @endif
 	<div class="content container-fluid">
 
@@ -33,20 +37,22 @@
 		<!-- /Page Header -->
 
 		<div class="student-group-form">
+			<form action="studentsearch" method="post">
+			@csrf
 			<div class="row">
 				<div class="col-lg-3 col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search by ID ...">
+						<input type="text" name="id" class="form-control" placeholder="Search by ID ...">
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search by Name ...">
+						<input type="text" name="name" class="form-control" placeholder="Search by Name ...">
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Search by Phone ...">
+						<input type="text" name='enrollment_number' class="form-control" placeholder="Search by Enrollment number ...">
 					</div>
 				</div>
 				<div class="col-lg-2">
@@ -55,6 +61,7 @@
 					</div>
 				</div>
 			</div>
+			</form>
 		</div>
 
 		<div class="row">

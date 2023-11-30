@@ -21,6 +21,11 @@
      <span>   {{ session('success') }} </span>
     </div>
 @endif
+@if(session('message'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+	<span>   {{ session('message') }} </span>
+    </div>
+@endif
     <div class="content container-fluid">
 
         <!-- Page Header -->
@@ -28,9 +33,9 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="page-sub-header">
-                        <h3 class="page-title">Students</h3>
+                        <h3 class="page-title">Teachers</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item active">All Students</li>
+                            <li class="breadcrumb-item active">All Teachers</li>
                         </ul>
                     </div>
                 </div>
@@ -39,30 +44,32 @@
         <!-- /Page Header -->
 
         <div class="student-group-form">
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by ID ...">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Name ...">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search by Phone ...">
-                    </div>
-                </div>
-                <div class="col-lg-2">
-                    <div class="search-student-btn">
-                        <button type="btn" class="btn btn-primary">Search</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+			<form action="teachersearch" method="post">
+			@csrf
+			<div class="row">
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<input type="text" name="id" class="form-control" placeholder="Search by Teacher ID ...">
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<input type="text" name="name" class="form-control" placeholder="Search by Name ...">
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<input type="text" name='subject' class="form-control" placeholder="Search by Subject ...">
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="search-student-btn">
+						<button type="btn" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
         <div class="row">
             <div class="col-sm-12">
 
@@ -73,7 +80,7 @@
                         <div class="page-header">
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <h3 class="page-title">Students</h3>
+                                    <h3 class="page-title">Teachers</h3>
                                 </div>
                                 <div class="col-auto text-end float-end ms-auto download-grp">
                                     <input type="button" id="viewedit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Add Teacher Account" />
