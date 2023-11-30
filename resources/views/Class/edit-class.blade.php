@@ -160,7 +160,10 @@
                                     <h4 class="mt-2">Heads up!</h4>
                                     <p class="mt-3">Do you want to Delete class or remove all the students?</p>
                                     <button type="button" class="btn btn-danger m-r-10 my-2" data-bs-dismiss="modal">Remove Students</button>
-                                    <button type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Class</button><br>
+                                    <form action="{{url('deleteclass',$data->id)}}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Class</button><br>
+                                    </form>
                                     <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
                                 </div>
                             </div>

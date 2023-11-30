@@ -79,6 +79,20 @@ class ClassesController extends Controller
         return redirect()->route('classlist')->with('success','Class Updated Successfully');
     }
 
+    public function deleteclass($id){
+        $class = Classes::findOrFail($id);
+        $students = StudentsBio::where('class_id', $id)->get();
+        foreach ($students as $student) {
+            $student->class_id = null;
+            $student->fees = $student->fees-$class->fees;
+            $student->paid_fees=0;
+            $student->fee_status = ($student->fees - $student->paid_fees) == 0 && ($student->extra_fees - $student->extra_paid_fees) == 0 ? "Paid":"Unpaid";
+            $student->save();
+        }
+        $class->delete();
+        return redirect()->route('classlist')->with('message', 'Deleted Successfully');
+    }
+
     public function studentclassadd($id_student){
         list($id, $student) = explode('-', $id_student);
         $data = StudentsBio::find($student);
@@ -90,7 +104,7 @@ class ClassesController extends Controller
             $student->fees = $class->fees;
             $student->save();
         }
-        return $this->classstudents($id)->with('success','Students Added to Class Successfully');
+        return $this->editclass($id)->with('success','Students Added to Class Successfully');
     }
 
     public function teacherclassadd($id_teacher){
