@@ -16,6 +16,8 @@
 				<li class="submenu">
 					<a href="#"><i class="feather-grid"></i> <span>Admin</span> <span class="menu-arrow"></span></a>
 					<ul>
+						<li><a href="/adminDashboard">Dashboard</a></li>
+						<li><a href="/RecentActivity">Recent Activities</a></li>
 						<li><a href="/addcircular">Add Circular</a></li>
 						<li><a href="/addholiday">Add Holiday</a></li>
 						<li><a href="/holidays">Holiday List</a></li>

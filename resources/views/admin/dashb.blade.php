@@ -173,7 +173,7 @@
                                                     <div>Create a Exam "SOC22 WT 12"</div>
                                                 </td>
                                                 <td>
-                                                    <a href="recentactivity"><button class="btn btn-primary">view detail</button></a>
+                                                    <a href="RecentActivity"><button class="btn btn-primary">view detail</button></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -184,7 +184,7 @@
                                                     <div>Updated marks for class 12th</div>
                                                 </td>
                                                 <td>
-                                                    <a href="recentactivity"><button class="btn btn-primary">view detail</button></a>
+                                                    <a href="RecentActivity"><button class="btn btn-primary">view detail</button></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -197,7 +197,7 @@
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a href="recentactivity"><button class="btn btn-primary">view detail</button></a>
+                                                    <a href="RecentActivity"><button class="btn btn-primary">view detail</button></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -208,7 +208,7 @@
                                                     <div>Marked attandence : 12Th</div>
                                                 </td>
                                                 <td>
-                                                    <a href="recentactivity"><button class="btn btn-primary">view detail</button></a>
+                                                    <a href="RecentActivity"><button class="btn btn-primary">view detail</button></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -239,6 +239,7 @@
                                     <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a></li>
                                 </ul> 
                             </div>
+                            <a href="circulars">
                             <div class="card-body">
                                 <div class="activity-groups">
                                     <div class="activity-awards">
@@ -279,6 +280,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </a>
                         </div>
                         <!-- /Feed Activity -->							
                     </div>

@@ -159,4 +159,9 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::get('/adminDashboard',function(){return view('admin.dashb');});
 
+
+    // Admin
+    Route::get('/RecentActivity',function(){return view('admin.recent');});
+
+
 });
