@@ -50,14 +50,13 @@ class ExamController extends Controller
 
         $TestCount = Exam::where('class_id', $validatedData['class_id'])
         ->where('type', $validatedData['type'])
-        ->count();
+        ->count() + 1;
 
         $TestType = $typeMap[$validatedData['type']] ?? '';
 
         // Store the PDF file in the 'ExamQP' folder
         $pdfFile = $request->file('pdffile');
         $pdfFileName = $TestType.$TestCount.$validatedData['subject_code'] . '-' . $classAndSection.'.'.$pdfFile->extension();
-         dd($pdfFileName);
         $pdfFile->storeAs('public/ExamQP',$pdfFileName);
     
         // Create a new Exam record with converted times and file path
@@ -69,7 +68,7 @@ class ExamController extends Controller
             'start_time' => $start_time->format('H:i'),
             'end_time' => $end_time->format('H:i'),
             'exam_date' => $validatedData['exam_date'],
-            'exam_code' => $TestType.$TestCount.$validatedData['subject_code'] .  $$classAndSection,
+            'exam_code' => $TestType.$TestCount.'-'.$validatedData['subject_code'].'-'.$classAndSection,
             'question_paper_url' => $pdfFileName,
         ]);
     
@@ -80,11 +79,13 @@ class ExamController extends Controller
     public function examview()
     {
         $values = Exam::all();
+        $classes = Classes::all();
+        $subjects = Subject::all();
         foreach ($values as $value) {
             $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
             $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
         }
-        return view('exams.view-exam', compact('values'));
+        return view('exams.view-exam', compact('values','classes', 'subjects'));
     }
 
     public function examsearch(Request $request)
@@ -92,6 +93,8 @@ class ExamController extends Controller
         $className = $request->input('class');
         $subjectName = $request->input('subject');
         $exams = Exam::query();
+        $classes = Classes::all();
+        $subjects = Subject::all();
         if ($request->filled('class')) {
             $exams->where('class_id', $className);
         }
@@ -102,11 +105,12 @@ class ExamController extends Controller
         if ($request->filled('exam_code')) {
             $exams->where('exam_code', 'like', '%' . $request->input('exam_code') . '%');
         }
+        dd($exams);
         $values = $exams->get();
         if ($values->isEmpty()) {
             return redirect()->route('examlist')->with('message', 'No results found.');
         }
-        return view('exams.view-exam', compact('values'));
+        return view('exams.view-exam', compact('values','classes','subjects'));
     }    
 
     public function editexam($id)
@@ -162,14 +166,37 @@ class ExamController extends Controller
     public function updateexam(Request $request, $id)
     {
         $data = Exam::find($id);
-        $incrementNumber = Exam::count() + 1;
-        $data->exam_code = $request->input('subject_code') . $request->input('class_id') . $incrementNumber;
+        $classInfo = Classes::where('id', $request->input('class_id'))->first();
+        $classAndSection = $classInfo->Class . $classInfo->section;
+        $typeMap = [
+            'weekly' => 'WT',
+            'monthly' => 'MT',
+            'cycle' => 'CT',
+            'term' => 'TT',
+            'final' => 'AT',
+        ];
+        $TestType = $typeMap[$request->input('type')] ?? '';
+        $TestCount = Exam::where('class_id', $request->input('class_id'))
+            ->where('type', $request->input('type'))
+            ->count() + 1;
+        // $pdfFileName = $TestType . $TestCount . $request->input('subject_code') . '-' . $classAndSection;
+        // Assuming you want to update the PDF file too
+        // if ($request->hasFile('pdffile')) {
+        //     $pdfFile = $request->file('pdffile');
+        //     $pdfFileName .= '.' . $pdfFile->extension();
+        //     $pdfFile->storeAs('public/ExamQP', $pdfFileName);
+        //     $data->question_paper_url = $pdfFileName;
+        // }
+        $data->exam_code = $TestType . $TestCount . '-' . $request->input('subject_code') . '-' . $classAndSection;
         $data->class_id = $request->input('class_id');
         $data->subject_code = $request->input('subject_code');
         $data->start_time = $request->input('start_time');
         $data->end_time = $request->input('end_time');
         $data->exam_date = $request->input('exam_date');
+        $data->type = $request->input('type');
+        $data->maximum_mark = $request->input('maximum_mark');
         $data->save();
-        return redirect()->route('examlist')->with('success','Exam Updated Successfully');
+        return redirect()->route('examlist')->with('success', 'Exam Updated Successfully');
     }
+
 }

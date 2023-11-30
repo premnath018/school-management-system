@@ -44,14 +44,24 @@
 					</div>
 				</div>
 				<div class="col-lg-3 col-md-6">
-					<div class="form-group">
-						<input type="text" name="class" class="form-control" placeholder="Search by Class ...">
-					</div>
+          <div class="form-group">
+              <select class="form-control select" name="class_id">
+                  <option>Select Class</option>
+                  @foreach($classes as $class)
+                  <option value="{{ $class->id }}">{{$class->ClassID}}</option>         
+                  @endforeach  
+              </select>
+          </div>
 				</div>
 				<div class="col-lg-4 col-md-6">
-					<div class="form-group">
-						<input type="text" name='subject' class="form-control" placeholder="Search by Subject ...">
-					</div>
+          <div class="form-group">
+            <select class="form-control select" name="subject_code">
+                <option>Select Subject</option>
+                @foreach($subjects as $subject)
+                <option value="{{ $subject->subject_code }}">{{$subject->subject_name}}</option>         
+                @endforeach  
+            </select>
+          </div>
 				</div>
 				<div class="col-lg-2">
 					<div class="search-student-btn">

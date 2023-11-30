@@ -52,14 +52,14 @@
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">
-                                            <label>Subject</label>
-                                            <select class="form-control select" name="subject_code">
-                                                <option>Select Subject</option>
-                                                @foreach($subjects as $subject)
-                                                <option value="{{ $subject->subject_code }}">{{$subject->subject_name}}</option>         
-                                                @endforeach  
-                                            </select>
-                                        </div>
+                                        <label>Subject</label>
+                                        <select class="form-control select" name="subject_code">
+                                            <option>Select Subject</option>
+                                            @foreach($subjects as $subject)
+                                            <option value="{{ $subject->subject_code }}">{{$subject->subject_name}}</option>         
+                                            @endforeach  
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="col-12 col-sm-6">
                                     <div class="form-group">

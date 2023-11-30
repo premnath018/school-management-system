@@ -87,7 +87,7 @@
                             </div>					
                         </div>
                     </form>	
-    @if($data->count() > 0)
+                    @if($data->count() > 0)
                     <div class="card-body" style="margin: 1rem 0rem;">
                         <!-- Page Header -->
                         <div class="page-header">
@@ -132,7 +132,7 @@
                                         </td>
                                         @else
                                             <td class="text-center">
-                                                <button type="button" class="btn {{ $data->status === 'Approved' ? 'btn-primary' : 'btn-danger' }}" disabled>
+                                                <button type="button" class="btn {{ $data->status === 'Approved' ? 'btn-primary' : 'btn-danger' }}" disabled style="padding-left:25px; padding-right:25px;" >
                                                     {{ $data->status === 'Approved' ? 'Approved' : 'Rejected' }}
                                                 </button>
                                             </td>

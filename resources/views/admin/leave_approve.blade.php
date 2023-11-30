@@ -93,15 +93,13 @@
                                         <td>{{$data->reason}}</td>
                                         @if(is_null($data->status))   
                                         <td class="text-center">
-                                        <form action="{{ route('update',['id' => $data->id]) }}" method="post">
+                                        <form action="{{ route('update',['id' => $data->id]) }}" method="post" class="mb-1">
                                             @csrf
                                             <button type="submit" class="btn btn-primary">Approve</button>
                                         </form>
-                                        </td>
-                                        <td>
                                         <form action="{{ route('reject',['id' => $data->id]) }}" method="post">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Reject</button>
+                                            <button type="submit" class="btn btn-danger" style="padding-left: 19px; padding-right:19px;">Reject</button>
                                         </form>
                                         </td>
                                         @else
