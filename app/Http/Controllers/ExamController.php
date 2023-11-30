@@ -194,7 +194,6 @@ class ExamController extends Controller
         $data->end_time = $request->input('end_time');
         $data->exam_date = $request->input('exam_date');
         $data->type = $request->input('type');
-        $data->maximum_mark = $request->input('maximum_mark');
         $data->save();
         return redirect()->route('examlist')->with('success', 'Exam Updated Successfully');
     }

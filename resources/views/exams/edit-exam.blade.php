@@ -104,16 +104,35 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-6">
-                                    <div class="form-group">
-                                            <label>Subject</label>
-                                            <select class="form-control select" name="subject_code">
-                                                <option>Select Subject</option>
-                                                @foreach($subjects as $subject)
-                                                <option value="{{ $subject->subject_code }}" {{$data->subject_code === $subject->subject_code ? 'selected' : ''}}>{{$subject->subject_name}}</option>         
-                                                @endforeach  
-                                            </select>
-                                        </div>
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <select class="form-control select" name="subject_code">
+                                        <option>Select Subject</option>
+                                        @foreach($subjects as $subject)
+                                        <option value="{{ $subject->subject_code }}" {{$data->subject_code === $subject->subject_code ? 'selected' : ''}}>{{$subject->subject_name}}</option>         
+                                        @endforeach  
+                                    </select>
                                 </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Type</label>
+                                    <select class="form-control select" name="type">
+                                        <option>Select Type</option>
+                                        <option value="weekly" {{ $data->type === 'weekly' ? 'selected' : '' }}>Weekly</option>
+                                        <option value="monthly" {{ $data->type === 'monthly' ? 'selected' : '' }}>Monthly</option>
+                                        <option value="cycle" {{ $data->type === 'cycle' ? 'selected' : '' }}>Cycle</option>
+                                        <option value="term" {{ $data->type === 'term' ? 'selected' : '' }}>Term</option>
+                                        <option value="final" {{ $data->type === 'final' ? 'selected' : '' }}>Final</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="form-group">
+                                    <label>Maximum Mark</label>
+                                    <input type="number" class="form-control" name="maximum_mark" max="100" value="{{$data->maximum_mark}}"/>
+                                </div>
+                            </div>
                             <div class="col-12 col-sm-6">
                                 <div class="form-group">
                                     <label>Start Time</label>
