@@ -135,21 +135,21 @@
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <input type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Delete Exam" />
+                                    <button type="button" class="btn btn-primary border-0 bg-danger text-white" data-bs-toggle="modal" data-bs-target="#info-alert-modal">Delete Exam</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="info-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content card-body">
                         <div class="modal-body p-4">
                                 <div class="text-center">
                                     <i class="dripicons-information h1 text-info"></i>
                                     <h4 class="mt-2">Heads up!</h4>
-                                    <p class="mt-3">Do you want to Delete the student?</p>
+                                    <p class="mt-3">Do you want to Delete the Exam?</p>
                                     <button type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Exam</button>
                                     <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
                                 </div>

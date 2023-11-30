@@ -224,14 +224,14 @@
                             <div class="col-12">
                                 <div class="student-submit">
                                     <button type="submit" class="btn btn-primary">Submit</button>
-                                    <input type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#con-close-modal" value="Delete Student" />
+                                    <button type="button" class="btn btn-primary border-0 bg-danger text-white" data-bs-toggle="modal" data-bs-target="#info-alert-modal">Delete Teacher</button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
 
-                <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div id="info-alert-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                     <div class="modal-dialog">
                         <div class="modal-content card-body">
                         <div class="modal-body p-4">
