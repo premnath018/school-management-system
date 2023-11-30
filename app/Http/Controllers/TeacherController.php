@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classes;
 use App\Models\Leave;
 use App\Models\TeachersBio;
 use Illuminate\Http\Request;
@@ -82,7 +83,12 @@ class TeacherController extends Controller
         $data->save();
         return redirect()->route('teacherlist')->with('success','Teacher Updated Successfully');
     }
-
+    public function deleteteacher($id){
+        $teacher = TeachersBio::findOrFail($id);
+        Classes::where('teacher_id', $id)->update(['teacher_id' => null]);
+        $teacher->delete();
+        return redirect()->route('teacherlist')->with('message','Teacher Deleted Successfully');
+    }
     public function leaveapply($teacher_id) {
         $data = Leave::where('teacher_id', $teacher_id)->get();
         return view('teachers.leave',compact('teacher_id','data'));

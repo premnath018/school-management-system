@@ -77,6 +77,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/addteacher', [TeacherController::class, 'add']);
 
     Route::post('/updateteacher/{id}', [TeacherController::class, 'updateteacher']);
+    
+    Route::post('/deleteteacher/{id}', [TeacherController::class, 'deleteteacher']);
 
     //Leave
     Route::get('/leaveapply/{teacher_id}', [TeacherController::class, 'leaveapply']);
