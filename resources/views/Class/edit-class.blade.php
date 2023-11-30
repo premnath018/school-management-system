@@ -142,7 +142,7 @@
                                     <div class="col-12">
                                         <div class="student-submit">
                                             <button type="submit" class="btn btn-primary m-r-10">Submit</button>
-                                            <button type="button" class="btn btn-primary border-0 bg-danger text-white" data-bs-toggle="modal" data-bs-target="#info-alert-modal">Remove Students</button>
+                                            <button type="button" class="btn btn-primary border-0 bg-danger text-white" data-bs-toggle="modal" data-bs-target="#info-alert-modal">Delete Class</button>
                                         </div>
                                     </div>
                                 </div>
@@ -158,8 +158,9 @@
                                 <div class="text-center">
                                     <i class="dripicons-information h1 text-info"></i>
                                     <h4 class="mt-2">Heads up!</h4>
-                                    <p class="mt-3">Do you want to remove all the students?</p>
-                                    <button type="button" class="btn btn-danger m-r-10 my-2" data-bs-dismiss="modal">Remove</button>
+                                    <p class="mt-3">Do you want to Delete class or remove all the students?</p>
+                                    <button type="button" class="btn btn-danger m-r-10 my-2" data-bs-dismiss="modal">Remove Students</button>
+                                    <button type="button" class="btn btn-danger my-2" data-bs-dismiss="modal">Delete Class</button><br>
                                     <button type="button" class="btn btn-success my-2" data-bs-dismiss="modal">Decline</button>
                                 </div>
                             </div>
