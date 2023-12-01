@@ -135,7 +135,9 @@ Route::middleware('auth')->group(function () {
     Route::post('teacherclassadd/{id_teacher}', [ClassesController::class, 'teacherclassadd']);
 
     //Fees
-    Route::get('/fees', [StudentController::class, 'feeview']);
+    Route::get('/fees', [StudentController::class, 'feeview'])->name('feelist');
+
+    Route::post('/feesearch', [StudentController::class, 'feesearch']);
 
     Route::post('updatefee/{id}', [StudentController::class, 'updatefee']);
     

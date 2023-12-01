@@ -89,6 +89,7 @@ class ExamController extends Controller
 
     public function examsearch(Request $request)
     {
+        $exam_code = $request->input('exam_code');
         $className = $request->input('class');
         $subjectName = $request->input('subject');
         $exams = Exam::query();
@@ -101,15 +102,15 @@ class ExamController extends Controller
             $exams->where('subject_code', $subjectName);
         }
         if ($request->filled('exam_code')) {
-            $exams->where('exam_code', 'like', '%' . $request->input('exam_code') . '%');
+            $exams->where('exam_code', 'like', '%' . $exam_code . '%');
         }
         $values = $exams->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('examlist')->with('message', 'No results found.');
+        }
         foreach ($values as $value) {
             $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
             $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
-        }
-        if ($values->isEmpty()) {
-            return redirect()->route('examlist')->with('message', 'No results found.');
         }
         return view('exams.view-exam', compact('values','classes','subjects'));
     }    
