@@ -121,16 +121,13 @@ class TeacherController extends Controller
         if ($request->filled('id')) {
             $query->where('teacher_id', $request->input('id'));
         }
-    
         if ($request->filled('date')) {
             $query->where(function ($query) use ($request) {
             $inputDate = $request->input('date');
-    
             $query->where('fromdate', $inputDate)
                   ->orWhere('todate', $inputDate);
         });
         }
-
         $data = $query->get();
         if ($data->isEmpty()) {
             return redirect()->route('leavelist')->with('message', 'No results found.');

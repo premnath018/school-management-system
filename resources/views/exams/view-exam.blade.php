@@ -45,8 +45,8 @@
 				</div>
 				<div class="col-lg-3 col-md-6">
           <div class="form-group">
-              <select class="form-control select" name="class_id">
-                  <option>Select Class</option>
+              <select class="form-control select" name="class">
+                  <option>Search By Class</option>
                   @foreach($classes as $class)
                   <option value="{{ $class->id }}">{{$class->ClassID}}</option>         
                   @endforeach  
@@ -55,8 +55,8 @@
 				</div>
 				<div class="col-lg-4 col-md-6">
           <div class="form-group">
-            <select class="form-control select" name="subject_code">
-                <option>Select Subject</option>
+            <select class="form-control select" name="subject">
+                <option>Search By Subject</option>
                 @foreach($subjects as $subject)
                 <option value="{{ $subject->subject_code }}">{{$subject->subject_name}}</option>         
                 @endforeach  
@@ -103,27 +103,27 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach($values as $values)
+                      @foreach($values as $value)
                       <tr>
                         <td>
                           <h2>
-                            <a>{{$values->exam_code}}</a>
+                            <a>{{$value->exam_code}}</a>
                           </h2>
                         </td>
-                        <td>{{$values->class_name}}</td>
-                        <td>{{$values->subject_name}}</td>
-                        <td>{{$values->start_time}}</td>
-                        <td>{{$values->end_time}}</td>
-                        <td>{{$values->exam_date}}</td>
+                        <td>{{$value->class_name}}</td>
+                        <td>{{$value->subject_name}}</td>
+                        <td>{{$value->start_time}}</td>
+                        <td>{{$value->end_time}}</td>
+                        <td>{{$value->exam_date}}</td>
                         <td >
                         <div>
-                            <a href="/marklist/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                            <a href="/marklist/{{$value->id}}" class="btn btn-sm bg-danger-light">
                               <i class="fa fa-eye"></i>
                             </a>
-                            <a href="/editexam/{{$values->id}}" class="btn btn-sm bg-danger-light">
+                            <a href="/editexam/{{$value->id}}" class="btn btn-sm bg-danger-light">
                               <i class="feather-edit"></i>
                             </a>
-                            <a href="/updateMarks/{{ $values->id }}" class="btn btn-outline-primary me-2">Update</a>
+                            <a href="/updateMarks/{{ $value->id }}" class="btn btn-outline-primary me-2">Update</a>
                         </div>
                         </td>
                       </tr>
