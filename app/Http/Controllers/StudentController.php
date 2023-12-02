@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Classes;
 use App\Models\StudentsBio;
 use Illuminate\Http\Request;
+use LDAP\Result;
 
 class StudentController extends Controller
 {
@@ -124,21 +125,23 @@ class StudentController extends Controller
     }
 
     public function feesearch(Request $request){
-        $name = $request->input('name');
         $class = $request->input('class');
         $status = $request->input('status');
-        $classes = Classes::select('id','ClassID')->get();
+        $classes = Classes::where('id', $class)->select('id', 'ClassID')->get();
         $query = StudentsBio::query();
+        $values = $query->select('id', 'name', 'class_id', 'fees', 'extra_fees', 'paid_fees', 'extra_paid_fees', 'fee_status');
         if ($request->filled('name')) {
-            $query->where('name', 'like', '%' . $name . '%');
+            $name = $request->input('name');
+            $values->where('name', 'like', '%' . $name . '%');
         }
-        if ($request->filled('class') && $request->input('class') !== 'Search By Class') {
-            $query->where('class_id', $class);
+         if ($request->filled('class') && ($class !== 'Search By Class')) {
+            $class = $request->input('class');
+            $values->where('class_id', $class);
         }
-        if ($request->filled('status') && $request->input('subject') !== 'Search By Status') {
-            $query->where('fee_status', $status);
+        if ($request->filled('status') && ($status !== 'Search By Status')) {
+            $values->where('fee_status', $status);
         }
-        $values = $query->select('id','name','class_id','fees','extra_fees','paid_fees','extra_paid_fees','fee_status')->get();
+         $values = $values->get();
         if ($values->isEmpty()) {
             return redirect()->route('feelist')->with('message', 'No results found.');
         }
