@@ -21,6 +21,11 @@
      <span>   {{ session('success') }} </span>
     </div>
 @endif
+@if(session('message'))
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  <span>   {{ session('message') }} </span>
+</div>
+@endif
     <div class="content container-fluid">
 
         <!-- Page Header -->
@@ -85,23 +90,31 @@
                 </div>
                 <div class="m-b-30" id="SearchStudent">
                     <div class="student-group-form">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search by ID ...">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Search by Name ...">
-                                </div>
-                            </div>
-                            <div class="col-lg-2">
-                                <div class="search-student-btn">
-                                    <button type="btn" class="btn btn-primary">Search</button>
-                                </div>
+                    <form action="{{ route('classstudents.search', ['id' => $data->id]) }}" method="post">
+                    @csrf
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="id" class="form-control" placeholder="Search by ID ...">
                             </div>
                         </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="name" class="form-control" placeholder="Search by Name ...">
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name='enrollment_number' class="form-control" placeholder="Search by Enrollment number ...">
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="search-student-btn">
+                                <button type="btn" class="btn btn-primary">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
                     </div>
                     <div class="card-body">
 

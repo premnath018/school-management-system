@@ -120,7 +120,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/editclass/{id}', [ClassesController::class, 'editclass'])->name('editstudents');
     
-    Route::get('/classstudents/{id}', [ClassesController::class, 'classstudents']);
+    Route::get('/classstudents/{id}', [ClassesController::class, 'classstudents'])->name('classstudents');
 
     Route::post('/addclass', [ClassesController::class, 'store']);
     
@@ -131,6 +131,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/editclass/{id}/students/search', [ClassesController::class, 'editclassstudents'])->name('editstudents.search');
     
     Route::post('/editclass/{id}/teachers/search', [ClassesController::class, 'editclassteacher'])->name('editteachers.search');
+    
+    Route::post('/classstudents/{id}/students/search', [ClassesController::class, 'classstudentssearch'])->name('classstudents.search');
 
     Route::post('/deleteclass/{id}', [ClassesController::class, 'deleteclass']);
 

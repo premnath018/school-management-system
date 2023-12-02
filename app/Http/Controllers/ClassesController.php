@@ -55,7 +55,6 @@ class ClassesController extends Controller
         $data = Classes::find($id);
         $details = TeachersBio::select('id','name','teacher_id','email','contact_number')->get();
         $query = StudentsBio::query();
-    
         if ($request->filled('id')) {
             $query->where('id', $request->input('id'));
         }
@@ -100,8 +99,25 @@ class ClassesController extends Controller
         return view('class.view-class-students', compact('data','values'));
     }
 
-    public function classstudentssearch($id){
-
+    public function classstudentssearch(Request $request,$id){
+        $data = Classes::find($id);
+        $data->name = TeachersBio::where('id', $data->teacher_id)->value('name');
+        $query = StudentsBio::query();
+        if ($request->filled('id')) {
+            $query->where('id', $request->input('id'));
+        }
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+        if ($request->filled('enrollment_number')) {
+            $query->where('enrollment_number', 'like', '%' . $request->input('enrollment_number') . '%');
+        }
+        $values = $query->where('class_id', $id)->orderByRaw("CASE WHEN gender = 'Male' THEN 0 ELSE 1 END, name ASC")->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('classstudents', ['id' => $id])->with('message', 'No students found.');
+        } else {
+            return view('class.view-class-students', compact('data','values'));
+        }
     }
     public function updateclass(Request $request, $id){
         $data = Classes::find($id);
