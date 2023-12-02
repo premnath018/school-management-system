@@ -51,6 +51,46 @@ class ClassesController extends Controller
         return view('class.edit-class', compact('data','values','details'));
     }
 
+    public function editclassstudents(Request $request, $id){
+        $data = Classes::find($id);
+        $details = TeachersBio::select('id','name','teacher_id','email','contact_number')->get();
+        $query = StudentsBio::query();
+    
+        if ($request->filled('id')) {
+            $query->where('id', $request->input('id'));
+        }
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+        if ($request->filled('enrollment_number')) {
+            $query->where('enrollment_number', 'like', '%' . $request->input('enrollment_number') . '%');
+        }
+        $values = $query->get();
+        if ($values->isEmpty()) {
+            return redirect()->route('editstudents', ['id' => $id])->with('message', 'No results found.');
+        } else {
+            return view('class.edit-class', compact('data', 'values', 'details'));
+        }
+    }
+
+    public function editclassteacher(Request $request, $id){
+        $data = Classes::find($id);
+        $values = StudentsBio::select('id','batch','name','enrollment_number')->get();
+        $query = TeachersBio::query();
+        if ($request->filled('id')) {
+            $query->where('teacher_id', $request->input('id'));
+        }
+        if ($request->filled('name')) {
+            $query->where('name', 'like', '%' . $request->input('name') . '%');
+        }
+        $details = $query->get();
+        if ($details->isEmpty()) {
+            return redirect()->route('editstudents', ['id' => $id])->with('message', 'No results found.');
+        } else {
+            return view('class.edit-class', compact('data', 'values', 'details'));
+        }
+    }
+
     public function classstudents($id){
         $data = Classes::find($id);
         $values = StudentsBio::where('class_id', $id)
@@ -60,6 +100,9 @@ class ClassesController extends Controller
         return view('class.view-class-students', compact('data','values'));
     }
 
+    public function classstudentssearch($id){
+
+    }
     public function updateclass(Request $request, $id){
         $data = Classes::find($id);
         $data->ClassID = $request->input('ClassID');

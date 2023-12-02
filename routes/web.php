@@ -118,8 +118,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/classes', [ClassesController::class, 'classview'])->name('classlist');
 
-    Route::get('/editclass/{id}', [ClassesController::class, 'editclass']);
-
+    Route::get('/editclass/{id}', [ClassesController::class, 'editclass'])->name('editstudents');
+    
     Route::get('/classstudents/{id}', [ClassesController::class, 'classstudents']);
 
     Route::post('/addclass', [ClassesController::class, 'store']);
@@ -127,6 +127,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/classsearch', [ClassesController::class, 'classsearch']);
 
     Route::post('/updateclass/{id}', [ClassesController::class, 'updateclass']);
+
+    Route::post('/editclass/{id}/students/search', [ClassesController::class, 'editclassstudents'])->name('editstudents.search');
+    
+    Route::post('/editclass/{id}/teachers/search', [ClassesController::class, 'editclassteacher'])->name('editteachers.search');
 
     Route::post('/deleteclass/{id}', [ClassesController::class, 'deleteclass']);
 

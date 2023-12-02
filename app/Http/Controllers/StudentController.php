@@ -50,7 +50,6 @@ class StudentController extends Controller
 
     public function studentsearch(Request $request){
         $query = StudentsBio::query();
-        // Check if ID parameter is present in the request
         if ($request->filled('id')) {
             $query->where('id', $request->input('id'));
         }
