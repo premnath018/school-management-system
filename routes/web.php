@@ -152,7 +152,7 @@ Route::middleware('auth')->group(function () {
     //Attendance 
     Route::get('/selectclass', [AttendanceController::class, 'selectclass'])->name('selectclass');
 
-    Route::post('/classattendance', [AttendanceController::class, 'classattendance']);
+    Route::post('/classattendance', [AttendanceController::class, 'classattendance'])->name('classattendance');
 
     Route::post('/viewattendance', [AttendanceController::class, 'viewattendance']);
     

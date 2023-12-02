@@ -85,7 +85,8 @@ class ClassesController extends Controller
         $details = $query->get();
         if ($details->isEmpty()) {
             return redirect()->route('editstudents', ['id' => $id])->with('message', 'No results found.');
-        } else {
+        } 
+        else {
             return view('class.edit-class', compact('data', 'values', 'details'));
         }
     }
@@ -115,7 +116,8 @@ class ClassesController extends Controller
         $values = $query->where('class_id', $id)->orderByRaw("CASE WHEN gender = 'Male' THEN 0 ELSE 1 END, name ASC")->get();
         if ($values->isEmpty()) {
             return redirect()->route('classstudents', ['id' => $id])->with('message', 'No students found.');
-        } else {
+        } 
+        else {
             return view('class.view-class-students', compact('data','values'));
         }
     }

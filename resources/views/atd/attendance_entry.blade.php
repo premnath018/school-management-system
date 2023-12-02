@@ -10,6 +10,10 @@
 
 @push('bodycontent')
 <div class="page-wrapper" style="min-height: 739px;">
+@if(session('message'))
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  <span>   {{ session('message') }} </span>
+</div>
                 <div class="content container-fluid">
 					<!-- Page Header -->
 					<div class="page-header">
@@ -27,28 +31,33 @@
 					<!-- /Page Header -->
 					
 					<div class="student-group-form">
+						<form action="{{ route('classattendancesearch.search', ['id' => $data->id]) }}" method="post">
+						@csrf
 						<div class="row">
-							<div class="col-lg-3 col-md-6">  
+                            <input type="hidden" name="date" value="{{ now()->format('Y-m-d') }}" />
+                            <input type="hidden" name="selected_class" value="{{ $values->id }}" />
+							<div class="col-lg-3 col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search by ID ...">
+									<input type="text" name="id" class="form-control" placeholder="Search by ID ...">
 								</div>
 							</div>
-							<div class="col-lg-3 col-md-6">  
+							<div class="col-lg-3 col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search by Name ...">
+									<input type="text" name="name" class="form-control" placeholder="Search by Name ...">
 								</div>
 							</div>
-							<div class="col-lg-4 col-md-6">  
+							<div class="col-lg-4 col-md-6">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search by Phone ...">
+									<input type="text" name='enrollment_number' class="form-control" placeholder="Search by Enrollment number ...">
 								</div>
 							</div>
-							<div class="col-lg-2">  
+							<div class="col-lg-2">
 								<div class="search-student-btn">
 									<button type="btn" class="btn btn-primary">Search</button>
 								</div>
 							</div>
 						</div>
+						</form>
 					</div>
 				
 					<div class="row">
@@ -123,6 +132,8 @@
 
 @push('javascript')
 <script>
-
+	setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);		
 </script>
 @endpush
