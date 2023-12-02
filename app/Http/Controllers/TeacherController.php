@@ -34,7 +34,7 @@ class TeacherController extends Controller
 
     public function teacherview()
     {
-        $values = TeachersBio::all();
+        $values = TeachersBio::select('id','name','teacher_id','subject','total_experience','salary','contact_number')->get();
         return view('teachers.view-teacher', compact('values'));
     }
 
@@ -121,16 +121,13 @@ class TeacherController extends Controller
         if ($request->filled('id')) {
             $query->where('teacher_id', $request->input('id'));
         }
-    
         if ($request->filled('date')) {
             $query->where(function ($query) use ($request) {
             $inputDate = $request->input('date');
-    
             $query->where('fromdate', $inputDate)
                   ->orWhere('todate', $inputDate);
         });
         }
-
         $data = $query->get();
         if ($data->isEmpty()) {
             return redirect()->route('leavelist')->with('message', 'No results found.');

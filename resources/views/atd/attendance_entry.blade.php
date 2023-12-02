@@ -80,9 +80,8 @@
                                                         @csrf
                                 						<input type="hidden" name="class" value="{{$values->class}}">
 														@foreach($data as $data)
-
                                                         <!--  Loop Start  -->
-    													<input type="hidden" name="date" value="{{ $values->date }}">
+    													<input type="hidden" name="date" value="{{$values->date}}">
                                                         <tr role="row" class="odd">
                                                             <td class="sorting_1">
                                                                 <div class="form-check check-tables">

@@ -8,7 +8,67 @@
 @push('bodycontent')
 
 <div class="page-wrapper" style="min-height: 739px;">
+@if(session('success'))
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <span>   {{ session('success') }} </span>
+</div>
+@endif
+@if(session('message'))
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+	<span>   {{ session('message') }} </span>
+    </div>
+@endif
     <div class="content container-fluid">
+	<div class="page-header">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="page-sub-header">
+					<h3 class="page-title">Fees</h3>
+					<ul class="breadcrumb">
+						<li class="breadcrumb-item active">Fee Details</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /Page Header -->
+
+		<div class="student-group-form">
+			<form action="feesearch" method="post">
+			@csrf
+			<div class="row">
+				<div class="col-lg-4 col-md-6">
+					<div class="form-group">
+						<input type="text" name="name" class="form-control" placeholder="Search by Student Name ...">
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+						<select class="form-control select" name="class">
+							<option>Search By Class</option>
+							@foreach($classes as $class)
+							<option value="{{ $class->id }}">{{$class->ClassID}}</option>         
+							@endforeach
+						</select>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<div class="form-group">
+					<select class="form-control select" name="status">
+						<option>Search By Status</option>
+						<option>Paid</option>
+						<option>Unpaid</option>
+					</select>
+					</div>
+				</div>
+				<div class="col-lg-2">
+					<div class="search-student-btn">
+						<button type="submit" class="btn btn-primary">Search</button>
+					</div>
+				</div>
+			</div>
+			</form>
+		</div>
         <div class="row">
             <div class="col-sm-12">
 
@@ -47,8 +107,7 @@
 										<td>{{$values->name}}</td>
 										<td>
 											<h2 class="table-avatar">
-												<!-- <a href="student-details.html" class="avatar avatar-sm me-2"><img class="avatar-img rounded-circle" src="assets/img/profiles/avatar-01.jpg" alt="User Image"></a> -->
-												<a href="#">{{$values->class_id}}</a>
+												<a>{{$values->class_name}}</a>
 											</h2>
 										</td>
 										<td>{{$values->fees+$values->extra_fees}}</td>
@@ -78,6 +137,8 @@
 
 @push('javascript')
 <script>
-
+	setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
 </script>
 @endpush

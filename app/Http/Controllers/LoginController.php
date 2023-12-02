@@ -18,7 +18,6 @@ class LoginController extends Controller
 
         if ($user && Hash::check($credentials['password'], $user->password)) { //Check the entered password with the stored password
             Auth::login($user);
-
             // Store the users sessions data
             session(['name' => $user->name]);
             session(['email' => $user->email]);
@@ -45,7 +44,7 @@ class LoginController extends Controller
         $user = User::create([
             'name' => '',
             'email' => $userData['email'],
-            'password' => bcrypt($userData['password']), // Make sure to hash the password
+            'password' => bcrypt($userData['password'])
         ]);
 
         $user->save();
@@ -55,6 +54,6 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect('/');
+        return redirect('/login');
     }
 }

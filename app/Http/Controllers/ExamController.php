@@ -15,8 +15,8 @@ class ExamController extends Controller
 {
     public function view()
     {
-        $classes = Classes::all();
-        $subjects = Subject::all();
+        $classes = Classes::select('id','ClassID')->get();
+        $subjects = Subject::select('subject_code','subject_name')->get();
         return view('exams.add-exam', compact('classes', 'subjects'));
     }
 
@@ -78,8 +78,8 @@ class ExamController extends Controller
     public function examview()
     {
         $values = Exam::all();
-        $classes = Classes::all();
-        $subjects = Subject::all();
+        $classes = Classes::select('id','ClassID')->get();
+        $subjects = Subject::select('subject_code','subject_name')->get();
         foreach ($values as $value) {
             $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
             $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
@@ -89,25 +89,28 @@ class ExamController extends Controller
 
     public function examsearch(Request $request)
     {
+        $exam_code = $request->input('exam_code');
         $className = $request->input('class');
         $subjectName = $request->input('subject');
         $exams = Exam::query();
-        $classes = Classes::all();
-        $subjects = Subject::all();
-        if ($request->filled('class')) {
+        $classes = Classes::select('id','ClassID')->get();
+        $subjects = Subject::select('subject_code','subject_name')->get();
+        if ($request->filled('class') && $request->input('class') !== 'Search By Class') {
             $exams->where('class_id', $className);
         }
-    
-        if ($request->filled('subject')) {
+        if ($request->filled('subject') && $request->input('subject') !== 'Search By Subject') {
             $exams->where('subject_code', $subjectName);
         }
         if ($request->filled('exam_code')) {
-
-            $exams->where('exam_code',);
+            $exams->where('exam_code', 'like', '%' . $exam_code . '%');
         }
         $values = $exams->get();
         if ($values->isEmpty()) {
             return redirect()->route('examlist')->with('message', 'No results found.');
+        }
+        foreach ($values as $value) {
+            $value->class_name = Classes::where('id', $value->class_id)->value('ClassID');
+            $value->subject_name = Subject::where('subject_code', $value->subject_code)->value('subject_name');
         }
         return view('exams.view-exam', compact('values','classes','subjects'));
     }    
