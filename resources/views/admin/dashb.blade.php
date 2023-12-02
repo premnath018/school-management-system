@@ -92,40 +92,62 @@
                 <!-- /Overview Section -->				
 
                 <div class="row">
-                    <div class="col-md-12 col-lg-6">
+                    <div class="col-md-12 col-lg-3">
                     
                         <!-- Revenue Chart -->
                         <div class="card card-chart">
                             <div class="card-header">
-                                <div class="row align-items-center">
-                                    <div class="col-6">
-                                        <h5 class="card-title">Overview</h5>
-                                    </div>
-                                    <div class="col-6">
-                                        <ul class="chart-list-out">
-                                            <li><span class="circle-blue"></span>Teacher</li>
-                                            <li><span class="circle-green"></span>Student</li>
-                                            <li class="star-menus"><a href="javascript:;"><i class="fas fa-ellipsis-v"></i></a></li>
-                                        </ul>                                       
+                                <div class="card-body mb-4">
+                                    <div class="row" >
+                                        <div class="col-12">
+                                            <h5 class="form-title student-info">Select</h5>
+                                        </div>
+                                        <div class="col-12">  
+                                            <div class="form-group local-forms">
+                                                <label>Class Code <span class="login-danger">*</span></label>
+                                                <select class="form-control select select2-hidden-accessible" aria-hidden="true" name="selected_class" data-select2-id="1" tabindex="-1">
+                                                    <option data-select2-id="3">Please Select Class</option>
+                                                    <!-- Loop Start -->
+                                                        <option value="1" data-select2-id="14">10 A</option>         
+                                                        <option value="2" data-select2-id="15">9 C</option>         
+                                                    <!-- Loop ends -->
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 ">
+                                            <div class="form-group local-forms">
+                                                <label for="">Subject</label>
+                                                <select name="selected_sub" id="" class="form-control select select2-hiiden-accessible">
+                                                    <option >Select a Subject</option>
+                                                    <option >English</option>
+                                                    <option >Maths</option>
+                                                    <option >Tamil</option>
+                                                    <option >Social</option>
+                                                    <option >Science</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="student-submit">
+                                                <button type="submit" class="btn btn-primary">Get Chart</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>						
-                            </div>
-                            <div class="card-body">
-                                <div id="apexcharts-area"></div>
                             </div>
                         </div>
                         <!-- /Revenue Chart -->
                         
                     </div>
                     
-                    <div class="col-md-12 col-lg-6">
+                    <div class="col-md-12 col-lg-9">
                     
                         <!-- Student Chart -->
                         <div class="card card-chart">
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col-6">
-                                        <h5 class="card-title">Number of Students</h5>
+                                        <h5 class="card-title">Mark Analysis</h5>
                                     </div>
                                     <div class="col-6">
                                         <ul class="chart-list-out">
