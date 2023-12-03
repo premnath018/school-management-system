@@ -31,7 +31,7 @@
 					<!-- /Page Header -->
 					
 					<div class="student-group-form">
-						<form action="{{ route('classattendancesearch.search', ['id' => $data->id]) }}" method="post">
+						<form action="{{ route('', ['id' => $data->id]) }}" method="post">
 						@csrf
 						<div class="row">
                             <input type="hidden" name="date" value="{{ now()->format('Y-m-d') }}" />

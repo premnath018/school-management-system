@@ -28,27 +28,7 @@ class AttendanceController extends Controller
     }
 
     public function classattendancesearch(Request $request){
-        $id = $request->input('selected_class');
-        $date = $request->input('date');$values = Classes::find($id);
-        $query = StudentsBio::select('name','id')->where('class_id', $id)->query();
-        $values->date = $request->input('date');
-        $values->class = $id;
-        if ($request->filled('id')) {
-            $query->where('id', $request->input('id'));
-        }
-        if ($request->filled('name')) {
-            $query->where('name', 'like', '%' . $request->input('name') . '%');
-        }
-        if ($request->filled('enrollment_number')) {
-            $query->where('enrollment_number', 'like', '%' . $request->input('enrollment_number') . '%');
-        }
-        $values = $query->get();
-        if ($values->isEmpty()) {
-            return redirect()->route('classattendance')->with('message', 'No students found.');
-        } 
-        else {
-            return view('atd.attendance_entry', compact('values','data'));
-        }
+        
     }
     public function markattendance(Request $request)
     {

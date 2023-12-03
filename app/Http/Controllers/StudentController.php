@@ -125,17 +125,16 @@ class StudentController extends Controller
     }
 
     public function feesearch(Request $request){
+        $name = $request->input('name');
         $class = $request->input('class');
         $status = $request->input('status');
-        $classes = Classes::where('id', $class)->select('id', 'ClassID')->get();
+        $classes = Classes::select('id', 'ClassID')->get();
         $query = StudentsBio::query();
         $values = $query->select('id', 'name', 'class_id', 'fees', 'extra_fees', 'paid_fees', 'extra_paid_fees', 'fee_status');
         if ($request->filled('name')) {
-            $name = $request->input('name');
             $values->where('name', 'like', '%' . $name . '%');
         }
          if ($request->filled('class') && ($class !== 'Search By Class')) {
-            $class = $request->input('class');
             $values->where('class_id', $class);
         }
         if ($request->filled('status') && ($status !== 'Search By Status')) {
