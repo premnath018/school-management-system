@@ -141,7 +141,7 @@ class StudentController extends Controller
         if ($request->filled('status') && ($status !== 'Search By Status')) {
             $values->where('fee_status', $status);
         }
-         $values = $values->get();
+        $values = $values->get();
         if ($values->isEmpty()) {
             return redirect()->route('feelist')->with('message', 'No results found.');
         }
