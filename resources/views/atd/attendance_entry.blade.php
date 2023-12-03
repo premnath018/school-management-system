@@ -10,10 +10,6 @@
 
 @push('bodycontent')
 <div class="page-wrapper" style="min-height: 739px;">
-@if(session('message'))
-<div class="alert alert-info alert-dismissible fade show" role="alert">
-  <span>   {{ session('message') }} </span>
-</div>
                 <div class="content container-fluid">
 					<!-- Page Header -->
 					<div class="page-header">
@@ -31,11 +27,7 @@
 					<!-- /Page Header -->
 					
 					<div class="student-group-form">
-						<form action="{{ route('', ['id' => $data->id]) }}" method="post">
-						@csrf
 						<div class="row">
-                            <input type="hidden" name="date" value="{{ now()->format('Y-m-d') }}" />
-                            <input type="hidden" name="selected_class" value="{{ $values->id }}" />
 							<div class="col-lg-3 col-md-6">
 								<div class="form-group">
 									<input type="text" name="id" class="form-control" placeholder="Search by ID ...">
@@ -57,7 +49,6 @@
 								</div>
 							</div>
 						</div>
-						</form>
 					</div>
 				
 					<div class="row">
