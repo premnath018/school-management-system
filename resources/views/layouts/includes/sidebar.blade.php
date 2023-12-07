@@ -5,14 +5,14 @@
 				<li class="menu-title">
 					<span>Main Menu</span>
 				</li>
-				<li class="submenu">
+				<!-- <li class="submenu">
 					<a href="#"><i class="feather-grid"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
 					<ul>
 						<li><a href="#">Admin Dashboard</a></li>
 						<li><a href="#">Teacher Dashboard</a></li>
 						<li><a href="#">Student Dashboard</a></li>
 					</ul>
-				</li>
+				</li> -->
 				<li class="submenu">
 					<a href="#"><i class="feather-grid"></i> <span>Admin</span> <span class="menu-arrow"></span></a>
 					<ul>
@@ -80,15 +80,15 @@
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
 					<!-- </ul>
 				</li> -->
-				<li class="submenu">
-					<a href="#"><i class="fe fe-check-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-check-circle" aria-label="fe fe-check-circle"></i><span>Analysis</span> <span class="menu-arrow"></span></a>
-					<ul>
-						<li><a href="/analysis">Analysis</a></li>
+				<!-- <li class="submenu"> -->
+					<!-- <a href="#"><i class="fe fe-check-circle" data-bs-toggle="tooltip" title="" data-bs-original-title="fe fe-check-circle" aria-label="fe fe-check-circle"></i><span>Analysis</span> <span class="menu-arrow"></span></a> -->
+					<!-- <ul> -->
+						<!-- <li><a href="/analysis">Analysis</a></li> -->
 						<!-- <li><a href="teacher-details.html">Teacher View</a></li> -->
 						<!-- <li><a href="/addexam">Exam Add</a></li> -->
 						<!-- <li><a href="edit-teacher.html">Teacher Edit</a></li> -->
-					</ul>
-				</li>
+					<!-- </ul> -->
+				<!-- </li> -->
 				<!-- <li class="submenu">
 					<a href="#"><i class="fas fa-building"></i> <span> Departments</span> <span class="menu-arrow"></span></a>
 					<ul>
