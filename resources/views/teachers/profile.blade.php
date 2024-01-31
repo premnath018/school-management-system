@@ -209,6 +209,7 @@
                 </tbody>
             </table>
             </div>
+            </ul>
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="mb-4 border-bottom pb-3">
@@ -222,36 +223,7 @@
                 <sub class="fs-6 pricing-duration mt-auto mb-3">/ month</sub>
             </div>
             </div>
-            <ul class="g-2 my-4">
-            <li class="mb-2 align-middle">
-                <i class="ti ti-circle-check fs-5 me-2 text-success"></i>
-                3 Periods per day
-            </li>
-
-            <li class="mb-2 align-middle">
-                <i class="ti ti-circle-check fs-5 me-2 text-success"></i>
-                Included Documents
-            </li>
-
-            <li class="mb-2 align-middle">
-                <i class="ti ti-circle-check fs-5 me-2 text-success"></i>
-                Free Books
-            </li>
-
-            <li class="mb-2 align-middle">
-                <i class="ti ti-circle-check fs-5 me-2 text-success"></i>
-                Students Help Salary
-            </li>
-            </ul>
             <div class="d-flex justify-content-between align-items-center mb-1">
-            <span>Days</span>
-            <span>75% Completed</span>
-            </div>
-            <div class="progress bg-primary-subtle mb-1">
-            <div class="progress-bar text-bg-primary w-75" role="progressbar" aria-valuenow="75"
-                aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
-            <span>4 days remaining</span>
             <div class="d-grid w-100 mt-4 pt-2">
             <button class="btn btn-primary" data-bs-target="#upgradePlanModal" data-bs-toggle="modal">
                 Pay Full Salary
@@ -261,6 +233,7 @@
         </div>
     </div>
     </div>
+</div>
 </div>
 </div>
 <div class="modal fade" id="deletemodal" tabindex="-1" aria-labelledby="vertical-center-modal"
