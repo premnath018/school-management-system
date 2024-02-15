@@ -11,7 +11,7 @@
   <link
     rel="shortcut icon"
     type="image/png"
-    href="{{ asset('assets/images/logos/favicon.png') }}"
+    href="{{ asset('storage/head_icon.png') }}"
   />
 
   <!-- Core Css -->
@@ -20,6 +20,13 @@
   <!-- jvectormap  -->
   <link rel="stylesheet" href="{{ asset('assets/libs/jvectormap/jquery-jvectormap.css') }}">
   <link rel="stylesheet" href="{{asset('assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css')}}">
+  <style>
+    .logo{
+        width:178px;
+        height:40px;
+        object-fit: fill;
+    }
+  </style>
   @stack('internalCss')
 </head>
 

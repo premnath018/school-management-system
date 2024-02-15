@@ -2,6 +2,11 @@
 @section('title','Sign In')
 @push('internalCss')
 <style>
+.logo{
+    width:178px;
+    height:120px;
+    object-fit: fill;
+}
 </style>
 @endpush
 
@@ -19,34 +24,20 @@
         <span>   {{ session('error') }} </span>
         </div>
     @endif
-        <a href="index.html" class="">
-        <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/logos/logo-dark.svg" class="light-logo" alt="Logo-Dark" />
-        <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/logos/logo-light.svg" class="dark-logo" alt="Logo-light" />
+        <a href="/" class="">
+        <img src="{{asset('storage/vrinvrog.png')}}" class="logo" alt="Logo-light" />
         </a>
         <div class="row align-items-center justify-content-around pt-7 pb-5">
         <div class="col-lg-6 col-xl-5 d-none d-lg-block">
             <div class="text-center text-lg-start">
-            <img src="../assets/images/backgrounds/login-security.png" alt="" class="img-fluid">
+            <img src="{{asset('assets/images/backgrounds/login-security.png')}}" alt="" class="img-fluid">
             </div>
         </div>
         <div class="col-lg-6 col-xl-5">
-            <h2 class="mb-6 fs-8 fw-bolder">Welcome to Spike Admin</h2>
+            <h2 class="mb-6 fs-8 fw-bolder">Welcome to Vrinvrog Admin</h2>
             <p class="text-dark fs-4 mb-7">Your Admin Dashboard</p>
-            <div class="d-flex align-items-center gap-3">
-                <a class="btn btn-white w-100 text-dark border fw-bold d-flex align-items-center justify-content-center rounded-1 py-6 shadow-none"
-                href="javascript:void(0)" role="button">
-                <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/svgs/google-icon.svg" alt="" class="img-fluid me-6" width="24"
-                    height="24">
-                <span class="d-none d-sm-block me-1 flex-shrink-0">with</span>Google
-                </a>
-                <a class="btn btn-white w-100 text-dark border fw-bold d-flex align-items-center justify-content-center rounded-1 py-6 shadow-none"
-                href="javascript:void(0)" role="button">
-                <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/svgs/icon-facebook.svg" alt="" class="img-fluid me-2" width="24" height="24">
-                <span class="d-none d-sm-block me-1 flex-shrink-0">with</span>FB
-                </a>
-            </div>
             <div class="position-relative text-center my-7">
-                <p class="mb-0 fs-3 px-3 d-inline-block bg-body z-1 position-relative">or sign In with</p>
+                <p class="mb-0 fs-3 px-3 d-inline-block bg-body z-1 position-relative">Sign In with</p>
                 <span class="border-top w-100 position-absolute top-50 start-50 translate-middle"></span>
             </div>
             <form action="/login" method="post">
@@ -63,10 +54,6 @@
                 <a class="text-primary fw-medium fs-3 fw-bold" href="/forgot_password">Forgot Password ?</a>
                 </div>
                 <button class="btn btn-primary w-100 mb-7 rounded-pill" type="submit">Sign In</button>
-                <div class="d-flex align-items-center">
-                <p class="fs-3 mb-0 fw-medium">New to Spike?</p>
-                <a class="text-primary fw-bold ms-2 fs-3" href="/register">Create an account</a>
-                </div>
             </form>
         </div>
         </div>

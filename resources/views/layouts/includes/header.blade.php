@@ -15,8 +15,7 @@
   </ul>
 
   <div class="d-block d-lg-none">
-    <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/logos/logo-light.svg" class="dark-logo" alt="Logo-Dark" />
-    <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/logos/logo-dark.svg" class="light-logo" alt="Logo-light" />
+    <img src="{{asset('storage/vrinvrog.png')}}" class="logo" alt="Logo-Dark" />
   </div>
 
 
@@ -350,7 +349,7 @@
   aria-labelledby="offcanvasWithBothOptionsLabel">
   <nav class="sidebar-nav scroll-sidebar">
     <div class="offcanvas-header justify-content-between">
-      <img src="{{asset('assets//images/logos/favicon.png')}}" alt="" class="img-fluid" />
+      <img src="{{asset('storage/head_icon.png')}}" alt="" class="img-fluid" />
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body" data-simplebar="" data-simplebar style="height: calc(100vh - 80px)">
@@ -507,8 +506,7 @@
   <ul class="navbar-nav">
     <li class="nav-item d-none d-xl-block">
       <a href="/" class="text-nowrap nav-link">
-        <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/logos/logo-light.svg" class="dark-logo" width="180" alt="" />
-        <img src="https://bootstrapdemos.wrappixel.com/spike/dist/assets/images/logos/logo-dark.svg" class="light-logo" width="180" alt="" />
+        <img src="{{asset('storage/vrinvrog.png')}}" class="logo" width="180" alt="" />
       </a>
     </li>
   </ul>

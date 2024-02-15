@@ -11,7 +11,7 @@
   <link
     rel="shortcut icon"
     type="image/png"
-    href="{{ asset('assets/images/logos/favicon.png') }}"
+    href="{{ asset('storage/head_icon.png') }}"
   />
 
   <!-- Core Css -->
